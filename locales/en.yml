@@ -1,0 +1,8 @@
+en:
+  uploader:
+    successful_upload: 'Successfully uploaded file.'
+    permission_denied: "You don't have permission to complete this action."
+    missing_parent_id_error: 'Please specify a parent object'
+    file_deleted: 'Deleted file'
+    file_delete_permission_denied: "You don't have permission to delete that file."
+    file_upload_error: "An error occured while uploading the file."
