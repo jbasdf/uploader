@@ -1,20 +1,24 @@
 require 'uploader/exceptions'
-require 'uploader/languages'
-require 'fileutils'
+require 'uploader/mime_type_groups'
+require 'uploader/middleware/flash_session_cookie_middleware'
 
-if config.respond_to?(:gems)
-  config.gem 'mime-types'
-else
+begin
+  require 'thoughtbot-paperclip'
+rescue LoadError
   begin
-    require 'mime-types'
-  rescue LoadError
-    begin
-      gem 'mime-types'
-    rescue Gem::LoadError
-      puts "Please install the mime-types gem"
-    end
+    gem 'thoughtbot-paperclip'
+  rescue Gem::LoadError
+    puts "Please install the thoughtbot-paperclip gem"
   end
 end
 
-require 'uploader/mime_type_groups'
 
+begin
+  require 'mime-types'
+rescue LoadError
+  begin
+    gem 'mime-types'
+  rescue Gem::LoadError
+    puts "Please install the mime-types gem"
+  end
+end

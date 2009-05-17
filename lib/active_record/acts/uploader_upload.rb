@@ -24,11 +24,15 @@ module ActiveRecord
           named_scope :images, :conditions => "data_content_type IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
           named_scope :documents, :conditions => "data_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
           named_scope :files, :conditions => "data_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
-          named_scope :since, lambda { |recent_date|, :conditions => ["created_at > ?", recent_date || 7.days.ago.to_s(:db)] }
+          named_scope :since, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
 
           has_attached_file :data, options[:has_attached_file]
+          
+          belongs_to :uploadable, :polymorphic => true
                                         
           class_eval <<-EOV
+            validates_attachment_presence :data
+          
             # prevents a user from submitting a crafted form that bypasses activation
             attr_protected :user_id, :uploadable_id, :uploadable_type
           EOV

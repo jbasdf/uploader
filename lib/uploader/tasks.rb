@@ -23,8 +23,10 @@ module Uploader
 
         desc "Sync required files from uploader."
         task :sync do
-          system "rsync -ruv vendor/plugins/uploader/public ."
-          system "rsync -ruv vendor/plugins/uploader/db ."
+          path = File.join(File.dirname(__FILE__), *%w[.. ..])
+          puts path
+          system "rsync -ruv #{path}/public ."
+          system "rsync -ruv #{path}/db ."
         end
         
       end

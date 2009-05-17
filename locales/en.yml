@@ -6,3 +6,5 @@ en:
     file_deleted: 'Deleted file'
     file_delete_permission_denied: "You don't have permission to delete that file."
     file_upload_error: "An error occured while uploading the file."
+    upload_file: 'Upload File'
+    standard_file_upload_error: "An error occured while uploading the file: {{error}}.  Please ensure that the file is valid.  Check to make sure the file is not empty.  Then try again."

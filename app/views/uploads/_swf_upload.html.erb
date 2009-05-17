@@ -1,7 +1,7 @@
-<div id="degraded_container" class="right" style="display:none;">
-	<% form_for :upload, :url => uploads_path(:id => parent.id, :type => parent.class.to_s), :html => { :multipart => true } do |f| -%>
+<div id="degraded_container" class="right" style="display:none;">  
+	<% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true } do |f| -%>
 	  <p><%= f.file_field :uploaded_data, :size => 25 %></p>
-	  <%= submit_tag 'Upload File' %>
+	  <%= submit_tag t('uploader.upload_file') %>
 	<% end %>
 </div>
 
@@ -32,12 +32,13 @@
 </div>
 
 <% content_for :head do  -%>
-	<%= javascript_include_tag 'swfupload' %>
-	<%= javascript_include_tag 'swfupload.swfobject' %>
-	<%= javascript_include_tag 'swfupload.cookies' %>
-	<%= javascript_include_tag 'swfupload.queue' %>
-  <%= javascript_include_tag 'fileprogress' %>
-	<%= javascript_include_tag 'handlers' %>
+   <%= javascript_include_tag %w{
+                swfupload/swfupload.js
+                swfupload/swfupload.swfobject
+                swfupload/swfupload.cookies
+                swfupload/swfupload.queue
+                swfupload/fileprogress.js
+                swfupload/handlers.js }, :cache => 'all_js_cached' %>
   <%= stylesheet_link_tag 'swfupload' %>
 
 	<script type='text/javascript'>
@@ -65,7 +66,7 @@
 				debug: false,
 
 				// Button Settings
-				button_image_url : "/images/XPButtonUploadText_61x22.png",	// Relative to the SWF file
+				button_image_url : "/images/SWFUploadButton.png",	// Relative to the SWF file
 				button_placeholder_id : "spanButtonPlaceholder",
 				button_width: 61,
 				button_height: 22,

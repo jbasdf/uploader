@@ -1,0 +1,20 @@
+<tr id="<%= upload_row.dom_id %>" class="<%= cycle('odd', 'even') %>" <%=style-%> >
+	<td><div class="file-icon"><%= icon_for upload_row -%></div></td>
+	<td><a href="<%=upload_row.data.url%>"><%= truncate(sanitize(upload_row.data_file_name), 100) %></a></td>
+	<td><%= upload_row.created_at.to_s(:long) -%></td>
+	<% if share -%>
+		<td><img src="/images/blurp_thumb_small.png"/><%= link_to _("Share"), new_user_upload_shared_upload_path(@user, upload_row) %></td>
+	<% end -%>
+	<td>
+		<% if parent.can_edit?(current_user) -%>
+			<% form_for(:upload, :url => upload_path(upload_row.id), :html => { :class => "delete-form", :method => :delete} ) do |f| -%>
+				<%= image_submit_tag '/images/delete.png', {:id => 'submit-comment', :title => _("Delete File"), :class => 'submit-delete', :width => '12', :height => '12', :alt => _("Delete File")} %>
+			<% end -%>
+			<% if !style.empty? -%>
+			<script type="text/javascript" language="JavaScript">
+				jQuery("#<%= upload_row.dom_id %>").fadeIn("slow");
+			</script>
+			<% end -%>
+		<% end -%>
+	</td>
+</tr>

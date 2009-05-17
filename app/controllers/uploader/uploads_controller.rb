@@ -14,29 +14,24 @@ class Uploader::UploadsController < ApplicationController
     upload_json = basic_uploads_json(@upload)
     
     respond_to do |format|
-
       format.html do
         flash[:notice] = message
-        redirect_to get_redirect
-      end
-            
+        redirect_to redirect_back_or_default(get_redirect)
+      end            
       format.js do
         responds_to_parent do
           render :update do |page|
             page << "upload_file_callback('#{upload_json}');"
           end
         end
-      end
-      
+      end      
     end
   rescue => ex
-    message = _("An error occured while uploading the file: %{error}.  Please ensure that the file is valid.  
-      Checkt to make sure the file is not empty.  Then try again." % {:error => ex})
-    #message = _("An error occured while uploading the file.  Please try again.")
+    message = t('uploader.standard_file_upload_error', :error => ex)
     respond_to do |format|
       format.html do
         flash[:notice] = message
-        redirect_to get_redirect
+        redirect_back_or_default(get_redirect)
       end
       format.js do
         responds_to_parent do
@@ -45,7 +40,6 @@ class Uploader::UploadsController < ApplicationController
           end
         end
       end
-      #format.js { render :text => message }
     end
   end
 
@@ -61,12 +55,13 @@ class Uploader::UploadsController < ApplicationController
 
     respond_to do |format|
       format.json do
-        render :text => @upload.to_json(:only => [:id, :data_file_name], :methods => [:icon])
+        render :text => basic_uploads_json(@upload)
       end
       format.js do
         # return a table row
         case @parent
         when User
+          # TODO remove User and Group and change upload_row to something more generic.  Also set it up to use rjs instead of custom javascript
           render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent, :share => true}
         when Group  
           render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent}
@@ -116,22 +111,13 @@ class Uploader::UploadsController < ApplicationController
     end
   end
 
+  # TODO figure this out
+  # need to implement redirect_back_or_default or assume that it exists
+  # 
+  # override this method in your controller to set the redirect file upload completion
+  # alternatively set redirect_back_or_default
   def get_redirect
-    case @parent
-    when User
-      user_uploads_path(@parent)
-    when Site
-      if is_admin?
-        uploads_path(@parent)
-      else
-        user_uploads_path(current_user)
-      end
-    when Group
-      group_uploads_path(@parent)
-    else
-      # by default just go back to the user's uploads page
-      user_uploads_path(current_user)
-    end
+    @parent
   end
   
   def get_parent
@@ -148,6 +134,10 @@ class Uploader::UploadsController < ApplicationController
   
   def has_permission_to_upload(user, upload_parent)
     true
+  end
+  
+  def basic_uploads_json(upload)
+    upload.to_json(:only => [:id, :data_file_name], :methods => [:icon])
   end
   
 end

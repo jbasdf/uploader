@@ -25,14 +25,14 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "cms-lite"
-    gemspec.summary = "Simple CMS system"
+    gemspec.name = "uploader"
+    gemspec.summary = "SWFUpload + Paperclip wrapped in an engine with love."
     gemspec.email = "justinball@gmail.com"
     gemspec.homepage = "http://github.com/jbasdf/uploader"
-    gemspec.description = "CMS gem that makes it simple to interact with your content developers by serving pages from '/content'."
+    gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip"
     gemspec.authors = ["Justin Ball"]
-    gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb )
-    gemspec.rubyforge_project = 'cms-lite'    
+    gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb lib/uploader/middleware/*.rb db/migrate/*.rb )
+    gemspec.rubyforge_project = 'uploader'    
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
