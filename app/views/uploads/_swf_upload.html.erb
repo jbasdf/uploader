@@ -57,7 +57,7 @@
 				file_upload_limit : 100,
 				file_queue_limit : 0,
 				post_params : {
-  				authenticity_token : '<%= u form_authenticity_token -%>',
+  				authenticity_token : '<%= u form_authenticity_token.inspect -%>',
   			},
 				custom_settings : {
 					progressTarget : "fsUploadProgress",

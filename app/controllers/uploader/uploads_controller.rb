@@ -4,6 +4,8 @@ class Uploader::UploadsController < ApplicationController
 
   before_filter :get_parent, :only => [:create, :swfupload]
   
+  skip_before_filter :verify_authenticity_token
+  
   def create
     
     # Standard, one-at-a-time, upload action
