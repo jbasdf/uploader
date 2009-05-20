@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Nu aveţi permisiunea de a şterge acest fişier."
+    file_deleted: "Eliminat fişier"
+    file_upload_error: "A apărut o eroare la încărcarea fişierului."
+    missing_parent_id_error: "Vă rugăm să specificaţi un părinte obiect"
+    permission_denied: "Nu aveţi permisiunea pentru a finaliza această acţiune."
+    standard_file_upload_error: "A apărut o eroare la încărcarea fişierului: ((eroare)). Vă rugăm să vă asiguraţi că fişierul este valabil. Verificaţi pentru a vă asigura că fişierul nu este gol. Apoi, încercaţi din nou."
+    successful_upload: "Încărcat cu succes fişierul."
+    upload_file: "Încărcaţi fişier"

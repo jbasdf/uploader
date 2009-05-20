@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: 使用する許可は、そのファイルを削除する必要はありません。
+    file_deleted: 削除したファイル
+    file_upload_error: ファイルのアップロード中にエラーが発生しました。
+    missing_parent_id_error: 親オブジェクトを指定してください。
+    permission_denied: この操作を完了するには、許可されていません。
+    standard_file_upload_error: "ファイルのアップロード中にエラーが発生しました： （ （エラー） ） 。以下は、そのファイルが有効であることを確認します。チェックして、ファイルが空ではないことを確認します。し、もう一度試してください。"
+    successful_upload: 正常にアップロードされたファイル。
+    upload_file: ファイルのアップロード

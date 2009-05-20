@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Jūs neturite leidimo, jei norite ištrinti šį failą."
+    file_deleted: "Išbraukta failą"
+    file_upload_error: "Įvyko klaida įkeliant failą."
+    missing_parent_id_error: "Nurodykite patronuojanti objektą"
+    permission_denied: "Jūs neturite leidimo atlikti šį veiksmą."
+    standard_file_upload_error: "Įvyko klaida įkeliant failą: ((klaida)). Prašome įsitikinti, kad failas yra svarbūs. Įsitikinkite, kad failo nėra tuščias. Tada bandykite dar kartą."
+    successful_upload: "Sėkmingai įkeltas failas."
+    upload_file: "Įkelti failą"

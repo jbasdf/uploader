@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Nie masz uprawnień, aby usunąć ten plik."
+    file_deleted: "Usunięty plik"
+    file_upload_error: "Wystąpił błąd podczas przesyłania pliku."
+    missing_parent_id_error: "Proszę podać rodzica obiektu"
+    permission_denied: "Nie masz uprawnień, aby ukończyć tę akcję."
+    standard_file_upload_error: "Wystąpił błąd podczas przesyłania pliku: (()) błąd. Upewnij się, że plik jest poprawny. Sprawdź, czy plik nie jest pusty. Następnie spróbuj ponownie."
+    successful_upload: "Pomyślnie plik."
+    upload_file: "Prześlij plik"

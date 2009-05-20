@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Sie haben keine Berechtigung zum Löschen der Datei."
+    file_deleted: "Gelöschte Datei"
+    file_upload_error: "Fehler beim Hochladen der Datei."
+    missing_parent_id_error: "Bitte geben Sie ein Objekt"
+    permission_denied: "Sie haben keine Berechtigung, um diese Aktion."
+    standard_file_upload_error: "Fehler beim Hochladen der Datei: (()) Fehler. Bitte stellen Sie sicher, dass die Datei gültig ist. Überprüfen Sie, ob Sie die Datei nicht leer ist. Dann versuchen Sie es erneut."
+    successful_upload: "Erfolgreich hochgeladenen Datei."
+    upload_file: "Upload File"

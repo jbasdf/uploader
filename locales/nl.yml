@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Je hebt geen toestemming om dit bestand te verwijderen."
+    file_deleted: "Verwijderde bestanden"
+    file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand."
+    missing_parent_id_error: "Geef een hoofdobject"
+    permission_denied: "Je hebt geen toestemming om deze actie."
+    standard_file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand: ((error)). Zorg ervoor dat het bestand geldig is. Controleer of het bestand niet leeg is. Dan probeer het opnieuw."
+    successful_upload: "Geüpload bestand."
+    upload_file: "Bestand uploaden"

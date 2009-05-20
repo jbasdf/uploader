@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Du har ikke tillatelse til å slette filen."
+    file_deleted: "Slettet fil"
+    file_upload_error: "Det oppstod en feil under opplasting av filen."
+    missing_parent_id_error: "Angi et overordnet objekt"
+    permission_denied: "Du har ikke tillatelse til å fullføre denne handlingen."
+    standard_file_upload_error: "Det oppstod en feil under opplastingen av filen: ((error)). Kontroller at filen er gyldig. Kontroller at filen ikke er tom. Og prøv igjen."
+    successful_upload: "Lastet opp filen."
+    upload_file: "Last opp fil"

@@ -38,7 +38,7 @@
                 swfupload/swfupload.cookies
                 swfupload/swfupload.queue
                 swfupload/fileprogress.js
-                swfupload/handlers.js }, :cache => 'all_js_cached' %>
+                swfupload/handlers.js }, :cache => 'swf_js_cached' %>
   <%= stylesheet_link_tag 'swfupload' %>
 
 	<script type='text/javascript'>
@@ -58,7 +58,7 @@
 				file_queue_limit : 0,
 				post_params : {
   				authenticity_token : '<%= u form_authenticity_token -%>',
-  			},views
+  			},
 				custom_settings : {
 					progressTarget : "fsUploadProgress",
 					cancelButtonId : "btnCancel"
@@ -66,7 +66,7 @@
 				debug: false,
 
 				// Button Settings
-				button_image_url : "/images/SWFUploadButton.png",	// Relative to the SWF file
+				button_image_url : "/images/SWFUploadButton.png", // Relative to the SWF file
 				button_placeholder_id : "spanButtonPlaceholder",
 				button_width: 61,
 				button_height: 22,

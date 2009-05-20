@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Vostè no té permís per eliminar aquest arxiu."
+    file_deleted: "Suprimeix el fitxer"
+    file_upload_error: "S&#39;ha produït un error en carregar l&#39;arxiu."
+    missing_parent_id_error: "Si us plau, especifiqueu un objecte pare"
+    permission_denied: "Vostè no té permís per completar aquesta acció."
+    standard_file_upload_error: "S&#39;ha produït un error en carregar l&#39;arxiu: ((error)). Si us plau, assegureu-vos que el fitxer és vàlid. Assegureu-vos que l&#39;arxiu no està buit. Torneu a intentar-ho."
+    successful_upload: "Arxiu pujat amb èxit."
+    upload_file: Carrega

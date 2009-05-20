@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball"]
-  s.date = %q{2009-05-16}
+  s.date = %q{2009-05-19}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -19,7 +19,10 @@ Gem::Specification.new do |s|
      "VERSION",
      "app/controllers/uploader/uploads_controller.rb",
      "app/helpers/uploader_helper.rb",
+     "app/views/uploads/_swf_upload.html.erb",
+     "app/views/uploads/_upload_row.html.erb",
      "config/uploader_routes.rb",
+     "db/migrate/20090517040220_create_uploads.rb",
      "db/migrate/20090517040220_create_uploads.rb",
      "lib/active_record/acts/uploader_upload.rb",
      "lib/uploader.rb",
@@ -28,11 +31,14 @@ Gem::Specification.new do |s|
      "lib/uploader/initialize_routes.rb",
      "lib/uploader/initialize_routes.rb",
      "lib/uploader/middleware/flash_session_cookie_middleware.rb",
+     "lib/uploader/middleware/flash_session_cookie_middleware.rb",
      "lib/uploader/mime_type_groups.rb",
      "lib/uploader/mime_type_groups.rb",
      "lib/uploader/tasks.rb",
      "lib/uploader/tasks.rb",
      "locales/en.yml",
+     "pkg/uploader-0.1.0.gem",
+     "public/images/SWFUploadButton.png",
      "public/javascripts/swfupload/fileprogress.js",
      "public/javascripts/swfupload/handlers.js",
      "public/javascripts/swfupload/swfupload.cookies.js",
@@ -46,7 +52,8 @@ Gem::Specification.new do |s|
      "tasks/rails.rake",
      "test/test_helper.rb",
      "test/unit/upload_test.rb",
-     "uninstall.rb"
+     "uninstall.rb",
+     "uploader.gemspec"
   ]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/jbasdf/uploader}

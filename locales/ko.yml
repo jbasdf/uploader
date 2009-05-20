@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "그 파일을 삭제할 권한이없습니다."
+    file_deleted: "삭제된 파일"
+    file_upload_error: "파일을 업로드하는 동안 오류가 발생했습니다."
+    missing_parent_id_error: "부모 개체를 지정하여주십시오"
+    permission_denied: "권한이 작업을 완료하는 데 필요가없습니다."
+    standard_file_upload_error: "파일을 업로드하는 동안 오류가 발생했습니다 : ((오류)). 그 파일이 유효한지 확인하시기 바랍니다. 확인 파일이 비어 있지 않은지 확인합니다. 그런 다음 다시 시도해보십시오."
+    successful_upload: "성공적으로 업로드된 파일입니다."
+    upload_file: "파일 업로드"

@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Nemáte oprávnění ke smazání souboru."
+    file_deleted: "Vypouští soubor"
+    file_upload_error: "Vyskytla se chyba při nahrávání souboru."
+    missing_parent_id_error: "Prosíme, uveďte mateřský objekt"
+    permission_denied: "Nemáte oprávnění k dokončení této akce."
+    standard_file_upload_error: "Vyskytla se chyba při nahrávání souboru: ((chyby)). Prosím ujistěte se, že soubor je platný. Zkontrolujte, soubor není prázdná. Pak zkuste to znovu."
+    successful_upload: "Úspěšně uploadovaný soubor."
+    upload_file: "Nahrát soubor"

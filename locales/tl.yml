@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Ikaw ay walang pahintulot na burahin na file."
+    file_deleted: "Tinanggal na file"
+    file_upload_error: "May naganap na error habang ang pag-upload ang file."
+    missing_parent_id_error: "Mangyaring tukuyin ang isang magulang object"
+    permission_denied: "Ikaw ay walang pahintulot na makumpleto ang aksyon na ito."
+    standard_file_upload_error: "May naganap na error habang ang pag-upload ng file: ((error)). Mangyaring siguraduhin na ang file ay may-bisa. Suriin upang masiguro ang file na ito ay hindi walang laman. At pagkatapos ay subukan ulit."
+    successful_upload: "Matagumpay na nai-upload na file."
+    upload_file: "Mag-upload ng File"

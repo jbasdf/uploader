@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: 您沒有權限刪除的文件。
+    file_deleted: 刪除的文件
+    file_upload_error: 時發生錯誤上載文件。
+    missing_parent_id_error: 請指定一個父對象
+    permission_denied: 您沒有權限，以完成這個動作。
+    standard_file_upload_error: "時發生錯誤上傳文件： （ （ ） ）錯誤。請確保該文件是有效的。檢查以確定該文件不是空的。然後再試一次。"
+    successful_upload: 成功上載文件。
+    upload_file: 上傳文件

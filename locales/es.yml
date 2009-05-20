@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Usted no tiene permiso para eliminar ese archivo."
+    file_deleted: "Suprime el archivo"
+    file_upload_error: "Se ha producido un error al cargar el archivo."
+    missing_parent_id_error: "Por favor, especifique un objeto padre"
+    permission_denied: "Usted no tiene permiso para completar esta acción."
+    standard_file_upload_error: "Se ha producido un error al cargar el archivo: ((error)). Por favor, asegúrese de que el archivo es válido. Asegúrese de que el archivo no está vacío. Vuelva a intentarlo."
+    successful_upload: "Archivo subido con éxito."
+    upload_file: "Subir archivo"

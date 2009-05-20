@@ -1,0 +1,11 @@
+--- 
+en: 
+  uploader: 
+    file_delete_permission_denied: "Bạn không được phép để xóa tập tin đó."
+    file_deleted: "Đã xóa tập tin"
+    file_upload_error: "Xảy ra lỗi trong khi tải lên tập tin này."
+    missing_parent_id_error: "Xin vui lòng chỉ định một đối tượng cha mẹ"
+    permission_denied: "Bạn không được phép để hoàn thành hành động này."
+    standard_file_upload_error: "Xảy ra lỗi trong khi tải lên tập tin: ((lỗi)). Xin vui lòng đảm bảo rằng các tập tin là hợp lệ. Kiểm tra để chắc chắn rằng tập tin không phải là không có sản phẩm nào. Sau đó thử lại."
+    successful_upload: "Tập tin được tải lên thành công."
+    upload_file: "Tải tệp"
