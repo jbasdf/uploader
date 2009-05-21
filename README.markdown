@@ -6,15 +6,15 @@ Uploader makes it easy to integrate multiple file uploads into your application 
 Installation
 =================
 
-= Install Dependancies:
+=Install Dependancies:
 sudo gem install mime-types
 
 
-= Install the gem:
+=Install the gem:
 sudo gem install uploader
 
 
-= Add the gem to environment.rb
+=Add the gem to environment.rb
 config.gem 'uploader'
 
 
