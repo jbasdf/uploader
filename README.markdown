@@ -2,46 +2,43 @@ Uploader
 =================
 Uploader makes it easy to integrate multiple file uploads into your application using SWFUpload
 
+
 Installation
 =================
 
-Install Dependancies:
-------------------
+= Install Dependancies:
 sudo gem install mime-types
 
 
-Install the gem:
-------------------
+= Install the gem:
 sudo gem install uploader
 
 
-Add the gem to environment.rb
-------------------
+= Add the gem to environment.rb
 config.gem 'uploader'
 
 
-Create a model for uploads.
-------------------
+= Create a model for uploads.
 We recommend creating a model called upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
 
   class Upload < ActiveRecord::Base
-      acts_as_uploader  :enable_s3 => false,
-                        :has_attached_file => {
-                          :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-                          :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
-                          :styles  => { :icon => "30x30!", 
-                                        :thumb => "100>", 
-                                        :small => "150>", 
-                                        :medium => "300>", 
-                                        :large => "660>"},
-                          :default_url => "/images/profile_default.jpg",
-                          :storage => :s3,
-                          :s3_credentials => File.join(RAILS_ROOT, 'config', 's3.yml'),
-                          :bucket => "assets.#{SITE[:domain]}",
-                          :s3_host_alias => "assets.#{SITE[:domain]}",
-                          :convert_options => {
-                             :all => '-quality 80'
-                           }
+    acts_as_uploader  :enable_s3 => false,
+                      :has_attached_file => {
+                        :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
+                        :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+                        :styles  => { :icon => "30x30!", 
+                                      :thumb => "100>", 
+                                      :small => "150>", 
+                                      :medium => "300>", 
+                                      :large => "660>"},
+                        :default_url => "/images/profile_default.jpg",
+                        :storage => :s3,
+                        :s3_credentials => File.join(RAILS_ROOT, 'config', 's3.yml'),
+                        :bucket => "assets.#{SITE[:domain]}",
+                        :s3_host_alias => "assets.#{SITE[:domain]}",
+                        :convert_options => {
+                           :all => '-quality 80'
+                         }
                            
     # only allow images:
     # validates_attachment_content_type :file, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
@@ -57,8 +54,8 @@ We recommend creating a model called upload.rb.  acts_as_uploader accepts all va
   end
 
 
-Add multiple file uploads to one of your models
-------------------
+= Add multiple file uploads to one of your models
+
 Your uploads will need a parent object to attach to.  For example, a user might have many files:
 
   class User < ActiveRecord::Base
@@ -82,8 +79,7 @@ or a photo album might have many photos
 Note that in both examples there is an implementation of 'can_upload?'.  This method must be
 included in any parent object and will control who has permission to upload files.
 
-The uploads controller
-------------------
+= The uploads controller
 You can modify the upload controller behavior by inheriting from the uploader controller.  For example, you might want to
 require that users be logged in to upload a file.  There are a number of methods in the uploads controller that contain 
 default functionality that you may consider overriding.
@@ -136,8 +132,8 @@ controller instead of directly using the one inside the gem:
   end
 
 
-Other Methods
-------------------
+= Other Methods
+
 uploader assumes that you have a method called 'redirect_back_or_default' which is common in many Rails projects.  This method
 is called upon completion of destroy or created when the requested format is 'html'.  A simple implementation of this method is listed
 below:
@@ -162,29 +158,26 @@ That will copy all the required javascript and asset files into your project
 
 
 Amazon s3
-=================
+------------------
 
 If you'd like to store your uploads on Amazon's S3 service there are a few extra steps involved.  See the example file above
 to view the options in context.
 
-Turn on s3
-------------------
+= Turn on s3
 Set the enable_s3 option to true in acts_as_uploader
   :enable_s3 => true
 
 Pass your s3 credentials into acts_as_uploader
   :has_attached_file => { :s3_credentials => File.join(RAILS_ROOT, 'config', 's3.yml') }
 
-Setup your credentials
-------------------
+= Setup your credentials
 Create a file named s3.yml in your configuration directory and add the following lines:
 
-access_key_id: PUT YOUR KEY HERE
-secret_access_key: PUT YOUR SECRET ACCESS KEY HERE
+  access_key_id: PUT YOUR KEY HERE
+  secret_access_key: PUT YOUR SECRET ACCESS KEY HERE
 
 
-Turn on the Daemon process
-------------------
+= Turn on the Daemon process
 There are a number of timing issues that you will run into if you attempt to upload files directly to s3.  To overcome that
 problem uploader includes a daemon process which will send the files to Amazon asynchronously.  Note that the uploader
 will leave your local copy in place.
