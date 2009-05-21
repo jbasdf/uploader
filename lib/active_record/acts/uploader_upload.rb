@@ -80,18 +80,9 @@ module ActiveRecord
           end
         end
         
-        def max_upload_size
-          # TODO this should be passed in via options
-          raise 'not implemented'
-        end
-        
         def swfupload_local=(filedata)
           filedata.content_type = MIME::Types.type_for(filedata.original_filename).to_s
           self.local = filedata
-        end
-        
-        def creator
-          self.user
         end
         
         def is_image?
@@ -150,12 +141,12 @@ module ActiveRecord
           elsif self.is_text?
             '/images/file_icons/text.png'
           else
-            '/images/blurp_file.png'
+            '/images/file_icons/file.png'
           end
         end
         
         def display_name
-          CGI::escapeHTML(self.login)
+          CGI::escapeHTML(self.local_file_name)
         end
         
         def can_edit?(check_user)

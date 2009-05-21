@@ -10,11 +10,11 @@ Gem::Specification.new do |s|
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
-    "README.markdown"
+    "README.rdoc"
   ]
   s.files = [
     "MIT-LICENSE",
-     "README.markdown",
+     "README.rdoc",
      "Rakefile",
      "VERSION",
      "app/controllers/uploader/uploads_controller.rb",
@@ -69,6 +69,12 @@ Gem::Specification.new do |s|
      "locales/zh.yml",
      "pkg/uploader-0.1.0.gem",
      "public/images/SWFUploadButton.png",
+     "public/images/file_icons/excel.gif",
+     "public/images/file_icons/file.gif",
+     "public/images/file_icons/mp3.gif",
+     "public/images/file_icons/pdf.gif",
+     "public/images/file_icons/text.gif",
+     "public/images/file_icons/word.gif",
      "public/javascripts/swfupload/fileprogress.js",
      "public/javascripts/swfupload/handlers.js",
      "public/javascripts/swfupload/swfupload.cookies.js",
