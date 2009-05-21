@@ -3,14 +3,14 @@ class Uploader::UploadsController < ApplicationController
   session :cookie_only => false, :only => :swfupload
 
   before_filter :get_parent, :only => [:create, :swfupload]
-  
+  before_filter :set_upload_for_destroy, :only => [:destroy]
   skip_before_filter :verify_authenticity_token
   
   def create
     
     # Standard, one-at-a-time, upload action
     @upload = @parent.uploads.build(params[:upload])
-    @upload.user = current_user
+    @upload.creator = current_user
     @upload.save!
     message = t('uploader.successful_upload')
     upload_json = basic_uploads_json(@upload)
@@ -46,11 +46,10 @@ class Uploader::UploadsController < ApplicationController
   end
 
   def swfupload
-    # swfupload action set in routes.rb
-    @upload = Upload.new
+    @upload = @parent.uploads.build
     @upload.is_public = true if params[:is_public] == true
-    @upload.user = current_user
-    @upload.swfupload_file = params[:Filedata]
+    @upload.creator = current_user
+    @upload.swfupload_local = params[:Filedata]
     @upload.save!
     
     @parent.uploads << @upload
@@ -59,26 +58,12 @@ class Uploader::UploadsController < ApplicationController
       format.json do
         render :text => basic_uploads_json(@upload)
       end
-      format.js do
-        # return a table row
-        case @parent
-        when User
-          # TODO remove User and Group and change upload_row to something more generic.  Also set it up to use rjs instead of custom javascript
-          render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent, :share => true}
-        when Group  
-          render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent}
-        else
-          raise 'not implemented'
-        end
-      end
     end
   rescue => ex
     render :text => t("uploader.file_upload_error")
   end
 
   def destroy
-
-    @upload = Upload.find(params[:id])
     @parent = @upload.uploadable # set this for redirect
     
     if @upload.can_edit?(current_user)
@@ -100,6 +85,10 @@ class Uploader::UploadsController < ApplicationController
     
   protected
   
+  def set_upload_for_destroy
+    @upload = Upload.find(params[:id])
+  end
+  
   def permission_denied
     msg = t("uploader.permission_denied")
     respond_to do |format|
@@ -113,9 +102,6 @@ class Uploader::UploadsController < ApplicationController
     end
   end
 
-  # TODO figure this out
-  # need to implement redirect_back_or_default or assume that it exists
-  # 
   # override this method in your controller to set the redirect file upload completion
   # alternatively set redirect_back_or_default
   def get_redirect
@@ -135,7 +121,7 @@ class Uploader::UploadsController < ApplicationController
   end
   
   def has_permission_to_upload(user, upload_parent)
-    true
+    upload_parent.can_upload?(user)
   end
   
   def basic_uploads_json(upload)

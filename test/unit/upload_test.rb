@@ -1,8 +1,5 @@
 require 'test_helper'
 
-class UploaderEngineTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+class UploaderTest < ActiveSupport::TestCase
+
 end

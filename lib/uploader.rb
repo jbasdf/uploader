@@ -14,7 +14,7 @@ end
 
 
 begin
-  require 'mime-types'
+  require 'mime/types'
 rescue LoadError
   begin
     gem 'mime-types'

@@ -30,7 +30,7 @@ begin
     gemspec.email = "justinball@gmail.com"
     gemspec.homepage = "http://github.com/jbasdf/uploader"
     gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip"
-    gemspec.authors = ["Justin Ball"]
+    gemspec.authors = ["Justin Ball", "David South"]
     gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb lib/uploader/middleware/*.rb db/migrate/*.rb )
     gemspec.rubyforge_project = 'uploader'    
   end
