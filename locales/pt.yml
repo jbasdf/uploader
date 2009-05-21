@@ -6,6 +6,6 @@ en:
     file_upload_error: "Ocorreu um erro ao fazer upload do arquivo."
     missing_parent_id_error: "Especificar um objeto pai"
     permission_denied: "Você não tem permissão para realizar esta ação."
-    standard_file_upload_error: "Ocorreu um erro ao fazer upload do arquivo:)) ((erro. Verifique se o arquivo for válido. Verifique se o arquivo não está vazio. Em seguida, tente novamente."
+    standard_file_upload_error: "Ocorreu um erro ao fazer upload do arquivo: {{error}}. Verifique se o arquivo for válido. Verifique se o arquivo não está vazio. Em seguida, tente novamente."
     successful_upload: "Arquivo enviado com sucesso."
     upload_file: "Carregar arquivo"

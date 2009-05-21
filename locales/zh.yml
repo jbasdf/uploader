@@ -6,6 +6,6 @@ en:
     file_upload_error: 时发生错误上载文件。
     missing_parent_id_error: 请指定一个父对象
     permission_denied: 您没有权限，以完成这个动作。
-    standard_file_upload_error: "时发生错误上传文件： （ （ ） ）错误。请确保该文件是有效的。检查以确定该文件不是空的。然后再试一次。"
+    standard_file_upload_error: "时发生错误的文件上传： {{error}}.请确保该文件是有效的。检查以确定该文件不是空的。然后再试一次。"
     successful_upload: 成功上载文件。
     upload_file: 上传文件

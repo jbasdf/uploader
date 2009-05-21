@@ -6,6 +6,6 @@ en:
     file_upload_error: "Si è verificato un errore durante il caricamento del file."
     missing_parent_id_error: "Si prega di specificare un oggetto genitore"
     permission_denied: "Non hai il permesso di completare l&#39;operazione."
-    standard_file_upload_error: "Si è verificato un errore durante il caricamento del file: (()) errore. Si prega di assicurarsi che il file è valido. Verificare che il file non è vuoto. Quindi riprovare."
+    standard_file_upload_error: "Si è verificato un errore durante il caricamento del file: {{error}}. Si prega di assicurarsi che il file è valido. Verificare che il file non è vuoto. Quindi riprovare."
     successful_upload: "File caricato con successo."
     upload_file: "Carica file"

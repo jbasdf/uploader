@@ -6,6 +6,6 @@ en:
     file_upload_error: "Prišlo je do napake pri nalaganju datoteke."
     missing_parent_id_error: "Prosimo, navedite matično objekt"
     permission_denied: "Nimate dovoljenja za dokončanje te dejavnosti."
-    standard_file_upload_error: "Prišlo je do napake pri nalaganju datoteke: ((error)). Prosimo vas, da je datoteka veljavna. Preverite, ali datoteka ni prazna. Nato poskusite znova."
+    standard_file_upload_error: "Prišlo je do napake pri nalaganju datoteke: {{error}}. Prosimo vas, da je datoteka veljavna. Preverite, ali datoteka ni prazna. Nato poskusite znova."
     successful_upload: "Uspešno naloženi datoteki."
     upload_file: "Naloži datoteko"

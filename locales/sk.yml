@@ -6,6 +6,6 @@ en:
     file_upload_error: "Stala sa chyba pri nahrávaní súboru."
     missing_parent_id_error: "Prosím, uveďte materský objekt"
     permission_denied: "Nemáte oprávnenie na dokončenie tejto akcie."
-    standard_file_upload_error: "Stala sa chyba pri nahrávaní súboru: ((chyby)). Prosím uistite sa, že súbor je platný. Skontrolujte, súbor nie je prázdna. Potom skúste to znova."
+    standard_file_upload_error: "Stala sa chyba pri nahrávaní súboru: {{error}}. Prosím uistite sa, že súbor je platný. Skontrolujte, súbor nie je prázdna. Potom skúste to znova."
     successful_upload: "Úspešne pridaný súbor."
     upload_file: "Nahrať súbor"

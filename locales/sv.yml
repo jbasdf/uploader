@@ -6,6 +6,6 @@ en:
     file_upload_error: "Ett fel uppstod när du lägger upp filen."
     missing_parent_id_error: "Ange en förälder motsätter"
     permission_denied: "Du har inte behörighet att slutföra den här åtgärden."
-    standard_file_upload_error: "Ett fel uppstod när du lägger upp filen: ((fel)). Se till att filen är giltig. Kontrollera att filen inte är tom. Försök sedan igen."
+    standard_file_upload_error: "Ett fel uppstod när du lägger upp filen: {{error}}. Se till att filen är giltig. Kontrollera att filen inte är tom. Försök sedan igen."
     successful_upload: "Successfully uppladdade fil."
     upload_file: "Ladda upp filer"

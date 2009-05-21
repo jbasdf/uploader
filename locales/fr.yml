@@ -6,6 +6,6 @@ en:
     file_upload_error: "Une erreur s&#39;est produite lors du téléchargement du fichier."
     missing_parent_id_error: "S&#39;il vous plaît spécifier un objet parent de"
     permission_denied: "Vous n&#39;avez pas la permission d&#39;effectuer cette action."
-    standard_file_upload_error: "Une erreur s&#39;est produite lors du téléchargement du fichier: (()) erreur. S&#39;il vous plaît assurer que le fichier est valide. Assurez-vous que le fichier n&#39;est pas vide. Ensuite, essayez à nouveau."
+    standard_file_upload_error: "Une erreur s&#39;est produite lors du chargement du fichier: {{error}}. S&#39;il vous plaît assurer que le fichier est valide. Assurez-vous que le fichier n&#39;est pas vide. Ensuite, essayez à nouveau."
     successful_upload: "Transfert de fichier."
     upload_file: "Envoyer un fichier"

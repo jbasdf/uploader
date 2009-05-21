@@ -6,6 +6,6 @@ en:
     file_upload_error: "Der opstod en fejl under overførsel af filen."
     missing_parent_id_error: "Angiv en forælder objekt"
     permission_denied: "Du har ikke tilladelse til at fuldføre denne aktion."
-    standard_file_upload_error: "Der opstod en fejl under overførsel af filen: {{fejl}}. Sørg for, at filen er gyldig. Kontrollere, at filen ikke er tom. Så prøv igen."
+    standard_file_upload_error: "Der opstod en fejl under overførsel af filen: {{error}}. Sørg for, at filen er gyldig. Kontrollere, at filen ikke er tom. Så prøv igen."
     successful_upload: "Uploadet fil."
     upload_file: "Upload fil"
