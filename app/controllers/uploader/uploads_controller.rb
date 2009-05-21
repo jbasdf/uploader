@@ -65,7 +65,6 @@ class Uploader::UploadsController < ApplicationController
 
   def destroy
     @parent = @upload.uploadable # set this for redirect
-    
     if @upload.can_edit?(current_user)
       @upload.destroy 
       msg = t('uploader.file_deleted')

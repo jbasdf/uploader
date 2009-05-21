@@ -6,6 +6,6 @@ en:
     file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand."
     missing_parent_id_error: "Geef een hoofdobject"
     permission_denied: "Je hebt geen toestemming om deze actie."
-    standard_file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand: ((error)). Zorg ervoor dat het bestand geldig is. Controleer of het bestand niet leeg is. Dan probeer het opnieuw."
+    standard_file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand: {{error}}. Zorg ervoor dat het bestand geldig is. Controleer of het bestand niet leeg is. Dan probeer het opnieuw."
     successful_upload: "Geüpload bestand."
     upload_file: "Bestand uploaden"

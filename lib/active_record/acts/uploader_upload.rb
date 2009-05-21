@@ -48,7 +48,7 @@ module ActiveRecord
             before_create :add_width_and_height
             
             # prevents a user from submitting a crafted form that bypasses activation
-            attr_protected :user_id, :uploadable_id, :uploadable_type
+            attr_protected :creator_id, :uploadable_id, :uploadable_type
           EOV
 
           include ActiveRecord::Acts::UploaderUpload::InstanceMethods
@@ -68,6 +68,10 @@ module ActiveRecord
           local_file_name ? local : remote
         end
 
+        def file_name
+          remote_file_name || local_file_name
+        end
+        
         def send_to_remote
           if local_file_name
             self.remote = local.to_file
@@ -150,8 +154,8 @@ module ActiveRecord
         end
         
         def can_edit?(check_user)
-          return false if user.blank?
-          check_user == self.user
+          return false if check_user.blank?
+          check_user == self.creator
         end
         
         # Image dimension calculations
