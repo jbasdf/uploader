@@ -78,6 +78,12 @@ or a photo album might have many photos
 Note that in both examples there is an implementation of 'can_upload?'.  This method must be
 included in any parent object and will control who has permission to upload files.
 
+=== The application controller
+Be sure you have turned on protect from forgery.  This is required for uploader to get the appropriate tokens
+from your Rails application.  It is also a good idea and is the default in new Rails applications.
+
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
 === The uploads controller
 You can modify the upload controller behavior by inheriting from the uploader controller.  For example, you might want to
 require that users be logged in to upload a file.  There are a number of methods in the uploads controller that contain 
@@ -155,6 +161,9 @@ You'll need something like this in your layout so that uploader can add in the r
 
 <%= yield :head -%>
 
+Then to add an upload form:
+<%= upload_form(parent_object) %>
+parent_object should be the object which owns the uploads.  ie a user, photo_album, etc.
 
 === Rake Tasks
 
@@ -165,6 +174,13 @@ Add the rake tasks for uploader to your project.  You will need to add the follo
 
 Then run:
   rake uploader:sync
+
+Last run:
+  rake db:migrate
+This will create an uploads table for you.  If you selected a different name for your model you will need to modify the migration accordingly.  
+== WARNING
+The migration will drop any existing 'uploads' table you have in place
+
 
 That will copy all the required javascript and asset files into your project
 
@@ -195,6 +211,64 @@ problem uploader includes a daemon process which will send the files to Amazon a
 will leave your local copy in place.
 TODO docs for Daemon
 
+
+== Other Stuff
+
+If you'd like to add an ajax delete to your uploads page this code might come in handy.
+
+Say you have chosen to display your upload in a table.  Your code might look like the following.  Note that there are a number of assumptions made in this code.  Modify it to suite your needs.
+
+  <tr id="<%= upload_row.dom_id %>" class="delete-container <%= cycle('odd', 'even') %>" <%=style-%> >
+  	<td><div class="file-icon"><%= image_tag upload_row.icon -%></div></td>
+  	<td><a href="<%=upload_row.file.url%>"><%= truncate(sanitize(upload_row.file_name), 100) %></a></td>
+  	<td><%= upload_row.created_at.to_s(:long) -%></td>
+  	<td>
+  		<% if parent.can_edit?(current_user) -%>
+  			<% form_for(:upload, :url => upload_path(upload_row.id), :html => { :class => "delete-form", :method => :delete} ) do |f| -%>
+  				<%= image_submit_tag '/images/icons/delete.png', {:id => 'submit-comment', :title => t('general.delete_file'), :class => 'submit-delete', :width => '12', :height => '12', :alt => t('general.delete_file') } %>
+  			<% end -%>
+  			<% if !style.empty? -%>
+  			<script type="text/javascript" language="JavaScript">
+  				jQuery("#<%= upload_row.dom_id %>").fadeIn("slow");
+  			</script>
+  			<% end -%>
+  		<% end -%>
+  	</td>
+  </tr>
+
+
+I put the following in my main upload view
+  <% content_for :javascript do  -%>
+
+    setup_submit_delete();
+
+    function upload_completed_callback(data){
+      jQuery('#upload-list').prepend(data);
+      setup_submit_delete();
+    }
+  <% end -%>
+  
+  
+
+The following jQuery code will do an ajax delete for you
+
+  function setup_submit_delete(){
+  	jQuery(".submit-delete").click(function() {
+  		// if(!confirm("Are you sure?")){
+  		// 	return false;
+  		// }
+      jQuery(this).parents('.delete-container').fadeOut();
+      var form = jQuery(this).parents('form');
+      jQuery.post(form.attr('action') + '.json', form.serialize(),
+        function(data){
+          var json = eval('(' + data + ')');
+          if(!json.success){
+            jQuery.jGrowl.info(json.message);
+          }
+        });
+      return false;
+    });
+  }
 
 
 

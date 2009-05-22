@@ -85,7 +85,7 @@ module ActiveRecord
         end
         
         def swfupload_local=(filedata)
-          filedata.content_type = MIME::Types.type_for(filedata.original_filename).to_s
+          filedata.content_type = MIME::Types.type_for(filedata.original_filename)[0].to_s
           self.local = filedata
         end
         
@@ -135,17 +135,17 @@ module ActiveRecord
           if self.is_pdf?
             '/images/file_icons/pdf.gif'
           elsif self.is_word?
-            '/images/file_icons/word.png'
+            '/images/file_icons/word.gif'
           elsif self.is_image?
-            self.local.url(:icon)
+            self.file.url(:icon)
           elsif self.is_mp3?
-            '/images/file_icons/mp3.png'
+            '/images/file_icons/mp3.gif'
           elsif self.is_excel?
-            '/images/file_icons/excel.png'
+            '/images/file_icons/excel.gif'
           elsif self.is_text?
-            '/images/file_icons/text.png'
+            '/images/file_icons/text.gif'
           else
-            '/images/file_icons/file.png'
+            '/images/file_icons/file.gif'
           end
         end
         

@@ -1,11 +1,9 @@
 class Uploader::UploadsController < ApplicationController
-
-  session :cookie_only => false, :only => :swfupload
-
+  unloadable
+  
   before_filter :get_parent, :only => [:create, :swfupload]
   before_filter :set_upload_for_destroy, :only => [:destroy]
-  skip_before_filter :verify_authenticity_token
-
+ 
   def create
     # Standard, one-at-a-time, upload action
     @upload = @parent.uploads.build(params[:upload])
