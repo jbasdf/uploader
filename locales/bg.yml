@@ -1,11 +1,17 @@
 --- 
-en: 
+bg: 
   uploader: 
+    cancel_all: "Отмени Всички Качването"
     file_delete_permission_denied: "Вие нямате разрешение да изтриете този файл."
     file_deleted: "Изтрити файлове"
     file_upload_error: "Възникна грешка при качването на файла."
+    javascript_not_enabled: "Съжаляваме. SWFUpload не можа да се зареди. Трябва да имате активиран JavaScript за да се насладите SWFUpload."
     missing_parent_id_error: "Моля, посочете майка обект"
     permission_denied: "Вие нямате разрешение да се извърши съответното действие."
     standard_file_upload_error: "Възникна грешка при качването на файла: {{error}}. Уверете се, че файлът е валиден. Проверете дали файлът не е празна. След това опитайте отново."
     successful_upload: "Успешно качен файл."
+    swf_loading: "SWFUpload се зарежда. Моля изчакайте за момент ..."
+    swf_not_loading: "Съжаляваме. SWFUpload не можа да се зареди. Може да се наложи да инсталирате или надграждане на Flash Player. Посетете {{url}} да отида на Flash Player."
+    swf_taking_to_long: "SWFUpload е необходимо много време, за да заредите или товар е неуспешно. Моля, уверете се, че Flash Plug-in е включено и че работна версия на Adobe Flash Player е инсталиран."
     upload_file: "Качване на файла"
+    upload_files: "Качване на файлове"

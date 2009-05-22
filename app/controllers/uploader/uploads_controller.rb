@@ -51,7 +51,6 @@ class Uploader::UploadsController < ApplicationController
     @upload.creator = current_user
     @upload.swfupload_local = params[:Filedata]
     @upload.save!
-    
     @parent.uploads << @upload
 
     respond_to do |format|

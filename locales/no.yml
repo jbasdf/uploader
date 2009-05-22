@@ -1,11 +1,18 @@
 --- 
-en: 
+? "no"
+: 
   uploader: 
+    cancel_all: "Avbryt alle Uploads"
     file_delete_permission_denied: "Du har ikke tillatelse til å slette filen."
     file_deleted: "Slettet fil"
     file_upload_error: "Det oppstod en feil under opplasting av filen."
+    javascript_not_enabled: "Vi beklager. SWFUpload kunne ikke lastes. Du må aktivere JavaScript for å nyte SWFUpload."
     missing_parent_id_error: "Angi et overordnet objekt"
     permission_denied: "Du har ikke tillatelse til å fullføre denne handlingen."
     standard_file_upload_error: "Det oppstod en feil under opplastingen av filen: {{error}}. Kontroller at filen er gyldig. Kontroller at filen ikke er tom. Og prøv igjen."
     successful_upload: "Lastet opp filen."
+    swf_loading: "SWFUpload lastes ned. Vent et øyeblikk ..."
+    swf_not_loading: "Vi beklager. SWFUpload kunne ikke lastes. Det kan hende du må installere eller oppgradere Flash Player. Besøk {{url}} å hente Flash Player."
+    swf_taking_to_long: "SWFUpload det tar lang tid å laste eller laste mislyktes. Kontroller at Flash-plugin-modulen er aktivert, og at en fungerende versjon av Adobe Flash Player er installert."
     upload_file: "Last opp fil"
+    upload_files: "Last opp filer"

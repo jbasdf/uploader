@@ -1,101 +1,32 @@
-<div id="degraded_container" class="right" style="display:none;">  
+<div id="degraded_container" style="display:none;">  
 	<% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true } do |f| -%>
 	  <p><%= f.file_field :uploaded_data, :size => 25 %></p>
 	  <%= submit_tag t('uploader.upload_file') %>
 	<% end %>
 </div>
-
 <div id="swfupload_container">
 	<form>
-		<div id="divSWFUploadUI">
-			<div class="fieldset flash" id="fsUploadProgress">
-				<span class="legend">Upload Files</span>
-				<input id="btnCancel" type="button" value="Cancel All Uploads" style="display:none;margin-left: 2px; height: 22px; font-size: 8pt;" />
+		<div id="swf_upload_UI">
+			<p><span id="swf_button_holder"></span></p>
+			<div id="swf_fs_upload_progress">
+				<span class="legend"></span>
+				<input id="swf_cancel_button" type="button" value="<%=t('uploader.cancel_all')%>" style="display:none;" />
 				<p id="divStatus"></p>
-			</div>
-			<p><span id="spanButtonPlaceholder"></span></p>
+			</div>			
 		</div>
-		<noscript style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;">
-			We're sorry.  SWFUpload could not load.  You must have JavaScript enabled to enjoy SWFUpload.
+		<noscript class="swf-error-msg">
+		  <%= t('uploader.javascript_not_enabled') %>
 		</noscript>
-		<div id="divLoadingContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			SWFUpload is loading. Please wait a moment..."
+		<div id="swf_loading_content" class="swf-error-msg" style="display:none;">
+		  <%= t('uploader.swf_loading') %>
 		</div>
-		<div id="divLongLoading" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			SWFUpload is taking a long time to load or the load has failed.  Please make sure that the Flash Plugin is enabled and that a working version of the Adobe Flash Player is installed.
+		<div id="swf_long_loading" class="swf-error-msg" style="display:none;">
+		  <%= t('uploader.swf_taking_to_long') %>
 		</div>
-		<div id="divAlternateContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			"We're sorry.  SWFUpload could not load.  You may need to install or upgrade Flash Player.
-			Visit the <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe website</a> to get the Flash Player."
+		<div id="swf_alternate_content" class="swf-error-msg" style="display: none;">
+		  <%= t('uploader.swf_not_loading', :url => '<a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe Website</a>') %>
 		</div>
 	</form>
 </div>
 
-<% content_for :head do  -%>
-   <%= javascript_include_tag %w{
-                swfupload/swfupload.js
-                swfupload/swfupload.swfobject
-                swfupload/swfupload.cookies
-                swfupload/swfupload.queue
-                swfupload/fileprogress.js
-                swfupload/handlers.js }, :cache => 'swf_js_cached' %>
-  <%= stylesheet_link_tag 'swfupload' %>
-
-	<script type='text/javascript'>
-
-	  var swfu;
-
-		SWFUpload.onload = function () {
-			var settings = {
-			
-				flash_url : '/swf/swfupload.swf',
-				upload_url: '<%= new_upload_path_with_session_information(parent) %>',
-			
-				file_size_limit : "100 MB",
-				file_types : "*.*",
-				file_types_description : "All Files",
-				file_upload_limit : 100,
-				file_queue_limit : 0,
-				post_params : {
-  				authenticity_token : '<%= u form_authenticity_token.inspect -%>',
-  			},
-				custom_settings : {
-					progressTarget : "fsUploadProgress",
-					cancelButtonId : "btnCancel"
-				},
-				debug: false,
-
-				// Button Settings
-				button_image_url : "/images/SWFUploadButton.png", // Relative to the SWF file
-				button_placeholder_id : "spanButtonPlaceholder",
-				button_width: 61,
-				button_height: 22,
-
-				// The event handler functions are defined in handlers.js
-				swfupload_loaded_handler : swfUploadLoaded,
-				file_queued_handler : fileQueued,
-				file_queue_error_handler : fileQueueError,
-				file_dialog_complete_handler : fileDialogComplete,
-				upload_start_handler : uploadStart,
-				upload_progress_handler : uploadProgress,
-				upload_error_handler : uploadError,
-				upload_success_handler : uploadSuccess,
-				upload_complete_handler : uploadComplete,
-				queue_complete_handler : queueComplete,	// Queue plugin event
-
-				// SWFObject settings
-				minimum_flash_version : "9.0.28",
-				swfupload_pre_load_handler : swfUploadPreLoad,
-				swfupload_load_failed_handler : swfUploadLoadFailed
-			};
-
-			swfu = new SWFUpload(settings);
-		}
-
-		function upload_completed_callback(data){
-			jQuery('#upload-list').prepend(data);
-			setup_submit_delete();
-		}
-
-	</script>
-<% end -%>
+<%= render :partial => 'uploads/swf_javascript', :locals => { :parent => parent, :display_upload_indicators => display_upload_indicators } %>

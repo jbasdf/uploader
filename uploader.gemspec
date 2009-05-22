@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.1.0"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-05-20}
+  s.date = %q{2009-05-21}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
      "VERSION",
      "app/controllers/uploader/uploads_controller.rb",
      "app/helpers/uploader_helper.rb",
+     "app/views/uploads/_swf_javascript.html.erb",
+     "app/views/uploads/_swf_upload.html.erb",
      "app/views/uploads/_swf_upload.html.erb",
      "config/uploader_routes.rb",
      "db/migrate/20090517040220_create_uploads.rb",
@@ -35,45 +37,21 @@ Gem::Specification.new do |s|
      "lib/uploader/mime_type_groups.rb",
      "lib/uploader/tasks.rb",
      "lib/uploader/tasks.rb",
-     "locales/ar.yml",
-     "locales/bg.yml",
-     "locales/ca.yml",
-     "locales/cs.yml",
-     "locales/da.yml",
-     "locales/de.yml",
-     "locales/el.yml",
      "locales/en.yml",
      "locales/es.yml",
-     "locales/fr.yml",
-     "locales/it.yml",
-     "locales/iw.yml",
-     "locales/ja.yml",
-     "locales/ko.yml",
-     "locales/lt.yml",
-     "locales/lv.yml",
-     "locales/nl.yml",
-     "locales/no.yml",
-     "locales/pl.yml",
-     "locales/pt.yml",
-     "locales/ro.yml",
-     "locales/ru.yml",
-     "locales/sk.yml",
-     "locales/sl.yml",
-     "locales/sr.yml",
-     "locales/sv.yml",
-     "locales/tl.yml",
-     "locales/uk.yml",
-     "locales/vi.yml",
-     "locales/zh-CN.yml",
-     "locales/zh-TW.yml",
-     "locales/zh.yml",
      "pkg/uploader-0.1.0.gem",
      "public/images/SWFUploadButton.png",
      "public/images/file_icons/excel.gif",
+     "public/images/file_icons/excel.gif",
+     "public/images/file_icons/file.gif",
      "public/images/file_icons/file.gif",
      "public/images/file_icons/mp3.gif",
+     "public/images/file_icons/mp3.gif",
+     "public/images/file_icons/pdf.gif",
      "public/images/file_icons/pdf.gif",
      "public/images/file_icons/text.gif",
+     "public/images/file_icons/text.gif",
+     "public/images/file_icons/word.gif",
      "public/images/file_icons/word.gif",
      "public/javascripts/swfupload/fileprogress.js",
      "public/javascripts/swfupload/handlers.js",

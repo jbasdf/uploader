@@ -1,11 +1,17 @@
 --- 
-en: 
+iw: 
   uploader: 
+    cancel_all: "בטל את כל ההעלאות"
     file_delete_permission_denied: "אין לך הרשאה למחוק את הקובץ."
     file_deleted: "קובץ מחוק"
     file_upload_error: "אירעה שגיאה בעת העלאת קובץ."
+    javascript_not_enabled: "אנו מתנצלים. SWFUpload לא ניתן היה לטעון. אתה צריך לאפשר Javascript חייב ליהנות SWFUpload."
     missing_parent_id_error: "ציין האב לאובייקט"
     permission_denied: "אין לך הרשאה כדי להשלים פעולה זו."
     standard_file_upload_error: "אירעה שגיאה בעת העלאת קובץ: {{error}}. אנא ודא כי הקובץ הוא חוקי. ודא שהקובץ לא ריק. לאחר מכן נסה שוב."
     successful_upload: "הקובץ שהועלה בהצלחה."
+    swf_loading: "SWFUpload הוא טוען. אנא המתן רגע ..."
+    swf_not_loading: "אנו מתנצלים. SWFUpload לא ניתן היה לטעון. ייתכן שיש צורך להתקין או לשדרג את Flash Player. בקר {{url}} להשיג את Flash Player."
+    swf_taking_to_long: "SWFUpload הוא לוקח הרבה זמן לטעון או לטעון נכשל. אנא ודא כי פלאש Plugin מופעלת וכי עבודה גירסה של התוכנה Adobe Flash Player מותקן."
     upload_file: "הוספת קובץ"
+    upload_files: "העלאת קבצים"

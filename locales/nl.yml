@@ -1,11 +1,17 @@
 --- 
-en: 
+nl: 
   uploader: 
+    cancel_all: "Stijl Alle uploads"
     file_delete_permission_denied: "Je hebt geen toestemming om dit bestand te verwijderen."
     file_deleted: "Verwijderde bestanden"
     file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand."
+    javascript_not_enabled: "Het spijt ons. SWFUpload kon niet worden geladen. U moet JavaScript ingeschakeld om te genieten van SWFUpload."
     missing_parent_id_error: "Geef een hoofdobject"
     permission_denied: "Je hebt geen toestemming om deze actie."
     standard_file_upload_error: "Een fout opgetreden tijdens het uploaden van het bestand: {{error}}. Zorg ervoor dat het bestand geldig is. Controleer of het bestand niet leeg is. Dan probeer het opnieuw."
     successful_upload: "Geüpload bestand."
+    swf_loading: "SWFUpload wordt geladen. Wacht een moment ..."
+    swf_not_loading: "Het spijt ons. SWFUpload kon niet worden geladen. Het kan nodig zijn voor het installeren of een upgrade van Flash Player. Bezoek de {{url}} om de Flash Player."
+    swf_taking_to_long: "SWFUpload neemt een lange tijd om te laden of het laden is mislukt. Zorg ervoor dat de Flash-plugin is ingeschakeld en dat er een werkende versie van de Adobe Flash Player is geïnstalleerd."
     upload_file: "Bestand uploaden"
+    upload_files: "Bestanden uploaden"

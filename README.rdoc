@@ -143,6 +143,12 @@ below:
   end
 
 
+=== Configure your views.
+You'll need something like this in your layout so that uploader can add in the required css and javascript files.
+
+<%= yield :head -%>
+
+
 === Rake Tasks
 
 Add the rake tasks for uploader to your project.  You will need to add the following to your applications's Rakefile

@@ -1,8 +1,8 @@
 module UploaderHelper
 
   # parent is the object to which the uploads will be attached
-  def upload_form(parent)
-    render :partial => 'uploads/swf_upload', :locals => {:parent => parent}
+  def upload_form(parent, display_upload_indicators = true)
+    render :partial => 'uploads/swf_upload', :locals => {:parent => parent, :display_upload_indicators => display_upload_indicators}
   end
 
   def new_upload_path_with_session_information(upload_parent)

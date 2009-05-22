@@ -1,11 +1,17 @@
 --- 
-en: 
+de: 
   uploader: 
+    cancel_all: "Stil Alle Uploads"
     file_delete_permission_denied: "Sie haben keine Berechtigung zum Löschen der Datei."
     file_deleted: "Gelöschte Datei"
     file_upload_error: "Fehler beim Hochladen der Datei."
+    javascript_not_enabled: "Es tut uns leid. SWFUpload konnte nicht geladen werden. Sie müssen Javascript aktivieren, damit Sie SWFUpload."
     missing_parent_id_error: "Bitte geben Sie ein Objekt"
     permission_denied: "Sie haben keine Berechtigung, um diese Aktion."
     standard_file_upload_error: "Fehler beim Hochladen der Datei: {{error}}. Bitte stellen Sie sicher, dass die Datei gültig ist. Überprüfen Sie, ob Sie die Datei nicht leer ist. Dann versuchen Sie es erneut."
     successful_upload: "Erfolgreich hochgeladenen Datei."
+    swf_loading: "SWFUpload wird geladen. Bitte einen Moment warten ..."
+    swf_not_loading: "Es tut uns leid. SWFUpload konnte nicht geladen werden. Möglicherweise müssen Sie installieren oder aktualisieren Flash Player. Besuchen Sie die {{url}}, um den Flash Player."
+    swf_taking_to_long: "SWFUpload ist eine lange Zeit zu laden oder die Kraft hat. Bitte stellen Sie sicher, dass das Flash-Plugin aktiviert ist, und dass eine funktionierende Version des Adobe Flash Player installiert ist."
     upload_file: "Upload File"
+    upload_files: "Dateien hochladen"

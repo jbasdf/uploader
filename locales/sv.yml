@@ -1,11 +1,17 @@
 --- 
-en: 
+sv: 
   uploader: 
+    cancel_all: "Annullera Uppladdningar"
     file_delete_permission_denied: "Du har inte tillåtelse att ta bort den filen."
     file_deleted: "Raderade fil"
     file_upload_error: "Ett fel uppstod när du lägger upp filen."
+    javascript_not_enabled: "Vi ber om ursäkt. SWFUpload gick inte att ladda. Du måste ha Javascript aktiverat för att njuta SWFUpload."
     missing_parent_id_error: "Ange en förälder motsätter"
     permission_denied: "Du har inte behörighet att slutföra den här åtgärden."
     standard_file_upload_error: "Ett fel uppstod när du lägger upp filen: {{error}}. Se till att filen är giltig. Kontrollera att filen inte är tom. Försök sedan igen."
     successful_upload: "Successfully uppladdade fil."
+    swf_loading: "SWFUpload laddas. Vänta ett ögonblick ..."
+    swf_not_loading: "Vi ber om ursäkt. SWFUpload gick inte att ladda. Du kanske behöver installera eller uppgradera Flash Player. Besök {{url}} att hämta Flash Player."
+    swf_taking_to_long: "SWFUpload tar lång tid att ladda eller lasten har misslyckats. Kontrollera att Flash Plugin är aktiverat och att en fungerande version av Adobe Flash Player är installerad."
     upload_file: "Ladda upp filer"
+    upload_files: "Ladda upp filer"

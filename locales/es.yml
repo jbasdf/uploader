@@ -1,11 +1,17 @@
 --- 
-en: 
+es: 
   uploader: 
+    cancel_all: "Cancelar todas las Cargas"
     file_delete_permission_denied: "Usted no tiene permiso para eliminar ese archivo."
     file_deleted: "Suprime el archivo"
     file_upload_error: "Se ha producido un error al cargar el archivo."
+    javascript_not_enabled: "Lo sentimos. SWFUpload no ha podido cargar. Usted debe tener Javascript activado para poder disfrutar de SWFUpload."
     missing_parent_id_error: "Por favor, especifique un objeto padre"
     permission_denied: "Usted no tiene permiso para completar esta acción."
     standard_file_upload_error: "Se ha producido un error al cargar el archivo: {{error}}. Por favor, asegúrese de que el archivo es válido. Asegúrese de que el archivo no está vacío. Vuelva a intentarlo."
     successful_upload: "Archivo subido con éxito."
+    swf_loading: "SWFUpload se está cargando. Por favor, espere un momento ..."
+    swf_not_loading: "Lo sentimos. SWFUpload no ha podido cargar. Puede que necesite instalar o actualizar Flash Player. Visite el {{url}} para obtener el Flash Player."
+    swf_taking_to_long: "SWFUpload está tomando mucho tiempo en la carga o la carga ha fallado. Por favor, asegúrese de que el plugin de Flash está activada y que un grupo de trabajo de la versión de Adobe Flash Player está instalado."
     upload_file: "Subir archivo"
+    upload_files: "Subir archivos"

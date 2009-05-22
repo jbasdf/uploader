@@ -1,11 +1,17 @@
 --- 
-en: 
+zh-TW: 
   uploader: 
+    cancel_all: 取消所有上傳
     file_delete_permission_denied: 您沒有權限刪除的文件。
     file_deleted: 刪除的文件
     file_upload_error: 時發生錯誤上載文件。
+    javascript_not_enabled: "我們深表歉意。 SWFUpload無法加載。您必須啟用JavaScript享受SWFUpload 。"
     missing_parent_id_error: 請指定一個父對象
     permission_denied: 您沒有權限，以完成這個動作。
     standard_file_upload_error: "時發生錯誤的文件上傳： {{error}}.請確保該文件是有效的。檢查以確定該文件不是空的。然後再試一次。"
     successful_upload: 成功上載文件。
+    swf_loading: SWFUpload載入。請稍等...
+    swf_not_loading: "我們深表歉意。 SWFUpload無法加載。您可能需要安裝或升級的Flash Player 。訪問{{url}}讓Flash Player的。"
+    swf_taking_to_long: "SWFUpload花費很長的時間來加載或加載失敗。請確保啟用Flash插件和一個工作版本的Adobe Flash Player的安裝。"
     upload_file: 上傳文件
+    upload_files: 上傳文件

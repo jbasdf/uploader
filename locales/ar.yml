@@ -1,11 +1,17 @@
 --- 
-en: 
+ar: 
   uploader: 
+    cancel_all: "إلغاء جميع عمليات التحميل"
     file_delete_permission_denied: "ليس لديك إذن لحذف هذا الملف."
     file_deleted: "حذف الملفات"
     file_upload_error: "حدث خطأ أثناء تحميل الملف."
+    javascript_not_enabled: "عذرا. SWFUpload لا يمكن تحميل. يجب أن يكون لديك إلى تشغيل الجافا سكريبت ليتمتع SWFUpload."
     missing_parent_id_error: "يرجى تحديد وجوه أحد الوالدين"
     permission_denied: "ليس لديك إذن لإكمال هذا العمل."
     standard_file_upload_error: "حدث خطأ أثناء تحميل الملف : {{error}}. يرجى التأكد من أن الملف هو صحيح. فحص للتأكد من الملف ليس فارغا. ثم حاول مرة أخرى."
     successful_upload: "الملف الذي تم تحميله بنجاح."
+    swf_loading: "SWFUpload هو تحميل. يرجى الانتظار قليلا..."
+    swf_not_loading: "عذرا. SWFUpload لا يمكن تحميل. قد تحتاج إلى تثبيت أو تحديث فلاش لاعب. زيارة {{url}}للحصول على فلاش لاعب."
+    swf_taking_to_long: "SWFUpload يأخذ وقتا طويلا لتحميل أو الحمل قد فشلت. يرجى التأكد من ان البرنامج المساعد فلاش تمكين وعمل نسخة من أدوبي فلاش لاعب مثبتة."
     upload_file: "تحميل الملف"
+    upload_files: "تحميل ملفات"

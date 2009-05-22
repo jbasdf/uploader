@@ -1,11 +1,17 @@
 --- 
-en: 
+sk: 
   uploader: 
+    cancel_all: "Zrušiť všetkých pridaní"
     file_delete_permission_denied: "Nemáte oprávnenie na zmazanie súboru."
     file_deleted: "Vypúšťa súbor"
     file_upload_error: "Stala sa chyba pri nahrávaní súboru."
+    javascript_not_enabled: "Ospravedlňujeme sa. SWFUpload nemožno načítať. Musíte mať povolený JavaScript tešiť SWFUpload."
     missing_parent_id_error: "Prosím, uveďte materský objekt"
     permission_denied: "Nemáte oprávnenie na dokončenie tejto akcie."
     standard_file_upload_error: "Stala sa chyba pri nahrávaní súboru: {{error}}. Prosím uistite sa, že súbor je platný. Skontrolujte, súbor nie je prázdna. Potom skúste to znova."
     successful_upload: "Úspešne pridaný súbor."
+    swf_loading: "SWFUpload sa načítava. Prosím, počkajte chvíľu ..."
+    swf_not_loading: "Ospravedlňujeme sa. SWFUpload nemožno načítať. Možno budete musieť nainštalovať alebo inovujte Flash Player. Navštívte {{url}} dostat Flash Player."
+    swf_taking_to_long: "SWFUpload je príliš dlho, aby zaťaženie alebo zaťaženia sa nepodaril. Prosím, uistite sa, že Flash Plugin je povolené, a že pracovné verziu Adobe Flash Player je nainštalovaný."
     upload_file: "Nahrať súbor"
+    upload_files: "Upload súborov"

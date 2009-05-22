@@ -1,12 +1,12 @@
 function swfUploadPreLoad() {
 	var self = this;
 	var loading = function () {
-		//document.getElementById("divSWFUploadUI").style.display = "none";
-		document.getElementById("divLoadingContent").style.display = "";
+		//document.getElementById("swf_upload_UI").style.display = "none";
+		document.getElementById("swf_loading_content").style.display = "";
 
 		var longLoad = function () {
-			document.getElementById("divLoadingContent").style.display = "none";
-			document.getElementById("divLongLoading").style.display = "";
+			document.getElementById("swf_loading_content").style.display = "none";
+			document.getElementById("swf_long_loading").style.display = "";
 		};
 		this.customSettings.loadingTimeout = setTimeout(function () {
 				longLoad.call(self)
@@ -24,14 +24,14 @@ function swfUploadPreLoad() {
 function swfUploadLoaded() {
 	var self = this;
 	clearTimeout(this.customSettings.loadingTimeout);
-	//document.getElementById("divSWFUploadUI").style.visibility = "visible";
-	//document.getElementById("divSWFUploadUI").style.display = "block";
-	document.getElementById("divLoadingContent").style.display = "none";
-	document.getElementById("divLongLoading").style.display = "none";
-	document.getElementById("divAlternateContent").style.display = "none";
+	//document.getElementById("swf_upload_UI").style.visibility = "visible";
+	//document.getElementById("swf_upload_UI").style.display = "block";
+	document.getElementById("swf_loading_content").style.display = "none";
+	document.getElementById("swf_long_loading").style.display = "none";
+	document.getElementById("swf_alternate_content").style.display = "none";
 	
 	//document.getElementById("btnBrowse").onclick = function () { self.selectFiles(); };
-	document.getElementById("btnCancel").onclick = function () { self.cancelQueue(); };
+	document.getElementById("swf_cancel_button").onclick = function () { self.cancelQueue(); };
 }
    
 function swfUploadLoadFailed() {

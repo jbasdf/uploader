@@ -1,11 +1,17 @@
 --- 
-en: 
+tl: 
   uploader: 
+    cancel_all: "I-cancel lahat ng Uploads"
     file_delete_permission_denied: "Ikaw ay walang pahintulot na burahin na file."
     file_deleted: "Tinanggal na file"
     file_upload_error: "May naganap na error habang ang pag-upload ang file."
+    javascript_not_enabled: "Ikinalulungkot namin. SWFUpload hindi na-load. Ikaw ay dapat na naka-enable ang JavaScript upang tamasahin SWFUpload."
     missing_parent_id_error: "Mangyaring tukuyin ang isang magulang object"
     permission_denied: "Ikaw ay walang pahintulot na makumpleto ang aksyon na ito."
     standard_file_upload_error: "May naganap na error habang ang pag-upload ng file: {{error}}. Mangyaring siguraduhin na ang file ay may-bisa. Suriin upang masiguro ang file na ito ay hindi walang laman. At pagkatapos ay subukan ulit."
     successful_upload: "Matagumpay na nai-upload na file."
+    swf_loading: "SWFUpload ay kumakarga. Mangyaring maghintay ng ilang sandali ..."
+    swf_not_loading: "Ikinalulungkot namin. SWFUpload hindi na-load. Maaaring kailanganin mong i-install o upgrade ng Flash Player. Bisitahin ang {{url}} upang makakuha ng Flash Player."
+    swf_taking_to_long: "SWFUpload ay kumukuha ng isang mahabang oras sa load o ang load ay nabigo. Mangyaring siguraduhin na ang mga Flash Plugin ay pinagana at nagtatrabaho na ang isang bersyon ng Adobe Flash Player na nai-install."
     upload_file: "Mag-upload ng File"
+    upload_files: "Mag-upload ng file"
