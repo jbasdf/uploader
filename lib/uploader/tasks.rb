@@ -16,9 +16,13 @@ module Uploader
           Rake::Task[:environment].invoke if defined?(RAILS_ROOT)
         end
         
-        desc 'Send all uploads to S3'
+        desc 'Send all uploads to S3.  (Will only send uploads from a model named Upload)'
         task :upload_to_s3 do
-          # TODO write rake task to upload to s3
+          uploads = Upload.pending_s3_migration
+          uploads.each do |upload|
+            upload.remote = upload.local
+            upload.save!
+          end
         end
 
         desc "Sync required files from uploader."

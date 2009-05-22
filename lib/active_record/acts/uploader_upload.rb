@@ -26,12 +26,8 @@ module ActiveRecord
           named_scope :documents, :conditions => "local_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
           named_scope :files, :conditions => "local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
           named_scope :since, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
-          named_scope :pending_s3_migration, lambda {
-            { :conditions =>  ["remote_file_name IS NULL AND created_at <= ?", 20.minutes.ago.to_s(:db)],
-              :order => 'created_at DESC',
-              :limit => 1 }
-          }
-
+          named_scope :pending_s3_migration, lambda { { :conditions =>  ["remote_file_name IS NULL AND created_at <= ?", 20.minutes.ago.to_s(:db)], :order => 'created_at DESC' } }
+          
           # Paperclip
           has_attached_file :local, options[:has_attached_file].merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
           if options[:enable_s3] == true

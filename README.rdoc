@@ -219,7 +219,38 @@ Create a file named s3.yml in your configuration directory and add the following
 There are a number of timing issues that you will run into if you attempt to upload files directly to s3.  To overcome that
 problem uploader includes a daemon process which will send the files to Amazon asynchronously.  Note that the uploader
 will leave your local copy in place.
-TODO docs for Daemon
+
+Add the daemons plugin:
+  Install the daemon_generator plugin
+
+TODO add daemon docs
+
+
+== Use Rake to send files to s3
+uploader includes a task capable of sending files to s3 but it makes an assumption that the model you are interacting with
+is named 'Upload'.
+
+  rake uploader:upload_to_s3 
+
+If you want to use a different model or several models just add a rake task to your project:
+
+  desc 'Send all uploads to S3.  (Will only send uploads from a model named Upload)'
+  task :upload_to_s3 do
+    
+    uploads = Upload.pending_s3_migration
+    uploads.each do |upload|
+      upload.remote = upload.local
+      upload.save!
+    end
+    
+    photos = Photo.pending_s3_migration
+    photos.each do |photo|
+      photo.remote = photo.local
+      photo.save!
+    end
+    
+  end
+  
 
 
 == Other Stuff
