@@ -86,7 +86,7 @@ default functionality that you may consider overriding.
 Be sure to modify your routes file.  Add the following line to ensure that your application uses the new uploads 
 controller instead of directly using the one inside the gem:
 
-  map.resources :uploads
+  map.resources :uploads, :collection => { :swfupload => :post }
   
 
   class UploadsController < Uploader::UploadsController
@@ -94,6 +94,14 @@ controller instead of directly using the one inside the gem:
     before_filter :login_required
     
     protected
+    
+    # The default 'get_upload_text' method throws an exception.  You must override this method in your controller.  It
+    # is used by the swf upload call to generate the html to be returned to the client.
+    # Here's an example:
+    def get_upload_text(upload)
+      render_to_string( :partial => 'uploads/upload_row', :object => upload, :locals => { :parent => @parent } )
+    end
+    
     # The existing method will handle most cases but you might choose a different message or a different redirect:
     def permission_denied
       message = t("uploader.permission_denied")
