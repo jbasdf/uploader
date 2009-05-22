@@ -96,15 +96,14 @@ controller instead of directly using the one inside the gem:
     protected
     # The existing method will handle most cases but you might choose a different message or a different redirect:
     def permission_denied
-      msg = t("uploader.permission_denied")
+      message = t("uploader.permission_denied")
       respond_to do |format|
         format.html do
-          flash[:notice] = msg
+          flash[:notice] = message
           redirect_to get_redirect
         end
-        format.js do
-          render :text => msg
-        end
+        format.js { render :text => message }
+        format.json { render :json => { :success => false, :message => message } }
       end
     end
   

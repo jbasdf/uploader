@@ -5,28 +5,22 @@ class Uploader::UploadsController < ApplicationController
   before_filter :get_parent, :only => [:create, :swfupload]
   before_filter :set_upload_for_destroy, :only => [:destroy]
   skip_before_filter :verify_authenticity_token
-  
+
   def create
-    
     # Standard, one-at-a-time, upload action
     @upload = @parent.uploads.build(params[:upload])
     @upload.creator = current_user
     @upload.save!
     message = t('uploader.successful_upload')
     upload_json = basic_uploads_json(@upload)
-    
+
     respond_to do |format|
       format.html do
         flash[:notice] = message
         redirect_to redirect_back_or_default(get_redirect)
-      end            
-      format.js do
-        responds_to_parent do
-          render :update do |page|
-            page << "upload_file_callback('#{upload_json}');"
-          end
-        end
-      end      
+      end
+      format.js { render :text => get_upload_text(@upload) }
+      format.json { render :json => upload_json }
     end
   rescue => ex
     message = t('uploader.standard_file_upload_error', :error => ex)
@@ -35,13 +29,8 @@ class Uploader::UploadsController < ApplicationController
         flash[:notice] = message
         redirect_back_or_default(get_redirect)
       end
-      format.js do
-        responds_to_parent do
-          render :update do |page|
-            page << "upload_file_fail_callback('#{message}');"
-          end
-        end
-      end
+      format.js { render :text => message }
+      format.json { render :json => { :success => false, :message => message } }
     end
   end
 
@@ -52,51 +41,57 @@ class Uploader::UploadsController < ApplicationController
     @upload.swfupload_local = params[:Filedata]
     @upload.save!
     @parent.uploads << @upload
-
     respond_to do |format|
-      format.json do
-        render :text => basic_uploads_json(@upload)
-      end
+      format.js { render :text => get_upload_text(@upload) }
+      format.json { render :json => basic_uploads_json(@upload) }
     end
   rescue => ex
-    render :text => t("uploader.file_upload_error")
+    message = t('uploader.standard_file_upload_error', :error => ex)
+    respond_to do |format|
+      format.js { render :text => message }
+      format.json { render :json => { :success => false, :message => message } }
+    end
   end
 
   def destroy
     @parent = @upload.uploadable # set this for redirect
     if @upload.can_edit?(current_user)
-      @upload.destroy 
-      msg = t('uploader.file_deleted')
+      @upload.destroy
+      message = t('uploader.file_deleted')
+      success = true
     else
-      msg = t("uploader.file_delete_permission_denied")
+      message = t("uploader.file_delete_permission_denied")
+      success = false
     end
-    
     respond_to do |format|
       format.html do
-        flash[:notice] = msg
+        flash[:notice] = message
         redirect_back_or_default(get_redirect)
       end
-      format.js { render :text => msg }
+      format.js { render :text => message }
+      format.json { render :json => { :success => success, :message => message } }
     end
-  
   end
-    
+
   protected
-  
+
+  def get_upload_text(upload)
+    raise 'implement get_upload_text in your controller'
+  end
+
   def set_upload_for_destroy
     @upload = Upload.find(params[:id])
   end
-  
+
   def permission_denied
-    msg = t("uploader.permission_denied")
+    message = t("uploader.permission_denied")
     respond_to do |format|
       format.html do
-        flash[:notice] = msg
+        flash[:notice] = message
         redirect_to get_redirect
       end
-      format.js do
-        render :text => msg
-      end
+      format.js { render :text => message }
+      format.json { render :json => { :success => false, :message => message } }
     end
   end
 
@@ -105,7 +100,7 @@ class Uploader::UploadsController < ApplicationController
   def get_redirect
     @parent
   end
-  
+
   def get_parent
     if !params[:parent_type] || !params[:parent_id]
       raise t('uploader.missing_parent_id_error')
@@ -117,13 +112,13 @@ class Uploader::UploadsController < ApplicationController
       permission_denied
     end
   end
-  
+
   def has_permission_to_upload(user, upload_parent)
     upload_parent.can_upload?(user)
   end
-  
+
   def basic_uploads_json(upload)
-    upload.to_json(:only => [:id, :data_file_name], :methods => [:icon])
+    upload.to_json(:only => [:id, :file_name], :methods => [:icon])
   end
-  
+
 end
