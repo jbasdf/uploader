@@ -133,19 +133,19 @@ module ActiveRecord
 
         def icon
           if self.is_pdf?
-            '/images/file_icons/pdf.gif'
+            '/images/file_icons/file_pdf.gif'
           elsif self.is_word?
-            '/images/file_icons/word.gif'
+            '/images/file_icons/file_doc.gif'
           elsif self.is_image?
             self.file.url(:icon)
           elsif self.is_mp3?
-            '/images/file_icons/mp3.gif'
+            '/images/file_icons/file_mp3.gif'
           elsif self.is_excel?
-            '/images/file_icons/excel.gif'
+            '/images/file_icons/file_xls.gif'
           elsif self.is_text?
-            '/images/file_icons/text.gif'
+            '/images/file_icons/file_txt.gif'
           else
-            '/images/file_icons/file.gif'
+            '/images/file_icons/file_raw.gif'
           end
         end
         
