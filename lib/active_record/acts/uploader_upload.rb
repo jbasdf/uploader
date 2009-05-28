@@ -40,6 +40,7 @@ module ActiveRecord
                                         
           class_eval <<-EOV
             validates_attachment_size :local, :less_than => 10.megabytes
+            
             before_post_process :transliterate_file_name
             before_create :add_width_and_height
             

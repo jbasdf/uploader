@@ -107,7 +107,7 @@ controller instead of directly using the one inside the gem:
 
   class UploadsController < Uploader::UploadsController
     
-    before_filter :login_required
+    prepend_before_filter :login_required
     
     protected
     
@@ -133,6 +133,7 @@ controller instead of directly using the one inside the gem:
   
     # Simply attempts to redirect to the parent object.  You might want to build something more sophisticated that
     # redirect to different areas of you site depending on the type of object that was uploaded or on based on the parent.
+    # source can be :destroy_success, :create_success, :create_failure, :permission_denied
     def get_redirect
       @parent
     end
@@ -152,19 +153,6 @@ controller instead of directly using the one inside the gem:
     end
     
   end
-
-
-=== Other Methods
-
-uploader assumes that you have a method called 'redirect_back_or_default' which is common in many Rails projects.  This method
-is called upon completion of destroy or created when the requested format is 'html'.  A simple implementation of this method is listed
-below:
-
-  def redirect_back_or_default(default)
-    redirect_to(session[:return_to] || default)
-    session[:return_to] = nil
-  end
-
 
 === Configure your views.
 You'll need something like this in your layout so that uploader can add in the required css and javascript files.

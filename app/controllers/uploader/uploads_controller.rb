@@ -7,7 +7,7 @@ class Uploader::UploadsController < ApplicationController
   def create
     # Standard, one-at-a-time, upload action
     @upload = @parent.uploads.build(params[:upload])
-    @upload.creator = current_user
+    @upload.creator = get_creator
     @upload.save!
     message = t('uploader.successful_upload')
     upload_json = basic_uploads_json(@upload)
@@ -15,7 +15,7 @@ class Uploader::UploadsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:notice] = message
-        redirect_to redirect_back_or_default(get_redirect)
+        redirect_to get_redirect(:create_success)
       end
       format.js { render :text => get_upload_text(@upload) }
       format.json { render :json => upload_json }
@@ -25,7 +25,7 @@ class Uploader::UploadsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:notice] = message
-        redirect_back_or_default(get_redirect)
+        redirect_to get_redirect(:create_failure)
       end
       format.js { render :text => message }
       format.json { render :json => { :success => false, :message => message } }
@@ -35,8 +35,8 @@ class Uploader::UploadsController < ApplicationController
   def swfupload
     @upload = @parent.uploads.build
     @upload.is_public = true if params[:is_public] == true
-    @upload.creator = current_user
-    @upload.swfupload_local = params[:Filedata]
+    @upload.creator = get_creator
+    @upload.swfupload_local = params[:filedata]
     @upload.save!
     @parent.uploads << @upload
     respond_to do |format|
@@ -64,7 +64,7 @@ class Uploader::UploadsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:notice] = message
-        redirect_back_or_default(get_redirect)
+        redirect_to get_redirect(:destroy_success)
       end
       format.js { render :text => message }
       format.json { render :json => { :success => success, :message => message } }
@@ -86,7 +86,7 @@ class Uploader::UploadsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:notice] = message
-        redirect_to get_redirect
+        redirect_to get_redirect(:permission_denied)
       end
       format.js { render :text => message }
       format.json { render :json => { :success => false, :message => message } }
@@ -94,8 +94,8 @@ class Uploader::UploadsController < ApplicationController
   end
 
   # override this method in your controller to set the redirect file upload completion
-  # alternatively set redirect_back_or_default
-  def get_redirect
+  # source can be :destroy_success, :create_success, :create_failure, :permission_denied
+  def get_redirect(source)
     @parent
   end
 
@@ -111,6 +111,10 @@ class Uploader::UploadsController < ApplicationController
     end
   end
 
+  def get_creator
+    current_user
+  end
+  
   def has_permission_to_upload(user, upload_parent)
     upload_parent.can_upload?(user)
   end
