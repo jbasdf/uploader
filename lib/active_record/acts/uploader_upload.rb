@@ -31,7 +31,9 @@ module ActiveRecord
           # Paperclip
           has_attached_file :local, options[:has_attached_file].merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
           if options[:enable_s3] == true
-            has_attached_file :remote, options[:has_attached_file]
+            has_attached_file :remote, options[:has_attached_file].merge(:url => ':s3_alias_url',
+                                                                         :path => options[:s3_path],
+                                                                         :storage => :s3)
           end
 
 

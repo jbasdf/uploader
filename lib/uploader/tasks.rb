@@ -28,9 +28,11 @@ module Uploader
         desc "Sync required files from uploader."
         task :sync do
           path = File.join(File.dirname(__FILE__), *%w[.. ..])
-          puts path
+          daemons_path = "#{RAILS_ROOT}/lib/daemons"
           system "rsync -ruv #{path}/public ."
           system "rsync -ruv #{path}/db ."
+          FileUtils.mkdir_p(daemons_path) unless File.directory?(daemons_path)          
+          FileUtils.cp_r("#{path}/lib/daemons/amazonaws.rb", "#{RAILS_ROOT}/lib/daemons/amazonaws.rb")
         end
         
       end

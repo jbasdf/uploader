@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Fri May 22 14:12:09 -0600 2009</td>
+      <td>Thu May 28 19:40:14 -0600 2009</td>
     </tr>
     </table>
   </div>
@@ -87,6 +87,21 @@ sudo gem install uploader
 <p>
 config.gem &#8216;uploader&#8216;
 </p>
+<h3>Install jQuery</h3>
+<p>
+uploader uses jQuery. You&#8216;ll need to include it in your application.
+Download it here: <a href="http://jquery.com">jquery.com</a>/
+</p>
+<p>
+Then include it in your layout:
+</p>
+<pre>
+  &lt;%= javascript_include_tag 'jquery/jquery.js' %&gt;
+</pre>
+<p>
+Another option is to use jRails <a
+href="http://ennerchi.com/projects/jrails">ennerchi.com/projects/jrails</a>
+</p>
 <h3>Create a model for uploads.</h3>
 <p>
 We recommend creating a model called upload.rb. acts_as_uploader accepts
@@ -94,23 +109,26 @@ all valid options for paperclip via :has_attached_file =&gt; {}
 </p>
 <pre>
   class Upload &lt; ActiveRecord::Base
-    acts_as_uploader  :enable_s3 =&gt; false,
-                      :has_attached_file =&gt; {
-                        :url     =&gt; &quot;/system/:attachment/:id_partition/:style/:basename.:extension&quot;,
-                        :path    =&gt; &quot;:rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension&quot;,
-                        :styles  =&gt; { :icon =&gt; &quot;30x30!&quot;,
-                                      :thumb =&gt; &quot;100&gt;&quot;,
-                                      :small =&gt; &quot;150&gt;&quot;,
-                                      :medium =&gt; &quot;300&gt;&quot;,
-                                      :large =&gt; &quot;660&gt;&quot;},
-                        :default_url =&gt; &quot;/images/profile_default.jpg&quot;,
-                        :storage =&gt; :s3,
-                        :s3_credentials =&gt; File.join(RAILS_ROOT, 'config', 's3.yml'),
-                        :bucket =&gt; &quot;assets.#{SITE[:domain]}&quot;,
-                        :s3_host_alias =&gt; &quot;assets.#{SITE[:domain]}&quot;,
-                        :convert_options =&gt; {
-                           :all =&gt; '-quality 80'
-                         }
+
+   acts_as_uploader  :enable_s3 =&gt; false,
+                     :has_attached_file =&gt; {
+                       :url     =&gt; &quot;/system/:attachment/:id_partition/:style/:basename.:extension&quot;,
+                       :path    =&gt; &quot;:rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension&quot;,
+                       :styles  =&gt; { :icon =&gt; &quot;30x30!&quot;,
+                                     :thumb =&gt; &quot;100&gt;&quot;,
+                                     :small =&gt; &quot;150&gt;&quot;,
+                                     :medium =&gt; &quot;300&gt;&quot;,
+                                     :large =&gt; &quot;660&gt;&quot; },
+                       :default_url =&gt; &quot;/images/profile_default.jpg&quot;,
+                       :storage =&gt; :s3,
+                       :s3_credentials =&gt; AMAZON_S3_CREDENTIALS,
+                       :bucket =&gt; &quot;assets.example.com&quot;,
+                       :s3_host_alias =&gt; &quot;assets.example.com&quot;,
+                       :convert_options =&gt; {
+                          :all =&gt; '-quality 80'
+                        }
+                     },
+                     :s3_path =&gt; ':id_partition/:style/:basename.:extension'
 
     # only allow images:
     # validates_attachment_content_type :file, :content_type =&gt; ['image/jpeg', 'image/pjpeg', 'image/jpg']
@@ -183,7 +201,7 @@ the one inside the gem:
 
   class UploadsController &lt; Uploader::UploadsController
 
-    before_filter :login_required
+    prepend_before_filter :login_required
 
     protected
 
@@ -209,6 +227,7 @@ the one inside the gem:
 
     # Simply attempts to redirect to the parent object.  You might want to build something more sophisticated that
     # redirect to different areas of you site depending on the type of object that was uploaded or on based on the parent.
+    # source can be :destroy_success, :create_success, :create_failure, :permission_denied
     def get_redirect
       @parent
     end
@@ -226,20 +245,6 @@ the one inside the gem:
       @upload = Photo.find(params[:id])
     end
 
-  end
-</pre>
-<h3>Other Methods</h3>
-<p>
-uploader assumes that you have a method called
-&#8216;redirect_back_or_default&#8217; which is common in many Rails
-projects. This method is called upon completion of destroy or created when
-the requested format is &#8216;html&#8217;. A simple implementation of this
-method is listed below:
-</p>
-<pre>
-  def redirect_back_or_default(default)
-    redirect_to(session[:return_to] || default)
-    session[:return_to] = nil
   end
 </pre>
 <h3>Configure your views.</h3>
@@ -322,7 +327,76 @@ following lines:
 There are a number of timing issues that you will run into if you attempt
 to upload files directly to s3. To overcome that problem uploader includes
 a daemon process which will send the files to Amazon asynchronously. Note
-that the uploader will leave your local copy in place. TODO docs for Daemon
+that the uploader will leave your local copy in place.
+</p>
+<p>
+Add the daemons gem and plugin:
+</p>
+<pre>
+  sudo gem install daemons
+</pre>
+<p>
+Then inside your Rails project:
+</p>
+<pre>
+  script/plugin install git://github.com/dougal/daemon_generator.git
+  script/generate daemon amazonaws
+
+  RAILS_ENV=development lib/daemons/mailer_ctl start
+</pre>
+<p>
+Learn more about the custom daemon gem with Ryan Bates screencast:
+</p>
+<pre>
+  http://railscasts.com/episodes/129-custom-daemon
+</pre>
+<h2>Use Rake to send files to s3</h2>
+<p>
+uploader includes a task capable of sending files to s3 but it makes an
+assumption that the model you are interacting with is named
+&#8216;Upload&#8217;.
+</p>
+<pre>
+  rake uploader:upload_to_s3
+</pre>
+<p>
+If you want to use a different model or several models just add a rake task
+to your project:
+</p>
+<pre>
+  desc 'Send all uploads to S3.  (Will only send uploads from a model named Upload)'
+  task :upload_to_s3 do
+
+    uploads = Upload.pending_s3_migration
+    uploads.each do |upload|
+      upload.remote = upload.local
+      upload.save!
+    end
+
+    photos = Photo.pending_s3_migration
+    photos.each do |photo|
+      photo.remote = photo.local
+      photo.save!
+    end
+
+  end
+</pre>
+<h2>Setup Domains</h2>
+<p>
+If you use Amazon&#8216;s S3 service you can setup a cname to clean up your
+urls. Configure your s3 bucket as above:
+</p>
+<pre>
+  :bucket =&gt; &quot;assets.example.com&quot;
+  :s3_host_alias =&gt; &quot;assets.example.com&quot;
+</pre>
+<p>
+Your assets will be available at assets.example.com.s3.amazon.com. You can
+then create a CNAME in your DNS entries to point
+&quot;assets.example.com&quot; to
+&quot;assets.example.com.s3.amazon.com&quot;. Your assets will then appear
+to be be served from assets.example.com even though they are loaded from
+Amazon.
 </p>
 <h2>Other Stuff</h2>
 <p>

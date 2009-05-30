@@ -31,24 +31,27 @@ http://ennerchi.com/projects/jrails
 We recommend creating a model called upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
 
   class Upload < ActiveRecord::Base
-    acts_as_uploader  :enable_s3 => false,
-                      :has_attached_file => {
-                        :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-                        :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
-                        :styles  => { :icon => "30x30!", 
-                                      :thumb => "100>", 
-                                      :small => "150>", 
-                                      :medium => "300>", 
-                                      :large => "660>"},
-                        :default_url => "/images/profile_default.jpg",
-                        :storage => :s3,
-                        :s3_credentials => File.join(RAILS_ROOT, 'config', 's3.yml'),
-                        :bucket => "assets.#{SITE[:domain]}",
-                        :s3_host_alias => "assets.#{SITE[:domain]}",
-                        :convert_options => {
-                           :all => '-quality 80'
-                         }
-                           
+
+   acts_as_uploader  :enable_s3 => false,
+                     :has_attached_file => {
+                       :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
+                       :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+                       :styles  => { :icon => "30x30!", 
+                                     :thumb => "100>", 
+                                     :small => "150>", 
+                                     :medium => "300>", 
+                                     :large => "660>" },
+                       :default_url => "/images/profile_default.jpg",
+                       :storage => :s3,
+                       :s3_credentials => AMAZON_S3_CREDENTIALS,
+                       :bucket => "assets.example.com",
+                       :s3_host_alias => "assets.example.com",
+                       :convert_options => {
+                          :all => '-quality 80'
+                        }
+                     },
+                     :s3_path => ':id_partition/:style/:basename.:extension'
+                                                                  
     # only allow images:
     # validates_attachment_content_type :file, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
     
@@ -208,10 +211,17 @@ There are a number of timing issues that you will run into if you attempt to upl
 problem uploader includes a daemon process which will send the files to Amazon asynchronously.  Note that the uploader
 will leave your local copy in place.
 
-Add the daemons plugin:
-  Install the daemon_generator plugin
+Add the daemons gem and plugin:
+  sudo gem install daemons
 
-TODO add daemon docs
+Then inside your Rails project:
+  script/plugin install git://github.com/dougal/daemon_generator.git
+  script/generate daemon amazonaws
+  
+  RAILS_ENV=development lib/daemons/mailer_ctl start
+
+Learn more about the custom daemon gem with Ryan Bates screencast:
+  http://railscasts.com/episodes/129-custom-daemon
 
 
 == Use Rake to send files to s3
@@ -238,7 +248,16 @@ If you want to use a different model or several models just add a rake task to y
     end
     
   end
-  
+
+== Setup Domains
+If you use Amazon's S3 service you can setup a cname to clean up your urls.  Configure your s3 bucket as above:
+
+  :bucket => "assets.example.com"
+  :s3_host_alias => "assets.example.com"
+
+Your assets will be available at assets.example.com.s3.amazon.com.  You can then create a CNAME in your DNS entries
+to point "assets.example.com" to "assets.example.com.s3.amazon.com".  Your assets will then appear to be
+be served from assets.example.com even though they are loaded from Amazon.
 
 
 == Other Stuff

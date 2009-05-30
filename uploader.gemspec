@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.1.6"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-05-28}
+  s.date = %q{2009-05-30}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
      "app/views/uploads/_swf_javascript.html.erb",
      "app/views/uploads/_swf_upload.html.erb",
      "config/uploader_routes.rb",
-     "db/migrate/20090517040220_create_uploads.rb",
      "db/migrate/20090517040220_create_uploads.rb",
      "lib/active_record/acts/uploader_upload.rb",
      "lib/daemons/amazonaws.rb",
@@ -65,109 +64,54 @@ Gem::Specification.new do |s|
      "locales/zh-CN.yml",
      "locales/zh-TW.yml",
      "locales/zh.yml",
-     "pkg/uploader-0.1.0.gem",
-     "pkg/uploader-0.1.1.gem",
-     "pkg/uploader-0.1.2.gem",
-     "pkg/uploader-0.1.3.gem",
-     "pkg/uploader-0.1.4.gem",
      "public/images/SWFUploadButton.png",
-     "public/images/file_icons/Thumbs.db",
-     "public/images/file_icons/Thumbs.db",
-     "public/images/file_icons/excel.gif",
      "public/images/file_icons/excel.gif",
      "public/images/file_icons/file.gif",
-     "public/images/file_icons/file.gif",
-     "public/images/file_icons/file.png",
      "public/images/file_icons/file.png",
      "public/images/file_icons/file_aac.gif",
-     "public/images/file_icons/file_aac.gif",
-     "public/images/file_icons/file_ai.gif",
      "public/images/file_icons/file_ai.gif",
      "public/images/file_icons/file_avi.gif",
-     "public/images/file_icons/file_avi.gif",
-     "public/images/file_icons/file_bin.gif",
      "public/images/file_icons/file_bin.gif",
      "public/images/file_icons/file_bmp.gif",
-     "public/images/file_icons/file_bmp.gif",
-     "public/images/file_icons/file_cue.gif",
      "public/images/file_icons/file_cue.gif",
      "public/images/file_icons/file_divx.gif",
-     "public/images/file_icons/file_divx.gif",
-     "public/images/file_icons/file_doc.gif",
      "public/images/file_icons/file_doc.gif",
      "public/images/file_icons/file_eps.gif",
-     "public/images/file_icons/file_eps.gif",
-     "public/images/file_icons/file_flac.gif",
      "public/images/file_icons/file_flac.gif",
      "public/images/file_icons/file_flv.gif",
-     "public/images/file_icons/file_flv.gif",
-     "public/images/file_icons/file_gif.gif",
      "public/images/file_icons/file_gif.gif",
      "public/images/file_icons/file_html.gif",
-     "public/images/file_icons/file_html.gif",
-     "public/images/file_icons/file_ical.gif",
      "public/images/file_icons/file_ical.gif",
      "public/images/file_icons/file_indd.gif",
-     "public/images/file_icons/file_indd.gif",
-     "public/images/file_icons/file_inx.gif",
      "public/images/file_icons/file_inx.gif",
      "public/images/file_icons/file_iso.gif",
-     "public/images/file_icons/file_iso.gif",
-     "public/images/file_icons/file_jpg.gif",
      "public/images/file_icons/file_jpg.gif",
      "public/images/file_icons/file_mov.gif",
-     "public/images/file_icons/file_mov.gif",
-     "public/images/file_icons/file_mp3.gif",
      "public/images/file_icons/file_mp3.gif",
      "public/images/file_icons/file_mpg.gif",
-     "public/images/file_icons/file_mpg.gif",
-     "public/images/file_icons/file_pdf.gif",
      "public/images/file_icons/file_pdf.gif",
      "public/images/file_icons/file_php.gif",
-     "public/images/file_icons/file_php.gif",
-     "public/images/file_icons/file_png.gif",
      "public/images/file_icons/file_png.gif",
      "public/images/file_icons/file_pps.gif",
-     "public/images/file_icons/file_pps.gif",
-     "public/images/file_icons/file_ppt.gif",
      "public/images/file_icons/file_ppt.gif",
      "public/images/file_icons/file_psd.gif",
-     "public/images/file_icons/file_psd.gif",
-     "public/images/file_icons/file_qxd.gif",
      "public/images/file_icons/file_qxd.gif",
      "public/images/file_icons/file_qxp.gif",
-     "public/images/file_icons/file_qxp.gif",
-     "public/images/file_icons/file_raw.gif",
      "public/images/file_icons/file_raw.gif",
      "public/images/file_icons/file_rtf.gif",
-     "public/images/file_icons/file_rtf.gif",
-     "public/images/file_icons/file_svg.gif",
      "public/images/file_icons/file_svg.gif",
      "public/images/file_icons/file_tif.gif",
-     "public/images/file_icons/file_tif.gif",
-     "public/images/file_icons/file_txt.gif",
      "public/images/file_icons/file_txt.gif",
      "public/images/file_icons/file_vcf.gif",
-     "public/images/file_icons/file_vcf.gif",
-     "public/images/file_icons/file_wav.gif",
      "public/images/file_icons/file_wav.gif",
      "public/images/file_icons/file_wma.gif",
-     "public/images/file_icons/file_wma.gif",
-     "public/images/file_icons/file_xls.gif",
      "public/images/file_icons/file_xls.gif",
      "public/images/file_icons/file_xml.gif",
-     "public/images/file_icons/file_xml.gif",
-     "public/images/file_icons/mp3.gif",
      "public/images/file_icons/mp3.gif",
      "public/images/file_icons/pdf.gif",
-     "public/images/file_icons/pdf.gif",
-     "public/images/file_icons/pdf.png",
      "public/images/file_icons/pdf.png",
      "public/images/file_icons/text.gif",
-     "public/images/file_icons/text.gif",
      "public/images/file_icons/text.png",
-     "public/images/file_icons/text.png",
-     "public/images/file_icons/word.gif",
      "public/images/file_icons/word.gif",
      "public/javascripts/swfupload/fileprogress.js",
      "public/javascripts/swfupload/handlers.js",
@@ -228,8 +172,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<mime-types>, [">= 0"])
     else
+      s.add_dependency(%q<mime-types>, [">= 0"])
     end
   else
+    s.add_dependency(%q<mime-types>, [">= 0"])
   end
 end

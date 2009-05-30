@@ -31,9 +31,9 @@ begin
     gemspec.homepage = "http://github.com/jbasdf/uploader"
     gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip"
     gemspec.authors = ["Justin Ball", "David South"]
-    gemspec.files.include %w( db/migrate/*.rb public/images/file_icons/* )
     #gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb lib/uploader/middleware/*.rb db/migrate/*.rb public/images/file_icons/* app/views/uploads/* )
-    gemspec.rubyforge_project = 'uploader'    
+    gemspec.rubyforge_project = 'uploader'
+    gemspec.add_dependency "mime-types"
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
@@ -55,7 +55,7 @@ begin
         )
 
         host = "#{config['username']}@rubyforge.org"
-        remote_dir = "/var/www/gforge-projects/the-perfect-gem/"
+        remote_dir = "/var/www/gforge-projects/uploader/"
         local_dir = 'rdoc'
 
         Rake::SshDirPublisher.new(host, remote_dir, local_dir).upload
