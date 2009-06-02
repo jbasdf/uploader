@@ -36,7 +36,7 @@ class Uploader::UploadsController < ApplicationController
     @upload = @parent.uploads.build
     @upload.is_public = true if params[:is_public] == true
     @upload.creator = get_creator
-    @upload.swfupload_local = params[:filedata]
+    @upload.swfupload_local = params[:Filedata]
     @upload.save!
     @parent.uploads << @upload
     respond_to do |format|

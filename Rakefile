@@ -8,8 +8,8 @@ task :default => :test
 desc 'Test the uploader plugin.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
+  t.libs << 'test/rails_root/test'
+  t.pattern = 'test/rails_root/test/**/*_test.rb'
   t.verbose = true
 end
 

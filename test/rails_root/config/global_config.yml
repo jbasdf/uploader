@@ -1,0 +1,18 @@
+#The account plugin needs to be configured.  The following values may be used to customize the account
+
+default: &DEFAULT
+
+  application_url: localhost:3000
+  
+  # session key information
+  session_key: _uploader_session
+  session_secret: ea55c4d5e105735fdfb1caec46711b3dd14ec976d0ba95b4c0f575cb046cc358bce7a335ee36eb29253fb680ef8b838d871f6baeff48220fee8e9e42ab84774b
+
+production:
+  <<: *DEFAULT
+  
+development:
+  <<: *DEFAULT
+  
+test:
+  <<: *DEFAULT
