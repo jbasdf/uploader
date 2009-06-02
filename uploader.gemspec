@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-06-01}
+  s.date = %q{2009-06-02}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -269,10 +269,13 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mime-types>, [">= 0"])
+      s.add_runtime_dependency(%q<rack>, [">= 0"])
     else
       s.add_dependency(%q<mime-types>, [">= 0"])
+      s.add_dependency(%q<rack>, [">= 0"])
     end
   else
     s.add_dependency(%q<mime-types>, [">= 0"])
+    s.add_dependency(%q<rack>, [">= 0"])
   end
 end

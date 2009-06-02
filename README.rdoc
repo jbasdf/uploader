@@ -8,8 +8,9 @@ Uploader makes it easy to integrate multiple file uploads into your application 
 === Install the gem:
 sudo gem install uploader
 
-Installing uploader should also install mime-types.  If for some reason it does not then manually install it:
+Installing uploader should also install mime-types and rack.  If for some reason it does not then manually install it:
 sudo gem install mime-types
+sudo gem install rack
 
 
 === Add the gem to environment.rb

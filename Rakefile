@@ -5,7 +5,7 @@ require 'rake/rdoctask'
 desc 'Default: run unit tests.'
 task :default => :test
 
-desc 'Test the uploader plugin.'
+desc 'Test the uploader gem.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.libs << 'test/rails_root/test'
@@ -34,6 +34,7 @@ begin
     #gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb lib/uploader/middleware/*.rb db/migrate/*.rb public/images/file_icons/* app/views/uploads/* )
     gemspec.rubyforge_project = 'uploader'
     gemspec.add_dependency "mime-types"
+    gemspec.add_dependency "rack"
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
