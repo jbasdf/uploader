@@ -31,7 +31,7 @@ begin
     gemspec.homepage = "http://github.com/jbasdf/uploader"
     gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip"
     gemspec.authors = ["Justin Ball", "David South"]
-    #gemspec.files.include %w( tasks/rails.rake lib/uploader/*.rb lib/uploader/middleware/*.rb db/migrate/*.rb public/images/file_icons/* app/views/uploads/* )
+    gemspec.files.include %w( test/rails_root/db/* )
     gemspec.rubyforge_project = 'uploader'
     gemspec.add_dependency "mime-types"
     gemspec.add_dependency "rack"
