@@ -22,9 +22,9 @@ class UploadTest < ActiveSupport::TestCase
 
     should 'transliterate the filename' do
       upload = Upload.new
-      file = fixture_file %Q{IT's, UPPERCASE!  AND, WeIRD.JPG}
+      file = fixture_file %Q{IT'sUPPERCASE!AND WeIRD.JPG}
       upload.local = file
-      assert_equal 'it-s-uppercase-and-weird.jpg', upload.local.original_filename
+      assert_equal 'it-suppercase-and-weird.jpg', upload.local.original_filename
       file.close
     end
  

@@ -145,17 +145,17 @@ All the methods available to a record that has had
             onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000025-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 192</span>
-192:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>)
-193:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">image_ratio</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
-194:             <span class="ruby-ivar">@image_width</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">width</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">width</span>
-195:             <span class="ruby-ivar">@image_height</span> <span class="ruby-operator">||=</span> (<span class="ruby-ivar">@image_width</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">image_ratio</span>).<span class="ruby-identifier">round</span>
-196:           <span class="ruby-keyword kw">else</span>
-197:             <span class="ruby-ivar">@image_height</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">height</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">height</span>
-198:             <span class="ruby-ivar">@image_width</span> <span class="ruby-operator">||=</span> (<span class="ruby-ivar">@image_height</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">image_ratio</span>).<span class="ruby-identifier">round</span>
-199:           <span class="ruby-keyword kw">end</span>
-200:           <span class="ruby-ivar">@image_size</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{@image_width.to_i}x#{@image_height.to_i}&quot;</span>
-201:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 188</span>
+188:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>)
+189:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">image_ratio</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+190:             <span class="ruby-ivar">@image_width</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">width</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">width</span>
+191:             <span class="ruby-ivar">@image_height</span> <span class="ruby-operator">||=</span> (<span class="ruby-ivar">@image_width</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">image_ratio</span>).<span class="ruby-identifier">round</span>
+192:           <span class="ruby-keyword kw">else</span>
+193:             <span class="ruby-ivar">@image_height</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">height</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">height</span>
+194:             <span class="ruby-ivar">@image_width</span> <span class="ruby-operator">||=</span> (<span class="ruby-ivar">@image_height</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">image_ratio</span>).<span class="ruby-identifier">round</span>
+195:           <span class="ruby-keyword kw">end</span>
+196:           <span class="ruby-ivar">@image_size</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{@image_width.to_i}x#{@image_height.to_i}&quot;</span>
+197:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -175,11 +175,11 @@ All the methods available to a record that has had
             onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000019-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 156</span>
-156:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">can_edit?</span>(<span class="ruby-identifier">check_user</span>)
-157:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">check_user</span>.<span class="ruby-identifier">blank?</span>
-158:           <span class="ruby-identifier">check_user</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">creator</span>
-159:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 152</span>
+152:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">can_edit?</span>(<span class="ruby-identifier">check_user</span>)
+153:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">check_user</span>.<span class="ruby-identifier">blank?</span>
+154:           <span class="ruby-identifier">check_user</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">creator</span>
+155:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -199,10 +199,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000018-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 152</span>
-152:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_name</span>
-153:           <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escapeHTML</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_file_name</span>)
-154:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 148</span>
+148:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_name</span>
+149:           <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escapeHTML</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_file_name</span>)
+150:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -222,10 +222,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000006-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 67</span>
-67:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file</span>
-68:           <span class="ruby-identifier">local_file_name</span> <span class="ruby-value">? </span><span class="ruby-identifier">local</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">remote</span>
-69:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 63</span>
+63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file</span>
+64:           <span class="ruby-identifier">local_file_name</span> <span class="ruby-value">? </span><span class="ruby-identifier">local</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">remote</span>
+65:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -245,10 +245,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000007-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 71</span>
-71:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file_name</span>
-72:           <span class="ruby-identifier">remote_file_name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">local_file_name</span>
-73:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 67</span>
+67:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file_name</span>
+68:           <span class="ruby-identifier">remote_file_name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">local_file_name</span>
+69:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -268,13 +268,13 @@ All the methods available to a record that has had
             onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000021-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 170</span>
-170:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">height</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
-171:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>]
-172:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
-173:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
-174:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_height</span>.<span class="ruby-identifier">to_i</span>
-175:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 166</span>
+166:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">height</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
+167:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>]
+168:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
+169:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
+170:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_height</span>.<span class="ruby-identifier">to_i</span>
+171:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -294,24 +294,24 @@ All the methods available to a record that has had
             onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000017-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 134</span>
-134:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">icon</span>
-135:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_pdf?</span>
-136:             <span class="ruby-value str">'/images/file_icons/file_pdf.gif'</span>
-137:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_word?</span>
-138:             <span class="ruby-value str">'/images/file_icons/file_doc.gif'</span>
-139:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
-140:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">:icon</span>)
-141:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_mp3?</span>
-142:             <span class="ruby-value str">'/images/file_icons/file_mp3.gif'</span>
-143:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_excel?</span>
-144:             <span class="ruby-value str">'/images/file_icons/file_xls.gif'</span>
-145:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_text?</span>
-146:             <span class="ruby-value str">'/images/file_icons/file_txt.gif'</span>
-147:           <span class="ruby-keyword kw">else</span>
-148:             <span class="ruby-value str">'/images/file_icons/file_raw.gif'</span>
-149:           <span class="ruby-keyword kw">end</span>
-150:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 130</span>
+130:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">icon</span>
+131:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_pdf?</span>
+132:             <span class="ruby-value str">'/images/file_icons/file_pdf.gif'</span>
+133:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_word?</span>
+134:             <span class="ruby-value str">'/images/file_icons/file_doc.gif'</span>
+135:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
+136:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">:icon</span>)
+137:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_mp3?</span>
+138:             <span class="ruby-value str">'/images/file_icons/file_mp3.gif'</span>
+139:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_excel?</span>
+140:             <span class="ruby-value str">'/images/file_icons/file_xls.gif'</span>
+141:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_text?</span>
+142:             <span class="ruby-value str">'/images/file_icons/file_txt.gif'</span>
+143:           <span class="ruby-keyword kw">else</span>
+144:             <span class="ruby-value str">'/images/file_icons/file_raw.gif'</span>
+145:           <span class="ruby-keyword kw">end</span>
+146:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -331,10 +331,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000024-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 188</span>
-188:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_ratio</span>
-189:           <span class="ruby-ivar">@image_ratio</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span>
-190:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 184</span>
+184:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_ratio</span>
+185:           <span class="ruby-ivar">@image_ratio</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span>
+186:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -354,10 +354,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000012-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 100</span>
-100:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_excel?</span>
-101:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">EXCEL_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-102:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 96</span>
+96:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_excel?</span>
+97:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">EXCEL_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+98:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -377,10 +377,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000010-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 92</span>
-92:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_image?</span>
-93:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAGE_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-94:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 88</span>
+88:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_image?</span>
+89:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAGE_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+90:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -400,10 +400,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000011-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 96</span>
-96:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_mp3?</span>
-97:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">MP3_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-98:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 92</span>
+92:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_mp3?</span>
+93:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">MP3_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+94:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -423,10 +423,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000013-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 104</span>
-104:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_pdf?</span>
-105:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">PDF_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-106:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 100</span>
+100:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_pdf?</span>
+101:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">PDF_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+102:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -446,10 +446,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000015-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 112</span>
-112:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_text?</span>
-113:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-114:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 108</span>
+108:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_text?</span>
+109:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+110:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -469,10 +469,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000014-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 108</span>
-108:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_word?</span>
-109:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">WORD_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
-110:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 104</span>
+104:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_word?</span>
+105:           <span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MimeTypeGroups</span><span class="ruby-operator">::</span><span class="ruby-constant">WORD_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local_content_type</span>)
+106:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -492,10 +492,10 @@ All the methods available to a record that has had
             onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000023-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 184</span>
-184:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>)
-185:           <span class="ruby-ivar">@max_dimension</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Paperclip</span><span class="ruby-operator">::</span><span class="ruby-constant">Geometry</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">styles</span>[<span class="ruby-identifier">style</span>][<span class="ruby-identifier">:geometry</span>]).<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span>
-186:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 180</span>
+180:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">max_dimension</span>(<span class="ruby-identifier">style</span>)
+181:           <span class="ruby-ivar">@max_dimension</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Paperclip</span><span class="ruby-operator">::</span><span class="ruby-constant">Geometry</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">styles</span>[<span class="ruby-identifier">style</span>][<span class="ruby-identifier">:geometry</span>]).<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span>
+182:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -515,18 +515,18 @@ All the methods available to a record that has had
             onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000008-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 75</span>
-75:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_to_remote</span>
-76:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">local_file_name</span>
-77:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remote</span> = <span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
-78:             <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">remote</span>.<span class="ruby-identifier">original_filename</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">remote</span>.<span class="ruby-identifier">exists?</span>
-79:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span> = <span class="ruby-keyword kw">nil</span>
-80:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
-81:             <span class="ruby-keyword kw">else</span>
-82:               <span class="ruby-keyword kw">false</span>
-83:             <span class="ruby-keyword kw">end</span>
-84:           <span class="ruby-keyword kw">end</span>
-85:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 71</span>
+71:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_to_remote</span>
+72:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">local_file_name</span>
+73:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remote</span> = <span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
+74:             <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">remote</span>.<span class="ruby-identifier">original_filename</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">remote</span>.<span class="ruby-identifier">exists?</span>
+75:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span> = <span class="ruby-keyword kw">nil</span>
+76:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
+77:             <span class="ruby-keyword kw">else</span>
+78:               <span class="ruby-keyword kw">false</span>
+79:             <span class="ruby-keyword kw">end</span>
+80:           <span class="ruby-keyword kw">end</span>
+81:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -546,13 +546,13 @@ All the methods available to a record that has had
             onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000022-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 177</span>
-177:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
-178:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">width</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">height</span>
-179:           <span class="ruby-keyword kw">return</span> <span class="ruby-node">&quot;#{width}x#{height}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
-180:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
-181:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_size</span>
-182:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 173</span>
+173:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
+174:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">width</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">height</span>
+175:           <span class="ruby-keyword kw">return</span> <span class="ruby-node">&quot;#{width}x#{height}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
+176:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
+177:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_size</span>
+178:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -572,11 +572,11 @@ All the methods available to a record that has had
             onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000009-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 87</span>
-87:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">swfupload_local=</span>(<span class="ruby-identifier">filedata</span>)
-88:           <span class="ruby-identifier">filedata</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">type_for</span>(<span class="ruby-identifier">filedata</span>.<span class="ruby-identifier">original_filename</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
-89:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span> = <span class="ruby-identifier">filedata</span>
-90:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 83</span>
+83:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">swfupload_local=</span>(<span class="ruby-identifier">filedata</span>)
+84:           <span class="ruby-identifier">filedata</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">type_for</span>(<span class="ruby-identifier">filedata</span>.<span class="ruby-identifier">original_filename</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
+85:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span> = <span class="ruby-identifier">filedata</span>
+86:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -596,24 +596,24 @@ All the methods available to a record that has had
             onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000016-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 116</span>
-116:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upload_type</span>
-117:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_pdf?</span>
-118:             <span class="ruby-value str">'Adobe pdf file'</span>
-119:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_word?</span>
-120:             <span class="ruby-value str">'Word document'</span>
-121:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
-122:             <span class="ruby-value str">'photo'</span>
-123:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_mp3?</span>
-124:             <span class="ruby-value str">'mp3'</span>
-125:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_excel?</span>
-126:             <span class="ruby-value str">'Excel document'</span>
-127:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_text?</span>
-128:             <span class="ruby-value str">'text file'</span>
-129:           <span class="ruby-keyword kw">else</span>
-130:             <span class="ruby-value str">'file'</span>
-131:           <span class="ruby-keyword kw">end</span>
-132:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 112</span>
+112:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upload_type</span>
+113:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_pdf?</span>
+114:             <span class="ruby-value str">'Adobe pdf file'</span>
+115:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_word?</span>
+116:             <span class="ruby-value str">'Word document'</span>
+117:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
+118:             <span class="ruby-value str">'photo'</span>
+119:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_mp3?</span>
+120:             <span class="ruby-value str">'mp3'</span>
+121:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_excel?</span>
+122:             <span class="ruby-value str">'Excel document'</span>
+123:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_text?</span>
+124:             <span class="ruby-value str">'text file'</span>
+125:           <span class="ruby-keyword kw">else</span>
+126:             <span class="ruby-value str">'file'</span>
+127:           <span class="ruby-keyword kw">end</span>
+128:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -636,13 +636,13 @@ Image dimension calculations
             onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000020-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 163</span>
-163:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">width</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
-164:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>]
-165:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
-166:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
-167:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_width</span>.<span class="ruby-identifier">to_i</span>
-168:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 159</span>
+159:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">width</span>(<span class="ruby-identifier">style</span> = <span class="ruby-identifier">:default</span>)
+160:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>]
+161:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:default</span>
+162:           <span class="ruby-identifier">calculate_sizes</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_sym</span>)
+163:           <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@image_width</span>.<span class="ruby-identifier">to_i</span>
+164:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -664,15 +664,15 @@ Image dimension calculations
             onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000028-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 223</span>
-223:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_width_and_height</span>
-224:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
-225:             <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
-226:               <span class="ruby-identifier">geometry</span> = <span class="ruby-constant">Paperclip</span><span class="ruby-operator">::</span><span class="ruby-constant">Geometry</span>.<span class="ruby-identifier">from_file</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
-227:               <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>] = <span class="ruby-identifier">geometry</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_i</span>
-228:               <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>] = <span class="ruby-identifier">geometry</span>.<span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_i</span>
-229:             <span class="ruby-keyword kw">end</span>
-230:           <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 219</span>
+219:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_width_and_height</span>
+220:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_image?</span>
+221:             <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
+222:               <span class="ruby-identifier">geometry</span> = <span class="ruby-constant">Paperclip</span><span class="ruby-operator">::</span><span class="ruby-constant">Geometry</span>.<span class="ruby-identifier">from_file</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_file</span>
+223:               <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:width</span>] = <span class="ruby-identifier">geometry</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_i</span>
+224:               <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:height</span>] = <span class="ruby-identifier">geometry</span>.<span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_i</span>
+225:             <span class="ruby-keyword kw">end</span>
+226:           <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -692,19 +692,19 @@ Image dimension calculations
             onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000027-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 210</span>
-210:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">transliterate</span>(<span class="ruby-identifier">str</span>)
-211:             <span class="ruby-comment cmt"># Lifted from permalink_fu by Rick Olsen</span>
-212:             <span class="ruby-comment cmt"># Escape str by transliterating to UTF-8 with Iconv,</span>
-213:             <span class="ruby-comment cmt"># downcasing, then removing illegal characters and replacing them with ’-’</span>
-214:             <span class="ruby-identifier">s</span> = <span class="ruby-constant">Iconv</span>.<span class="ruby-identifier">iconv</span>(<span class="ruby-value str">'ascii//ignore//translit'</span>, <span class="ruby-value str">'utf-8'</span>, <span class="ruby-identifier">str</span>).<span class="ruby-identifier">to_s</span>
-215:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase!</span>
-216:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\'/</span>, <span class="ruby-value str">''</span>)
-217:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/[^A-Za-z0-9]+/</span>, <span class="ruby-value str">' '</span>)
-218:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">strip!</span>
-219:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\ +/</span>, <span class="ruby-value str">'-'</span>) <span class="ruby-comment cmt"># set single or multiple spaces to a single dash</span>
-220:             <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">s</span>
-221:           <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 206</span>
+206:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">transliterate</span>(<span class="ruby-identifier">str</span>)
+207:             <span class="ruby-comment cmt"># Lifted from permalink_fu by Rick Olsen</span>
+208:             <span class="ruby-comment cmt"># Escape str by transliterating to UTF-8 with Iconv,</span>
+209:             <span class="ruby-comment cmt"># downcasing, then removing illegal characters and replacing them with ’-’</span>
+210:             <span class="ruby-identifier">s</span> = <span class="ruby-constant">Iconv</span>.<span class="ruby-identifier">iconv</span>(<span class="ruby-value str">'ascii//ignore//translit'</span>, <span class="ruby-value str">'utf-8'</span>, <span class="ruby-identifier">str</span>).<span class="ruby-identifier">to_s</span>
+211:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase!</span>
+212:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\'/</span>, <span class="ruby-value str">''</span>)
+213:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/[^A-Za-z0-9]+/</span>, <span class="ruby-value str">' '</span>)
+214:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">strip!</span>
+215:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\ +/</span>, <span class="ruby-value str">'-'</span>) <span class="ruby-comment cmt"># set single or multiple spaces to a single dash</span>
+216:             <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">s</span>
+217:           <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -724,12 +724,12 @@ Image dimension calculations
             onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000026-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 204</span>
-204:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">transliterate_file_name</span>
-205:             <span class="ruby-identifier">extension</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">local_file_name</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^\.+/</span>, <span class="ruby-value str">''</span>)
-206:             <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">local_file_name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/\.#{extension}$/</span>, <span class="ruby-value str">''</span>)
-207:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">instance_write</span>(<span class="ruby-identifier">:file_name</span>, <span class="ruby-node">&quot;#{transliterate(filename)}.#{transliterate(extension)}&quot;</span>)
-208:           <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/active_record/acts/uploader_upload.rb, line 200</span>
+200:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">transliterate_file_name</span>
+201:             <span class="ruby-identifier">extension</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">local_file_name</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^\.+/</span>, <span class="ruby-value str">''</span>)
+202:             <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">local_file_name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/\.#{extension}$/</span>, <span class="ruby-value str">''</span>)
+203:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">local</span>.<span class="ruby-identifier">instance_write</span>(<span class="ruby-identifier">:file_name</span>, <span class="ruby-node">&quot;#{transliterate(filename)}.#{transliterate(extension)}&quot;</span>)
+204:           <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

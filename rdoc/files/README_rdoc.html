@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Tue Jun 02 14:09:00 -0600 2009</td>
+      <td>Thu Jun 04 15:26:03 -0600 2009</td>
     </tr>
     </table>
   </div>
@@ -133,6 +133,9 @@ all valid options for paperclip via :has_attached_file =&gt; {}
 
     # only allow images:
     # validates_attachment_content_type :file, :content_type =&gt; ['image/jpeg', 'image/pjpeg', 'image/jpg']
+
+    # limit uploads to 10 MB
+    # validates_attachment_size :local, :less_than =&gt; 10.megabytes
 
     # The following method is implemented in 'acts_as_uploader'.  This is the method destroy will check to see if
     # the user has permission to delete the object.  Add additional logic as needed or if the existing logic
@@ -464,6 +467,16 @@ The following jQuery code will do an ajax delete for you
     });
   }
 </pre>
+<h3>Testing</h3>
+<p>
+If you intend to develop code and wish to run the tests you may do so using
+rake test. However, note that you will need to install the gem first using
+rake install since the embedded test application will use the gem that is
+install and not the current code from the project. This is a limitation I
+attempted to overcome using a special initializer in
+rails_root/config/initializers/uploader.rb but I didn&#8216;t have any
+success getting it working.
+</p>
 <p>
 Copyright (c) 2009 Justin Ball, released under the MIT license
 </p>

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.1.14"
+  s.version = "0.1.15"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
@@ -64,7 +64,6 @@ Gem::Specification.new do |s|
      "locales/zh-CN.yml",
      "locales/zh-TW.yml",
      "locales/zh.yml",
-     "pkg/uploader-0.1.13.gem",
      "public/images/SWFUploadButton.png",
      "public/images/file_icons/excel.gif",
      "public/images/file_icons/file.gif",
@@ -223,11 +222,13 @@ Gem::Specification.new do |s|
      "test/rails_root/script/runner",
      "test/rails_root/script/server",
      "test/rails_root/test/factories.rb",
+     "test/rails_root/test/fixtures/files/5k.png",
      "test/rails_root/test/functional/.keep",
      "test/rails_root/test/functional/uploads_controller_test.rb",
      "test/rails_root/test/integration/.keep",
      "test/rails_root/test/mocks/development/.keep",
      "test/rails_root/test/mocks/test/.keep",
+     "test/rails_root/test/shoulda_macros/paperclip.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/.keep",
      "test/rails_root/test/unit/upload_test.rb",
@@ -267,6 +268,7 @@ Gem::Specification.new do |s|
      "test/rails_root/script/create_project.rb",
      "test/rails_root/test/factories.rb",
      "test/rails_root/test/functional/uploads_controller_test.rb",
+     "test/rails_root/test/shoulda_macros/paperclip.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/upload_test.rb"
   ]
