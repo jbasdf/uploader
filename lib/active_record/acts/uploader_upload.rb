@@ -27,21 +27,17 @@ module ActiveRecord
           named_scope :files, :conditions => "local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
           named_scope :since, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
           named_scope :pending_s3_migration, lambda { { :conditions =>  ["remote_file_name IS NULL AND created_at <= ?", 20.minutes.ago.to_s(:db)], :order => 'created_at DESC' } }
-          
+
           # Paperclip
           has_attached_file :local, options[:has_attached_file].merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
-          if options[:enable_s3] == true
-            has_attached_file :remote, options[:has_attached_file].merge(:url => ':s3_alias_url',
-                                                                         :path => options[:s3_path],
-                                                                         :storage => :s3)
-          end
-
+          has_attached_file :remote, options[:has_attached_file].merge(:url => ':s3_alias_url',
+                                                                       :path => options[:s3_path],
+                                                                       :storage => :s3)
 
           belongs_to :uploadable, :polymorphic => true
           belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
                                         
           class_eval <<-EOV
-            validates_attachment_size :local, :less_than => 10.megabytes
             
             before_post_process :transliterate_file_name
             before_create :add_width_and_height

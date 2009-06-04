@@ -1,6 +1,6 @@
 class Upload < ActiveRecord::Base
-
-  acts_as_uploader  :enable_s3 => false,
+  
+  acts_as_uploader  :enable_s3 => true,
                     :has_attached_file => {
                       :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
                       :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
@@ -20,9 +20,10 @@ class Upload < ActiveRecord::Base
                     }
 
   validates_attachment_presence :local
+  validates_attachment_size :local, :less_than => 10.megabytes
 
   def can_edit?(user)
     return true
   end
-  
+
 end

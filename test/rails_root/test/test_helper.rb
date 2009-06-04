@@ -9,6 +9,7 @@ require 'ruby-debug'
 require 'mocha'
 require 'redgreen' rescue LoadError
 require File.expand_path(File.dirname(__FILE__) + '/factories')
+require File.join(File.dirname(__FILE__), 'shoulda_macros', 'paperclip')
 class ActiveSupport::TestCase
   
   VALID_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'public/images/rails.png'), 'image/png')

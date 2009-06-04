@@ -175,6 +175,7 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
      "test/rails_root/config/initializers/session_store.rb",
+     "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/.keep",
      "test/rails_root/db/development.sqlite3",
