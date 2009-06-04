@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.1.13"
+  s.version = "0.1.14"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-06-02}
+  s.date = %q{2009-06-04}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -64,6 +64,7 @@ Gem::Specification.new do |s|
      "locales/zh-CN.yml",
      "locales/zh-TW.yml",
      "locales/zh.yml",
+     "pkg/uploader-0.1.13.gem",
      "public/images/SWFUploadButton.png",
      "public/images/file_icons/excel.gif",
      "public/images/file_icons/file.gif",
@@ -177,9 +178,11 @@ Gem::Specification.new do |s|
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/.keep",
      "test/rails_root/db/development.sqlite3",
+     "test/rails_root/db/development.sqlite3",
      "test/rails_root/db/migrate/20090517040220_create_uploads.rb",
      "test/rails_root/db/migrate/20090602041838_create_users.rb",
      "test/rails_root/db/schema.rb",
+     "test/rails_root/db/test.sqlite3",
      "test/rails_root/db/test.sqlite3",
      "test/rails_root/features/step_definitions/webrat_steps.rb",
      "test/rails_root/features/support/env.rb",
@@ -252,6 +255,7 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
      "test/rails_root/config/initializers/session_store.rb",
+     "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/migrate/20090517040220_create_uploads.rb",
      "test/rails_root/db/migrate/20090602041838_create_users.rb",

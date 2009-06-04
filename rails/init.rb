@@ -1,3 +1,23 @@
+begin
+  require 'thoughtbot-paperclip'
+rescue LoadError
+  begin
+    gem 'thoughtbot-paperclip'
+  rescue Gem::LoadError
+    puts "Please install the thoughtbot-paperclip gem"
+  end
+end
+
+begin
+  require 'mime/types'
+rescue LoadError
+  begin
+    gem 'mime-types'
+  rescue Gem::LoadError
+    puts "Please install the mime-types gem"
+  end
+end
+
 require 'uploader'
 require 'uploader/initialize_routes'
 

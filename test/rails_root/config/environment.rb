@@ -18,6 +18,5 @@ end
 Rails::Initializer.run do |config|
   config.load_paths += Dir.glob(File.join(RAILS_ROOT, 'vendor', 'gems', '*', 'lib'))
   config.time_zone = 'UTC'
-  config.gem 'uploader'
   config.gem 'thoughtbot-paperclip',  :version => '~> 2.2.2', :lib => 'paperclip', :source => 'http://gems.github.com'
 end
