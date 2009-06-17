@@ -6,7 +6,6 @@ module Uploader
       @app = app
       @session_key = session_key
     end
-
     def call(env)
       if env['HTTP_USER_AGENT'] =~ /^(Adobe|Shockwave) Flash/
         params = ::Rack::Utils.parse_query(env['QUERY_STRING'])
