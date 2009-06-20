@@ -10,7 +10,7 @@ zh-TW:
     permission_denied: 您沒有權限，以完成這個動作。
     standard_file_upload_error: "時發生錯誤的文件上傳： {{error}}.請確保該文件是有效的。檢查以確定該文件不是空的。然後再試一次。"
     successful_upload: 成功上載文件。
-    swf_loading: SWFUpload載入。請稍等...
+    swf_loading: SWFUpload是載入中。一會兒請稍候...
     swf_not_loading: "我們深表歉意。 SWFUpload無法加載。您可能需要安裝或升級的Flash Player 。訪問{{url}}讓Flash Player的。"
     swf_taking_to_long: "SWFUpload花費很長的時間來加載或加載失敗。請確保啟用Flash插件和一個工作版本的Adobe Flash Player的安裝。"
     upload_file: 上傳文件

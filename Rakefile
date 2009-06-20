@@ -22,6 +22,12 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+desc 'Translate this gem'
+task :translate do
+  file = File.join(File.dirname(__FILE__), 'locales', 'en.yml')
+  system("babelphish -o -y #{file}")
+end
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|

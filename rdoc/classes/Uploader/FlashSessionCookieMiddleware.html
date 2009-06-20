@@ -149,14 +149,14 @@
             onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000004-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/uploader/middleware/flash_session_cookie_middleware.rb, line 10</span>
-10:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
-11:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">'HTTP_USER_AGENT'</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(Adobe|Shockwave) Flash/</span>
-12:         <span class="ruby-identifier">params</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_query</span>(<span class="ruby-identifier">env</span>[<span class="ruby-value str">'QUERY_STRING'</span>])
-13:         <span class="ruby-identifier">env</span>[<span class="ruby-value str">'HTTP_COOKIE'</span>] = [ <span class="ruby-ivar">@session_key</span>, <span class="ruby-identifier">params</span>[<span class="ruby-ivar">@session_key</span>] ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">'='</span>).<span class="ruby-identifier">freeze</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-ivar">@session_key</span>].<span class="ruby-identifier">nil?</span>
-14:       <span class="ruby-keyword kw">end</span>
-15:       <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
-16:     <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/uploader/middleware/flash_session_cookie_middleware.rb, line 9</span>
+ 9:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+10:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">'HTTP_USER_AGENT'</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(Adobe|Shockwave) Flash/</span>
+11:         <span class="ruby-identifier">params</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_query</span>(<span class="ruby-identifier">env</span>[<span class="ruby-value str">'QUERY_STRING'</span>])
+12:         <span class="ruby-identifier">env</span>[<span class="ruby-value str">'HTTP_COOKIE'</span>] = [ <span class="ruby-ivar">@session_key</span>, <span class="ruby-identifier">params</span>[<span class="ruby-ivar">@session_key</span>] ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">'='</span>).<span class="ruby-identifier">freeze</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-ivar">@session_key</span>].<span class="ruby-identifier">nil?</span>
+13:       <span class="ruby-keyword kw">end</span>
+14:       <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+15:     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

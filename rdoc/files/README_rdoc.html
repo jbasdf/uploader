@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Thu Jun 04 15:26:03 -0600 2009</td>
+      <td>Wed Jun 17 11:11:51 -0600 2009</td>
     </tr>
     </table>
   </div>
@@ -345,8 +345,25 @@ Then inside your Rails project:
 <pre>
   script/plugin install git://github.com/dougal/daemon_generator.git
   script/generate daemon amazonaws
-
-  RAILS_ENV=development lib/daemons/mailer_ctl start
+</pre>
+<p>
+If you have already run rake uploader:sync it will have already copied a
+file called amazonaws.rb into lib/daemons. Running script/generate daemon
+amazonaws will create the other files required to support that process. You
+will get a prompt &quot;overwrite lib/daemons/amazonaws.rb?&quot;. Answer
+&#8216;n&#8216;o as the file is already setup.
+</p>
+<p>
+To start the daemon locally:
+</p>
+<pre>
+  RAILS_ENV=development lib/daemons/amazonaws_ctl start
+</pre>
+<p>
+There is also an app wide control script that you can add to capistrano:
+</p>
+<pre>
+  ./script/daemons [start|stop|restart]
 </pre>
 <p>
 Learn more about the custom daemon gem with Ryan Bates screencast:
