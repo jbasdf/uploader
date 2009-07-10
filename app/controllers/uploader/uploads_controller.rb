@@ -104,7 +104,7 @@ class Uploader::UploadsController < ApplicationController
       raise t('uploader.missing_parent_id_error')
       return
     end
-    @klass = params[:parent_type].to_s.capitalize.constantize
+    @klass = params[:parent_type].constantize
     @parent = @klass.find(params[:parent_id])
     unless has_permission_to_upload(current_user, @parent)
       permission_denied
