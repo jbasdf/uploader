@@ -2,18 +2,19 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.1.16"
+  s.version = "0.1.18"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-06-20}
+  s.date = %q{2009-07-24}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
   s.files = [
-    "MIT-LICENSE",
+    ".gitignore",
+     "MIT-LICENSE",
      "README.rdoc",
      "Rakefile",
      "TODO",
@@ -122,34 +123,6 @@ Gem::Specification.new do |s|
      "public/stylesheets/swfupload.css",
      "public/swf/swfupload.swf",
      "rails/init.rb",
-     "rdoc/classes/ActionController.html",
-     "rdoc/classes/ActionController/Routing.html",
-     "rdoc/classes/ActionController/Routing/RouteSet.html",
-     "rdoc/classes/ActiveRecord.html",
-     "rdoc/classes/ActiveRecord/Acts/UploaderUpload/ClassMethods.html",
-     "rdoc/classes/ActiveRecord/Acts/UploaderUpload/InstanceMethods.html",
-     "rdoc/classes/ActiveRecord/Acts/UploaderUpload/SingletonMethods.html",
-     "rdoc/classes/Uploader.html",
-     "rdoc/classes/Uploader/Exceptions.html",
-     "rdoc/classes/Uploader/Exceptions/MissingTemplateError.html",
-     "rdoc/classes/Uploader/FlashSessionCookieMiddleware.html",
-     "rdoc/classes/Uploader/MimeTypeGroups.html",
-     "rdoc/classes/Uploader/Tasks.html",
-     "rdoc/created.rid",
-     "rdoc/files/README_rdoc.html",
-     "rdoc/files/lib/active_record/acts/uploader_upload_rb.html",
-     "rdoc/files/lib/daemons/amazonaws_rb.html",
-     "rdoc/files/lib/uploader/exceptions_rb.html",
-     "rdoc/files/lib/uploader/initialize_routes_rb.html",
-     "rdoc/files/lib/uploader/middleware/flash_session_cookie_middleware_rb.html",
-     "rdoc/files/lib/uploader/mime_type_groups_rb.html",
-     "rdoc/files/lib/uploader/tasks_rb.html",
-     "rdoc/files/lib/uploader_rb.html",
-     "rdoc/fr_class_index.html",
-     "rdoc/fr_file_index.html",
-     "rdoc/fr_method_index.html",
-     "rdoc/index.html",
-     "rdoc/rdoc-style.css",
      "tasks/rails.rake",
      "test/rails_root/.gitignore",
      "test/rails_root/.rake_tasks",
