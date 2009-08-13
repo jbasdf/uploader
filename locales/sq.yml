@@ -1,0 +1,17 @@
+--- 
+sq: 
+  uploader: 
+    cancel_all: "Të gjitha Ngarkimet Cancel"
+    file_delete_permission_denied: "Ju nuk keni leje të fshini se file."
+    file_deleted: "Deleted fotografi"
+    file_upload_error: "Ka ndodhur një gabim gjatë ngarkimi i file."
+    javascript_not_enabled: "Na vjen keq. SWFUpload nuk mund të ngarkesës. Ju duhet të keni JavaScript enabled të gëzojë SWFUpload."
+    missing_parent_id_error: "Ju lutem përcaktoni një prind objekt"
+    permission_denied: "Ju nuk keni leje për të përfunduar këtë veprim."
+    standard_file_upload_error: "Ka ndodhur një gabim gjatë ngarkimi i file: {{error}}. Ju lutemi të sigurojë që fotografi është e vlefshme. Kontrollo për të siguruar këtë skedë nuk është e zbrazët. Pastaj provoni përsëri."
+    successful_upload: "Me sukses u ngarkua me fotografi."
+    swf_loading: "SWFUpload është loading. Ju lutem prisni nje moment ..."
+    swf_not_loading: "Na vjen keq. SWFUpload nuk mund të ngarkesës. Ju mund të kenë nevojë për të instaluar apo Freskojeni Flash Player. Vizitoni {{url}} të marrë Flash Player."
+    swf_taking_to_long: "SWFUpload po merr një kohë e gjatë për të ngarkesës së ngarkesës ose ka dështuar. Ju lutem sigurohuni që Flash Plugin i aktivizuar dhe se është duke punuar një version të Adobe Flash Player është i instaluar."
+    upload_file: "Upload File"
+    upload_files: "Upload Files"

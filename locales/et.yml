@@ -1,0 +1,17 @@
+--- 
+et: 
+  uploader: 
+    cancel_all: "Tühista kõik Uploads"
+    file_delete_permission_denied: "Sul ei ole luba kustutada faili."
+    file_deleted: "Kustutatud faili"
+    file_upload_error: "Viga üleslaadimisel fail."
+    javascript_not_enabled: "Vabandame. SWFUpload ei saanud koormust. Sul peab olema JavaScriptia nautida SWFUpload."
+    missing_parent_id_error: "Palun täpsustage vanem objekti"
+    permission_denied: "Sul ei ole luba lõpetada see tegevus."
+    standard_file_upload_error: "Viga üleslaadimise faili: {{error}}. Veenduge, et fail on kehtiv. Veenduge, et fail ei ole tühi. Seejärel proovige uuesti."
+    successful_upload: "Edukalt üleslaaditud faili."
+    swf_loading: "SWFUpload laaditakse. Palun oota ..."
+    swf_not_loading: "Vabandame. SWFUpload ei saanud koormust. Mõnikord tuleb installida või uuendada Flash Player. Külasta {{url}} saada Flash Player."
+    swf_taking_to_long: "SWFUpload läheb kaua aega, et lasti või lasti ebaõnnestus. Veenduge, et Flash plugin on lubatud ja et töö versiooni Adobe Flash Player installitud."
+    upload_file: "Faili üleslaadimine"
+    upload_files: "Upload Files"

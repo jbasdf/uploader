@@ -1,0 +1,17 @@
+--- 
+mt: 
+  uploader: 
+    cancel_all: "Ikkanċella kollha imtelligħin"
+    file_delete_permission_denied: "Inti ma jkollhomx permess li tħassar dan il-fajl."
+    file_deleted: "Imħassar fajl"
+    file_upload_error: "Ġara żball waqt uploading-fajl."
+    javascript_not_enabled: "Jiddispjacina. SWFUpload ma setgħux tagħbija. Inti għandek javascript biex igawdu SWFUpload."
+    missing_parent_id_error: "Jekk jogħġbok speċifika a parent oġġett"
+    permission_denied: "Inti ma għandekx permess biex jikkompletaw din l-azzjoni."
+    standard_file_upload_error: "Ġara żball waqt uploading l-fajl: {{error}}. Jekk jogħġbok assigura li l-fajl huwa validu. Iċċekkja biex tiżgura l-file ma tkunx vojta. Imbagħad erġa &#39;pprova."
+    successful_upload: "B&#39;suċċess uploaded fajl."
+    swf_loading: "SWFUpload hija loading. Jekk jogħġbok stenna mument ..."
+    swf_not_loading: "Jiddispjacina. SWFUpload ma setgħux tagħbija. Inti jista &#39;jkollok bżonn li jinstallaw jew upgrade Flash Player. Żur il-{{url}} li jiksbu l-Flash Player."
+    swf_taking_to_long: "SWFUpload qiegħed jieħu żmien twil biex tagħbija jew it-tagħbija tkun falliet. Jekk jogħġbok kun ċert li l-Flash Plugin ikun attivat u li jaħdmu verżjoni ta &#39;l-Adobe Flash Player huwa installat."
+    upload_file: "File upload"
+    upload_files: "Upload Fajls"

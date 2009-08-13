@@ -2,7 +2,7 @@
 lv: 
   uploader: 
     cancel_all: "Atcelt Visi augšupielāde"
-    file_delete_permission_denied: "Jums nav atļauts dzēst šo lietu."
+    file_delete_permission_denied: "Tev nebūs atļauju, lai izdzēstu šo lietu."
     file_deleted: "Svītrots failu"
     file_upload_error: "Radās kļūda, augšupielādējot failu."
     javascript_not_enabled: "Atvainojamies. SWFUpload nevarēja slodzi. Jums ir jābūt JavaScript, lai baudīt SWFUpload."

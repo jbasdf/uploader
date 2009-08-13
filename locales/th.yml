@@ -1,0 +1,17 @@
+--- 
+th: 
+  uploader: 
+    cancel_all: ยกเลิกการอัปโหลด
+    file_delete_permission_denied: คุณไม่ได้รับสิทธิ์ที่จะลบที่แฟ้ม.
+    file_deleted: ลบไฟล์
+    file_upload_error: เกิดความผิดพลาดขึ้นขณะอัปโหลดไฟล์.
+    javascript_not_enabled: "ขออภัย. SWFUpload ไม่สามารถโหลด. คุณต้องได้เปิดใช้งาน JavaScript เพลิดเพลินไปกับการ SWFUpload."
+    missing_parent_id_error: โปรดระบุแม่วัตถุ
+    permission_denied: คุณไม่ได้รับอนุญาตให้ดำเนินการนี้เสร็จ.
+    standard_file_upload_error: "เกิดความผิดพลาดขึ้นขณะอัปโหลดไฟล์: {{error}}. โปรดตรวจสอบว่าแฟ้มถูกต้อง. ตรวจสอบให้แน่ใจว่าไฟล์ที่ไม่ว่างเปล่า. แล้วลองอีกครั้ง."
+    successful_upload: อัปโหลดสำเร็จแล้วไฟล์.
+    swf_loading: "SWFUpload กำลังโหลด. โปรดรอสักครู่ ..."
+    swf_not_loading: "ขออภัย. SWFUpload ไม่สามารถโหลด. คุณอาจต้องติดตั้งหรืออัปเกรดมี Flash Player. เยี่ยมชม {{url}} เพื่อให้ได้มี Flash Player."
+    swf_taking_to_long: "SWFUpload อาจต้องใช้เวลานานเพื่อโหลดหรือโหลดล้มเหลว. โปรดตรวจดูให้แน่ใจว่าแฟลชปลั๊กอินที่เปิดใช้งานอยู่และที่ทำงานร่วมกับโปรแกรม Adobe รุ่นมี Flash Player มีการติดตั้ง."
+    upload_file: อัพโหลดไฟล์
+    upload_files: อัปโหลดไฟล์

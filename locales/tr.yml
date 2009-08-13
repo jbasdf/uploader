@@ -1,0 +1,17 @@
+--- 
+tr: 
+  uploader: 
+    cancel_all: "İptal Tüm Yüklemeler"
+    file_delete_permission_denied: "Siz izin bu dosyayı silmek zorunda değilsiniz."
+    file_deleted: "Silinmiş dosya"
+    file_upload_error: "Ise dosyası yüklenirken bir hata oluştu."
+    javascript_not_enabled: "Üzgünüz. SWFUpload yükleyemedi. Görebilmek için Javascript SWFUpload zevk için etkin olması gerekir."
+    missing_parent_id_error: "Lütfen bir üst nesne belirtin"
+    permission_denied: "Siz izin bu işlemi tamamlamak için yok."
+    standard_file_upload_error: "Ise dosyası yüklenirken bir hata oluştu: {{error}}. Lütfen, dosyanın geçerli olduğundan emin olun. Check dosya boş olmadığından emin olun. Daha sonra tekrar deneyin."
+    successful_upload: "Başarıyla yüklenen dosya."
+    swf_loading: "SWFUpload yüklüyor. Lütfen biraz bekleyin ..."
+    swf_not_loading: "Üzgünüz. SWFUpload yükleyemedi. Yükledikten veya Flash Player yükseltmek gerekebilir. Get the Flash Player için {{url}} ziyaret edin."
+    swf_taking_to_long: "SWFUpload yük veya başarısız olmuştur yükü uzun zaman alıyor. Lütfen Flash Plugin etkinleştirilirse emin olun ve bu Adobe Flash Player çalışan bir sürümü yüklü."
+    upload_file: "Dosya Yükle"
+    upload_files: "Yükle Dosyalar"

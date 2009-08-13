@@ -1,0 +1,17 @@
+--- 
+hu: 
+  uploader: 
+    cancel_all: "Mégsem Minden Uploads"
+    file_delete_permission_denied: "Nincs engedélye, hogy törli a fájlt."
+    file_deleted: "Törölt fájl"
+    file_upload_error: "Hiba történt a fájl feltöltését."
+    javascript_not_enabled: "Sajnáljuk. SWFUpload nem tudta betölteni. Azt kell a Javascript használatát a SWFUpload élvez."
+    missing_parent_id_error: "Kérjük, adja meg a szülő objektum"
+    permission_denied: "Nincs engedélye, hogy ezt az intézkedést."
+    standard_file_upload_error: "Hiba történt a fájl feltöltésével: {{error}}. Kérjük, győződjön meg róla, hogy a fájl érvényes. Ügyeljünk arra, hogy a fájl nem üres. Ezután próbálja meg újra."
+    successful_upload: "Sikeresen feltöltött fájlt."
+    swf_loading: "SWFUpload betöltődik. Kérem, várjon egy pillanatot ..."
+    swf_not_loading: "Sajnáljuk. SWFUpload nem tudta betölteni. Telepítenie kell a frissítést, vagy Flash Player. Látogasson el a {{url}}, hogy a Flash Player."
+    swf_taking_to_long: "SWFUpload nem sokáig tartott betölteni, vagy a terhelés, de nem sikerült. Kérjük, győződjön meg arról, hogy a Flash Plugin van kapcsolva, és hogy egy működő verziója az Adobe Flash Player telepítve van."
+    upload_file: "Fájl feltöltése"
+    upload_files: "Fájlok feltöltése"

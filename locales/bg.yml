@@ -2,7 +2,7 @@
 bg: 
   uploader: 
     cancel_all: "Отмени Всички Качването"
-    file_delete_permission_denied: "Вие нямате разрешение да изтриете този файл."
+    file_delete_permission_denied: "Вие нямате право да изтривате тази документация."
     file_deleted: "Изтрити файлове"
     file_upload_error: "Възникна грешка при качването на файла."
     javascript_not_enabled: "Съжаляваме. SWFUpload не можа да се зареди. Трябва да имате активиран JavaScript за да се насладите SWFUpload."

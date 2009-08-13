@@ -2,7 +2,7 @@
 zh: 
   uploader: 
     cancel_all: 取消所有上传
-    file_delete_permission_denied: 您没有权限删除的文件。
+    file_delete_permission_denied: 你们无权删除该文件。
     file_deleted: 删除的文件
     file_upload_error: 时发生错误上载文件。
     javascript_not_enabled: "我们深表歉意。 SWFUpload无法加载。您必须启用JavaScript享受SWFUpload 。"
