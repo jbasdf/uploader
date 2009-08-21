@@ -1,7 +1,8 @@
 class Uploader::UploadsController < ApplicationController
   unloadable
   
-  before_filter :get_parent, :only => [:create, :swfupload]
+  before_filter :setup_parent, :only => [:create, :swfupload]
+  before_filter :filter_permissions, :only => [:create, :swfupload]
   before_filter :set_upload_for_destroy, :only => [:destroy]
  
   def create
@@ -99,13 +100,39 @@ class Uploader::UploadsController < ApplicationController
     @parent
   end
 
-  def get_parent
-    if !params[:parent_type] || !params[:parent_id]
-      raise t('uploader.missing_parent_id_error')
-      return
+  # Attempts to create an @parent object using params
+  # or the url.
+  def setup_parent
+    @parent = get_parent
+    if @parent.blank?
+      render :text => t('muck.engine.missing_parent_error')
+      return false
     end
-    @klass = params[:parent_type].constantize
-    @parent = @klass.find(params[:parent_id])
+  end
+  
+  # Tries to get parent using parent_type and parent_id from the url.
+  # If that fails and attempt is then made using find_parent
+  def get_parent
+    if params[:parent_type].blank? || params[:parent_id].blank?
+      find_parent
+    else
+      klass = params[:parent_type].to_s.constantize
+      klass.find(params[:parent_id])
+    end
+  end
+
+  # Searches the params to try and find an entry ending with _id
+  # ie article_id, user_id, etc.  Will return the first value found.
+  def find_parent
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+
+  def filter_permissions 
     unless has_permission_to_upload(current_user, @parent)
       permission_denied
     end
