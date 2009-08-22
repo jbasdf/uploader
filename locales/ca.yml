@@ -1,17 +1,19 @@
 --- 
 ca: 
   uploader: 
-    cancel_all: "Cancel la totes les Càrregues"
+    cancel_all: "Cancel tots els fitxers enviats"
     file_delete_permission_denied: "Vostè no té permís per eliminar aquest arxiu."
-    file_deleted: "Suprimeix el fitxer"
+    file_deleted: "Arxiu esborrat"
     file_upload_error: "S&#39;ha produït un error en carregar l&#39;arxiu."
-    javascript_not_enabled: "Ho sentim. SWFUpload no ha pogut carregar. Vostè ha d&#39;activar Javascript per poder gaudir de SWFUpload."
-    missing_parent_id_error: "Si us plau, especifiqueu un objecte pare"
+    javascript_not_enabled: "Ho sentim. SWFUpload no va poder carregar. Vostè ha de tenir Javascript per poder gaudir de SWFUpload."
+    manage_files: "Administrar arxius"
+    manage_photos_files: "Manejar Fotos / Files"
+    missing_parent_id_error: "Si us plau, especifiqueu un objecte primari"
     permission_denied: "Vostè no té permís per completar aquesta acció."
     standard_file_upload_error: "S&#39;ha produït un error en carregar l&#39;arxiu: {{error}}. Si us plau, assegureu-vos que el fitxer és vàlid. Assegureu-vos que l&#39;arxiu no està buit. Torneu a intentar-ho."
-    successful_upload: "Arxiu pujat amb èxit."
+    successful_upload: "Amb èxit arxiu carregat."
     swf_loading: "SWFUpload s&#39;està carregant. Si us plau, espereu un moment ..."
-    swf_not_loading: "Ho sentim. SWFUpload no ha pogut carregar. És possible que necessiteu instal lar o actualitzar Flash Player. Visiteu el {{url}} per obtenir el Flash Player."
-    swf_taking_to_long: "SWFUpload està prenent molt de temps en la càrrega o la càrrega ha fallat. Si us plau, assegureu-vos que el plugin de Flash està activada i que un grup de treball de la versió de Adobe Flash Player instal lat."
+    swf_not_loading: "Ho sentim. SWFUpload no va poder carregar. És possible que necessiteu instal lar o actualitzar Flash Player. Visiteu el {{url}} per obtenir el Flash Player."
+    swf_taking_to_long: "SWFUpload està prenent un temps llarg per a la càrrega o la càrrega ha fallat. Si us plau, assegureu-vos que està activat el Plugin de Flash i que està instal • lada una versió de treball de Flash Player d&#39;Adobe."
     upload_file: Carrega
-    upload_files: "Pujar arxius"
+    upload_files: "Carregar arxius"
