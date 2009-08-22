@@ -7,6 +7,8 @@ en:
     file_delete_permission_denied: "You don't have permission to delete that file."
     upload_file: 'Upload File'
     upload_files: 'Upload Files'
+    manage_files: "Manage Files"
+    manage_photos_files: "Manage Photos/Files"
     cancel_all: 'Cancel All Uploads'
     swf_loading: 'SWFUpload is loading. Please wait a moment...'
     javascript_not_enabled: "We're sorry.  SWFUpload could not load.  You must have JavaScript enabled to enjoy SWFUpload."

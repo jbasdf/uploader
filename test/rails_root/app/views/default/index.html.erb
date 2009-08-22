@@ -1,0 +1,11 @@
+<p>Upload One restricted to 1MB:
+  <%= upload_form(@user, true, container_prefix = '', :file_size_limit => '1 MB') %>
+</p>
+
+<p>Upload restricted to images:
+  <%= upload_form(@user, false, container_prefix = 'a_container_with_a_long_name', :file_types => '*.jpg') %>
+</p>
+
+<p>Upload With Background Button using transparent:
+  <%= upload_form(@user, false, container_prefix = 'background', :transparent => true) %>
+</p>

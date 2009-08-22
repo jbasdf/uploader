@@ -1,43 +1,62 @@
-<% content_for :head do  -%>
-   <%= javascript_include_tag %w{
-                swfupload/swfupload.js
-                swfupload/swfupload.swfobject
-                swfupload/swfupload.cookies
-                swfupload/swfupload.queue
-                swfupload/fileprogress.js
-                swfupload/handlers.js }, :cache => 'swf_js_cached' %>
-  <%= stylesheet_link_tag 'swfupload' %>
+<% if !defined?(@swfupload_scripts_included) -%>
+  <% @swfupload_scripts_included = true -%>
+  <% content_for :head do  -%>
+     <%= javascript_include_tag %w{
+                  swfupload/swfupload.js
+                  swfupload/swfupload.swfobject
+                  swfupload/swfupload.cookies
+                  swfupload/swfupload.queue
+                  swfupload/fileprogress.js
+                  swfupload/handlers.js }, :cache => 'swf_js_cached' %>
+    <%= stylesheet_link_tag 'swfupload' %>
+  <% end -%>
+<% end -%>
 
+<% content_for :head do  -%>
+  <% if options[:transparent] -%>
+    <style type="text/css">
+    	#<%=container_prefix%>swfupload_container .swfupload {position: absolute;z-index: 1;}
+    </style>
+  <% end -%>
+<% end -%>
+
+<% content_for :head do  -%>
 	<script type='text/javascript'>
 
-	  var swfu;
+	  var <%=container_prefix%>swfu;
 
-		SWFUpload.onload = function () {
-			var settings = {
-			
+    jQuery(document).ready(function() {
+    	var settings = {
+
 				flash_url : '/swf/swfupload.swf',
-				upload_url: '<%= new_upload_path_with_session_information(parent) %>',
-			
-				file_size_limit : "100 MB",
-				file_types : "*.*",
-				file_types_description : "All Files",
-				file_upload_limit : 100,
+				upload_url: '<%= options[:upload_url] || new_upload_path_with_session_information(parent) %>',
+
+				file_size_limit : '<%= options[:file_size_limit] || "100 MB" %>',
+				file_types : '<%= options[:file_types] || "*.*" %>',
+				file_types_description : '<%= options[:file_types_description] || "All Files" %>',
+				file_upload_limit : <%= options[:file_upload_limit] || 100 %>,
 				file_queue_limit : 0,
 				post_params : {
   				authenticity_token : '<%= u form_authenticity_token.inspect -%>',
   			},
 				custom_settings : {
-					<%= 'progressTarget : "swf_fs_upload_progress",' if display_upload_indicators -%>
-					cancelButtonId : "swf_cancel_button"
+					<%= 'progressTarget : "' + container_prefix + 'swf_fs_upload_progress",' if display_upload_indicators -%>
+					cancelButtonId : "<%=container_prefix%>swf_cancel_button"
 				},
 				debug: false,
 
 				// Button Settings
-				button_image_url : "/images/SWFUploadButton.png", // Relative to the SWF file
-				button_placeholder_id : "swf_button_holder",
-				button_width: 61,
-				button_height: 22,
-
+				button_placeholder_id : '<%=container_prefix%>swf_button_holder',
+				button_width: <%= options[:button_width] ||  61 %>,
+				button_height: <%= options[:button_height] || 22 %>,
+        
+        <% if options[:transparent] -%>
+    		button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+    		button_cursor: SWFUpload.CURSOR.HAND,
+    		<% else -%>
+    		button_image_url : '<%= options[:button_image_url] || "/images/SWFUploadButton.png" %>', // Relative to the SWF file
+    		<% end -%>
+    		
 				// The event handler functions are defined in handlers.js
 				swfupload_loaded_handler : swfUploadLoaded,
 				file_queued_handler : fileQueued,
@@ -56,8 +75,8 @@
 				swfupload_load_failed_handler : swfUploadLoadFailed
 			};
 
-			swfu = new SWFUpload(settings);
-		}
-		
+			<%=container_prefix%>swfu = new SWFUpload(settings);
+		});
+
 	</script>
 <% end -%>

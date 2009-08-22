@@ -1,32 +1,42 @@
-<div id="degraded_container" style="display:none;">  
+<div id="<%=container_prefix%>degraded_container" class="degraded_container" style="display:none;">  
 	<% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true } do |f| -%>
 	  <p><%= f.file_field :uploaded_data, :size => 25 %></p>
 	  <%= submit_tag t('uploader.upload_file') %>
 	<% end %>
 </div>
-<div id="swfupload_container">
+<div id="<%=container_prefix%>swfupload_container" class="swfupload_container">
 	<form>
-		<div id="swf_upload_UI">
-			<p><span id="swf_button_holder"></span></p>
-			<div id="swf_fs_upload_progress">
+		<div id="<%=container_prefix%>swf_upload_UI">
+			<p>
+			  <% if options[:transparent] -%>
+			    <span style="position:absolute;" id="<%=container_prefix%>swf_button_holder"></span>
+			    <%= options[:transparent_html] || '<input id="' + container_prefix + 'upload_button" type="button" value="Select Files" />' -%>
+			  <% else -%>
+			    <span id="<%=container_prefix%>swf_button_holder"></span>
+			  <% end -%>
+			</p>
+			<div id="<%=container_prefix%>swf_fs_upload_progress" class="swf_fs_upload_progress">
 				<span class="legend"></span>
-				<input id="swf_cancel_button" type="button" value="<%=t('uploader.cancel_all')%>" style="display:none;" />
-				<p id="divStatus"></p>
+				<input id="<%=container_prefix%>swf_cancel_button" class="swf_cancel_button" type="button" value="<%=t('uploader.cancel_all')%>" style="display:none;" />
+				<p id="<%=container_prefix%>divStatus"></p>
 			</div>
 		</div>
 		<noscript class="swf-error-msg">
 		  <%= t('uploader.javascript_not_enabled') %>
 		</noscript>
-		<div id="swf_loading_content" class="swf-error-msg" style="display:none;">
+		<div id="<%=container_prefix%>swf_loading_content" class="swf_loading_content swf-error-msg" style="display:none;">
 		  <%= t('uploader.swf_loading') %>
 		</div>
-		<div id="swf_long_loading" class="swf-error-msg" style="display:none;">
+		<div id="<%=container_prefix%>swf_long_loading" class="swf-error-msg swf_long_loading" style="display:none;">
 		  <%= t('uploader.swf_taking_to_long') %>
 		</div>
-		<div id="swf_alternate_content" class="swf-error-msg" style="display: none;">
+		<div id="<%=container_prefix%>swf_alternate_content" class="swf-error-msg swf_alternate_content" style="display: none;">
 		  <%= t('uploader.swf_not_loading', :url => '<a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe Website</a>') %>
 		</div>
 	</form>
 </div>
-
-<%= render :partial => 'uploads/swf_javascript', :locals => { :parent => parent, :display_upload_indicators => display_upload_indicators } %>
+<%= render :partial => 'uploads/swf_javascript', :locals => { :parent => parent, 
+                                                              :display_upload_indicators => display_upload_indicators,
+                                                              :container_prefix => container_prefix, 
+                                                              :options => options } %>
+                                                     

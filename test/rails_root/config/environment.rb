@@ -15,9 +15,15 @@ class << GlobalConfig
   end
 end
 
+class TestGemLocator < Rails::Plugin::Locator
+  def plugins
+    Rails::Plugin.new(File.join(File.dirname(__FILE__), *%w(.. .. ..)))
+  end 
+end
+
 Rails::Initializer.run do |config|
   config.load_paths += Dir.glob(File.join(RAILS_ROOT, 'vendor', 'gems', '*', 'lib'))
   config.time_zone = 'UTC'
   config.gem 'thoughtbot-paperclip',  :version => '~> 2.2.2', :lib => 'paperclip', :source => 'http://gems.github.com'
-  config.gem 'uploader'
+  config.plugin_locators << TestGemLocator
 end
