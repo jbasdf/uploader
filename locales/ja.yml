@@ -1,19 +1,19 @@
 --- 
 ja: 
   uploader: 
-    cancel_all: キャンセルのすべてのアップロード
+    cancel_all: キャンセルの全てのアップロード
     file_delete_permission_denied: アクセス許可は、ファイルを削除する必要はありません。
     file_deleted: 削除されたファイル
-    file_upload_error: 中にファイルをアップロードのエラーが発生しました。
-    javascript_not_enabled: "大変申し訳ございません。 SWFUploadをロードできませんでした。するにはJavaScript SWFUploadを楽しむことが有効になっている必要があります。"
+    file_upload_error: 一方、ファイルのアップロードのエラーが発生しました。
+    javascript_not_enabled: "我々は申し訳ありません。 SWFUploadを読み込めませんでした。するにはJavaScript SWFUploadを楽しむことが有効になっている必要があります。"
     manage_files: ファイルを管理
     manage_photos_files: 管理写真/ファイル
     missing_parent_id_error: してください親オブジェクトを指定する
-    permission_denied: あなたにはこの操作を完了する必要はありません。
-    standard_file_upload_error: "中にファイルをアップロードのエラーが発生しました：{{error}}.してくださいそのファイルが有効であるか確認します。チェックファイルが空でないことを確認します。やり直してください。"
-    successful_upload: 正常にアップロードします。
-    swf_loading: SWFUploadロードしています。してください、しばらくお待ちください...
-    swf_not_loading: "大変申し訳ございません。 SWFUploadをロードできませんでした。をインストールするかFlash Playerをアップグレードする必要があります。 Flash Playerを取得する{{url}}をご覧ください。"
-    swf_taking_to_long: "SWFUploadをロードしたり、失敗したロード時間がかかっている。してくださいはFlashプラグインが有効か確認するにはAdobe Flash Playerの作業バージョンがインストールされます。"
+    permission_denied: アクセス許可は、この操作を完了する必要はありません。
+    standard_file_upload_error: "一方、ファイルのアップロードのエラーが発生しました：{{error}}.してくださいでは、ファイルが有効であることを確認。チェックして、ファイルが空でないことを確認します。その後、もう一度やり直してください。"
+    successful_upload: 正常にアップロードされたファイルです。
+    swf_loading: SWFUploadロードしています。しばらくしてお待ちください...
+    swf_not_loading: "我々は申し訳ありません。 SWFUploadを読み込めませんでした。をインストールするか、Flash Playerをアップグレードする必要があります。は、Flash Playerを入手し{{url}}をご覧ください。"
+    swf_taking_to_long: "SWFUploadロードしたり、失敗している負荷が長い時間を割いています。してくださいには、Flashプラグインが有効か確認するには、Adobe Flash Playerの作業バージョンがインストールされます。"
     upload_file: ファイルのアップロード
     upload_files: ファイルをアップロード
