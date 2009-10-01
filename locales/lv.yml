@@ -10,7 +10,7 @@ lv:
     manage_photos_files: "Pārvaldīt Bildes / faili"
     missing_parent_id_error: "Lūdzu, norādiet vecāku objekts"
     permission_denied: "Jums nav atļaujas, lai pabeigtu šo darbību."
-    standard_file_upload_error: "Kļūda augšupielādējot failu: {{error}}. Lūdzu nodrošināt, ka fails nav derīgs. Pārliecinieties fails nav tukšs. Tam, mēģiniet vēlreiz."
+    standard_file_upload_error: "Kļūda augšupielādējot failu: {{error}}. Lūdzu nodrošināt, ka fails nav derīgs. Pārliecinieties fails nav tukšs. Tad mēģini vēlreiz."
     successful_upload: "Veiksmīgi augšupielādēto failu."
     swf_loading: "SWFUpload tiek noslogota. Lūdzu, uzgaidiet moments ..."
     swf_not_loading: "Mēs atvainojamies. SWFUpload nevarēja slodzi. Jums var būt nepieciešams instalēt vai atjaunināt Flash Player. Visit {{url}} nokļūt Flash Player."

@@ -10,7 +10,7 @@ vi:
     manage_photos_files: "Quản lý hình ảnh / Tệp tin"
     missing_parent_id_error: "Hãy chỉ định một đối tượng phụ huynh"
     permission_denied: "Bạn không được phép để hoàn thành hành động này."
-    standard_file_upload_error: "Đã xảy ra lỗi trong khi tải lên tập tin: {{error}}. Xin vui lòng đảm bảo rằng các tập tin là hợp lệ. Kiểm tra để chắc chắn tập tin là không có sản phẩm nào. Sau đó thử lại."
+    standard_file_upload_error: "Một xảy ra lỗi trong khi tải lên tập tin: {{error}}. Xin vui lòng đảm bảo rằng các tập tin là hợp lệ. Kiểm tra để chắc chắn tập tin là không có sản phẩm nào. Sau đó thử lại."
     successful_upload: "Thành công upload."
     swf_loading: "SWFUpload đang tải. Xin vui lòng chờ trong giây lát ..."
     swf_not_loading: "Chúng tôi xin lỗi. SWFUpload không thể tải. Bạn có thể cần phải cài đặt hoặc nâng cấp Flash Player. Khám phá {{url}} để có được Flash Player."
