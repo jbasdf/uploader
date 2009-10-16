@@ -10,7 +10,7 @@ mt:
     manage_photos_files: "Manage Photos / Files"
     missing_parent_id_error: "Jekk jogħġbok speċifika l-oġġett prinċipali"
     permission_denied: "Inti ma għandekx permess għal din l-azzjoni sħiħa."
-    standard_file_upload_error: "Ġara żball waqt uploading-fajl: {{error}}. Żgurat Jekk jogħġbok li l-fajl huwa validu. Jivverifika sabiex ikun żgur li l-file ma tkunx vojta. Imbagħad erġa &#39;pprova."
+    standard_file_upload_error: "Ġara żball waqt uploading-fajl: {{error}}. Jekk jogħġbok jiżguraw li l-fajl huwa validu. Jivverifika sabiex ikun żgur li l-file ma tkunx vojta. Imbagħad erġa &#39;pprova."
     successful_upload: "B&#39;suċċess uploaded fajl."
     swf_loading: "SWFUpload huwa tagħbija. Jekk jogħġbok stenna mument ..."
     swf_not_loading: "Jiddispjacina. SWFUpload ma setgħetx tagħbija. Jista &#39;jkollok bżonn li jinstallaw jew upgrade Flash Player. Żur il-{{url}} biex tikseb l-Flash Player."
