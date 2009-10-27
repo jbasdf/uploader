@@ -42,6 +42,7 @@ begin
     gemspec.add_dependency "mime-types"
     gemspec.add_dependency "rack"
   end
+  Jeweler::GemcutterTasks.new
   Jeweler::RubyforgeTasks.new do |rubyforge|
     rubyforge.doc_task = "rdoc"
   end
