@@ -41,6 +41,7 @@ begin
     gemspec.rubyforge_project = 'uploader'
     gemspec.add_dependency "mime-types"
     gemspec.add_dependency "rack"
+    gemspec.add_dependency "paperclip"
   end
   Jeweler::GemcutterTasks.new
   Jeweler::RubyforgeTasks.new do |rubyforge|
