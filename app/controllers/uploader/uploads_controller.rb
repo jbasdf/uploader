@@ -7,7 +7,8 @@ class Uploader::UploadsController < ApplicationController
  
   def create
     # Standard, one-at-a-time, upload action
-    @upload = @parent.uploads.build(params[:upload])
+    @upload = Upload.new(params[:upload])
+    @upload.uploadable = @parent if @parent
     @upload.creator = get_creator
     @upload.save!
     message = t('uploader.successful_upload')
@@ -34,12 +35,12 @@ class Uploader::UploadsController < ApplicationController
   end
 
   def swfupload
-    @upload = @parent.uploads.build
+    @upload = Upload.new
     @upload.is_public = true if params[:is_public] == true
     @upload.creator = get_creator
     @upload.swfupload_local = params[:Filedata]
     @upload.save!
-    @parent.uploads << @upload
+    @parent.uploads << @upload if @parent
     respond_to do |format|
       format.js { render :text => get_upload_text(@upload) }
       format.json { render :json => basic_uploads_json(@upload) }
@@ -102,31 +103,40 @@ class Uploader::UploadsController < ApplicationController
 
   # Attempts to create an @parent object using params
   # or the url.
-  def setup_parent
-    @parent = get_parent
-    if @parent.blank?
-      render :text => t('muck.engine.missing_parent_error')
-      return false
-    end
+  def setup_parent(*ignore)
+    @parent = get_parent(ignore)
+    # if @parent.blank?
+    #   render :text => t('muck.engine.missing_parent_error')
+    #   return false
+    # end
   end
   
   # Tries to get parent using parent_type and parent_id from the url.
   # If that fails and attempt is then made using find_parent
-  def get_parent
+  # parameters:
+  # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
+  #         you might want to ignore thing_id so pass :thing.
+  def get_parent(*ignore)
     if params[:parent_type].blank? || params[:parent_id].blank?
-      find_parent
+      find_parent(ignore)
     else
       klass = params[:parent_type].to_s.constantize
       klass.find(params[:parent_id])
     end
   end
-
+  
   # Searches the params to try and find an entry ending with _id
   # ie article_id, user_id, etc.  Will return the first value found.
-  def find_parent
+  # parameters:
+  # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
+  #         you might want to ignore thing_id so pass 'thing' to be ignored.
+  def find_parent(*ignore)
+    ignore.flatten!
     params.each do |name, value|
       if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
+        if !ignore.include?($1)
+          return $1.classify.constantize.find(value)
+        end
       end
     end
     nil

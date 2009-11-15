@@ -28,7 +28,7 @@ Another option is to use jRails
 http://ennerchi.com/projects/jrails
 
 === Create a model for uploads.
-We recommend creating a model called upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
+Creat an 'Upload' model in upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
 
   class Upload < ActiveRecord::Base
 

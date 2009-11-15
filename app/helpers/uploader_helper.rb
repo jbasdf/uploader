@@ -29,6 +29,7 @@ module UploaderHelper
   end
   
   def make_parent_params(parent)
+    return {} if parent.blank?
     { :parent_id => parent.id, :parent_type => parent.class.to_s }
   end
  
