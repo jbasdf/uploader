@@ -15,4 +15,8 @@ class UploadsController < Uploader::UploadsController
     end
   end
   
+  def get_upload_text(upload)
+    'nothing needed'
+  end
+  
 end

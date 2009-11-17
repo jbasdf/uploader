@@ -22,5 +22,5 @@ div.uploadStatus{margin:5px;}
 .swfupload_container a.progressCancel{font-size:0;display:block;height:14px;width:14px;background-image:url(../images/cancelbutton.gif);background-repeat:no-repeat;background-position:-14px 0px;float:right;}
 .swfupload_container a.progressCancel:hover{background-position:0px 0px;}
 
-.swf-error-msg{background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;}
+.swf-error-msg{margin:1em 0;padding:10px 20px;border:solid 1px #FFDD99;background-color:#FFFFCC;overflow:hidden;}
 .swf_cancel_button{margin-left: 2px; height: 22px; font-size: 8pt;}

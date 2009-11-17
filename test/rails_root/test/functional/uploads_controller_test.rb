@@ -24,6 +24,19 @@ class UploadsControllerTest < ActionController::TestCase
         assert assigns(:upload).errors.empty?, assigns(:upload).errors
       end
     end
+    # context "good text file" do
+    #   setup do
+    #     post :create, { :upload => { :local => VALID_TEXT_FILE }, :parent_type => 'User', :parent_id => @user.to_param }
+    #   end
+    #   should_redirect_to("/create_success") { '/create_success' }
+    #   should_set_the_flash_to(I18n.t('uploader.successful_upload'))
+    #   should "create a valid upload" do
+    #     assert_difference "@user.uploads.count", 1 do
+    #       post :create, { :upload => { :local => VALID_TEXT_FILE }, :parent_type => 'User', :parent_id => @user.to_param }
+    #     end
+    #     assert assigns(:upload).errors.empty?, assigns(:upload).errors
+    #   end
+    # end
     context "bad file" do
       setup do
         post :create, { :upload => { :local => nil }, :parent_type => 'User', :parent_id => @user.to_param }
@@ -45,7 +58,7 @@ class UploadsControllerTest < ActionController::TestCase
     should_respond_with :success
     should "add an upload" do
       assert_difference "Upload.count", 1 do
-        post :swfupload, { :filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param }
+        post :swfupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param }
       end
     end
   end

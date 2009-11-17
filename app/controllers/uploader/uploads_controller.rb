@@ -8,7 +8,7 @@ class Uploader::UploadsController < ApplicationController
   def create
     # Standard, one-at-a-time, upload action
     @upload = Upload.new(params[:upload])
-    @upload.uploadable = @parent if @parent
+    @upload.uploadable = @parent
     @upload.creator = get_creator
     @upload.save!
     message = t('uploader.successful_upload')
@@ -38,9 +38,9 @@ class Uploader::UploadsController < ApplicationController
     @upload = Upload.new
     @upload.is_public = true if params[:is_public] == true
     @upload.creator = get_creator
+    @upload.uploadable = @parent
     @upload.swfupload_local = params[:Filedata]
     @upload.save!
-    @parent.uploads << @upload if @parent
     respond_to do |format|
       format.js { render :text => get_upload_text(@upload) }
       format.json { render :json => basic_uploads_json(@upload) }
@@ -75,89 +75,91 @@ class Uploader::UploadsController < ApplicationController
 
   protected
 
-  def get_upload_text(upload)
-    raise 'implement get_upload_text in your controller'
-  end
+    def get_upload_text(upload)
+      raise 'implement get_upload_text in your controller'
+    end
 
-  def set_upload_for_destroy
-    @upload = Upload.find(params[:id])
-  end
+    def set_upload_for_destroy
+      @upload = Upload.find(params[:id])
+    end
 
-  def permission_denied
-    message = t("uploader.permission_denied")
-    respond_to do |format|
-      format.html do
-        flash[:notice] = message
-        redirect_to get_redirect(:permission_denied)
+    def permission_denied
+      message = t("uploader.permission_denied")
+      respond_to do |format|
+        format.html do
+          flash[:notice] = message
+          redirect_to get_redirect(:permission_denied)
+        end
+        format.js { render :text => message }
+        format.json { render :json => { :success => false, :message => message } }
       end
-      format.js { render :text => message }
-      format.json { render :json => { :success => false, :message => message } }
     end
-  end
 
-  # override this method in your controller to set the redirect file upload completion
-  # source can be :destroy_success, :create_success, :create_failure, :permission_denied
-  def get_redirect(source)
-    @parent
-  end
-
-  # Attempts to create an @parent object using params
-  # or the url.
-  def setup_parent(*ignore)
-    @parent = get_parent(ignore)
-    # if @parent.blank?
-    #   render :text => t('muck.engine.missing_parent_error')
-    #   return false
-    # end
-  end
-  
-  # Tries to get parent using parent_type and parent_id from the url.
-  # If that fails and attempt is then made using find_parent
-  # parameters:
-  # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
-  #         you might want to ignore thing_id so pass :thing.
-  def get_parent(*ignore)
-    if params[:parent_type].blank? || params[:parent_id].blank?
-      find_parent(ignore)
-    else
-      klass = params[:parent_type].to_s.constantize
-      klass.find(params[:parent_id])
+    # override this method in your controller to set the redirect file upload completion
+    # source can be :destroy_success, :create_success, :create_failure, :permission_denied
+    def get_redirect(source)
+      @parent
     end
-  end
+
+    # Attempts to create an @parent object using params
+    # or the url.
+    def setup_parent(*ignore)
+      @parent = get_parent(ignore)
+      @parent = get_creator if @parent.blank?
+      # if @parent.blank?
+      #   render :text => t('muck.engine.missing_parent_error')
+      #   return false
+      # end
+    end
   
-  # Searches the params to try and find an entry ending with _id
-  # ie article_id, user_id, etc.  Will return the first value found.
-  # parameters:
-  # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
-  #         you might want to ignore thing_id so pass 'thing' to be ignored.
-  def find_parent(*ignore)
-    ignore.flatten!
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        if !ignore.include?($1)
-          return $1.classify.constantize.find(value)
+    # Tries to get parent using parent_type and parent_id from the url.
+    # If that fails and attempt is then made using find_parent
+    # parameters:
+    # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
+    #         you might want to ignore thing_id so pass :thing.
+    def get_parent(*ignore)
+      if params[:parent_type].blank? || params[:parent_id].blank?
+        find_parent(ignore)
+      else
+        klass = params[:parent_type].to_s.constantize
+        klass.find(params[:parent_id])
+      end
+    end
+  
+    # Searches the params to try and find an entry ending with _id
+    # ie article_id, user_id, etc.  Will return the first value found.
+    # parameters:
+    # ignore: Names to ignore.  For example if the url is /foo/1/bar?thing_id=1
+    #         you might want to ignore thing_id so pass 'thing' to be ignored.
+    def find_parent(*ignore)
+      ignore.flatten!
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          if !ignore.include?($1)
+            return $1.classify.constantize.find(value)
+          end
         end
       end
+      nil
     end
-    nil
-  end
 
-  def filter_permissions 
-    unless has_permission_to_upload(current_user, @parent)
-      permission_denied
+    def filter_permissions
+      unless has_permission_to_upload(current_user, @parent)
+        permission_denied
+      end
     end
-  end
 
-  def get_creator
-    current_user
-  end
+    def get_creator
+      current_user
+    end
   
-  def has_permission_to_upload(user, upload_parent)
-    upload_parent.can_upload?(user)
-  end
+    def has_permission_to_upload(user, upload_parent)
+      return true if upload_parent.blank? # upload will not be connected with a parent object only with the user
+      upload_parent.can_upload?(user)
+    end
 
-  def basic_uploads_json(upload)
-    upload.to_json(:only => [:id, :file_name], :methods => [:icon])
-  end
+    def basic_uploads_json(upload)
+      upload.to_json(:only => [:id, :file_name], :methods => [:icon])
+    end
 
 end

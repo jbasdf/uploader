@@ -26,6 +26,7 @@ module ActiveRecord
           named_scope :documents, :conditions => "local_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
           named_scope :files, :conditions => "local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
           named_scope :since, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
+          named_scope :created_by, lambda { |*args| { :conditions => ["creator_id = ?", (args.first) ]} }
           named_scope :pending_s3_migration, lambda { { :conditions =>  ["remote_file_name IS NULL AND created_at <= ?", 20.minutes.ago.to_s(:db)], :order => 'created_at DESC' } }
 
           # Paperclip
@@ -40,6 +41,7 @@ module ActiveRecord
           class_eval <<-EOV
             
             before_post_process :transliterate_file_name
+            before_post_process :halt_nonimage_processing
             before_create :add_width_and_height
             
             # prevents a user from submitting a crafted form that bypasses activation
@@ -222,6 +224,12 @@ module ActiveRecord
               self[:width] = geometry.width.to_i
               self[:height] = geometry.height.to_i
             end
+          end
+          
+          def halt_nonimage_processing
+            # if self.is_image? && self.local.options[:styles]
+            #              return false
+            #            end
           end
           
       end 

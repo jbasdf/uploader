@@ -1,10 +1,10 @@
 begin
-  require 'thoughtbot-paperclip'
+  require 'paperclip'
 rescue LoadError
   begin
-    gem 'thoughtbot-paperclip'
+    gem 'paperclip'
   rescue Gem::LoadError
-    puts "Please install the thoughtbot-paperclip gem"
+    puts "Please install the paperclip gem"
   end
 end
 
