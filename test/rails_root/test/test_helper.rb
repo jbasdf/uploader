@@ -15,6 +15,8 @@ class ActiveSupport::TestCase
   VALID_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'public', 'images', 'rails.png'), 'image/png')
   VALID_TEXT_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'Rakefile'), 'text/plain')
   VALID_PDF_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'test', 'test.pdf'), 'application/pdf')
+  VALID_WORD_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'test', 'test.doc'), 'application/pdf')
+  VALID_EXCEL_FILE = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT, 'test', 'test.xls'), 'application/pdf')
   
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false

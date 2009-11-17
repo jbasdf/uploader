@@ -14,7 +14,11 @@ module ActiveRecord
         # :url     => "/uploads/:class/:id/:style_:basename.:extension",
         # :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension",
         # :styles  => { :icon => "30x30!", :thumb => "100>", :small => "150>", :medium => "300>", :large => "660>"},
-        # :default_url => "/images/profile_default.jpg" }
+        # :default_url => "/images/profile_default.jpg" },
+        # :disable_halt_nonimage_processing => false
+        #
+        # disable_halt_nonimage_processing - By default all post processing is turned off for non image files.  This is useful if you want to setup styles to generate thumbnails for
+        #                                    images but don't want the default Geometry processor to die on non-image files.
         def acts_as_uploader(options)
 
           #Named scopes
@@ -41,7 +45,7 @@ module ActiveRecord
           class_eval <<-EOV
             
             before_post_process :transliterate_file_name
-            before_post_process :halt_nonimage_processing
+            before_post_process :halt_nonimage_processing unless options[:disable_halt_nonimage_processing]
             before_create :add_width_and_height
             
             # prevents a user from submitting a crafted form that bypasses activation
@@ -227,9 +231,9 @@ module ActiveRecord
           end
           
           def halt_nonimage_processing
-            # if self.is_image? && self.local.options[:styles]
-            #              return false
-            #            end
+            if !self.is_image? && self.local.options[:styles]
+              return false
+            end
           end
           
       end 
