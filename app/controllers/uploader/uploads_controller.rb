@@ -159,7 +159,7 @@ class Uploader::UploadsController < ApplicationController
     end
 
     def basic_uploads_json(upload)
-      upload.to_json(:only => [:id, :file_name], :methods => [:icon])
+      upload.to_json(:only => [:id], :methods => [:icon, :file_name])
     end
 
 end

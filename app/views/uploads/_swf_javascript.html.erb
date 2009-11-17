@@ -25,7 +25,7 @@
 
 	  var <%=container_prefix%>swfu;
 
-    jQuery(document).ready(function() {
+    window.onload = function () {
     	var settings = {
 
 				flash_url : '/swf/swfupload.swf',
@@ -76,7 +76,7 @@
 			};
 
 			<%=container_prefix%>swfu = new SWFUpload(settings);
-		});
+		};
 
 	</script>
 <% end -%>
