@@ -150,6 +150,13 @@ module ActiveRecord
           end
         end
         
+        # Only works for images
+        def thumb
+          if self.is_image?
+            self.file.url(:thumb)
+          end
+        end
+        
         def display_name
           CGI::escapeHTML(self.local_file_name)
         end

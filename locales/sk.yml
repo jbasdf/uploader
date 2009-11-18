@@ -10,7 +10,7 @@ sk:
     manage_photos_files: "Správa Fotografie / Files"
     missing_parent_id_error: "Prosím, zadajte nadradeného objektu"
     permission_denied: "Nemáte povolenie na dokončenie tejto akcie."
-    standard_file_upload_error: "Nastala chyba pri nahrávaní súboru: {{error}}. Uistite sa, že súbor je platný. Uistite sa, že súbor nie je prázdne. Potom skúste to znova."
+    standard_file_upload_error: "Nastala chyba pri nahrávaní súboru: {{error}}. Uistite sa, že súbor je platný. Presvedčte sa, že súbor nie je prázdne. Potom skúste to znova."
     successful_upload: "Úspešne pridaný súbor."
     swf_loading: "SWFUpload sa nahráva. Prosím, počkajte chvíľu ..."
     swf_not_loading: "Je nám ľúto. SWFUpload nemohol načítať. Možno budete musieť nainštalovať alebo upgradovať Flash Player. Navštívte {{url}} dostať Flash Player."
