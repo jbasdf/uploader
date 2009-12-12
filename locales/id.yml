@@ -10,6 +10,7 @@ id:
     manage_photos_files: "Mengelola Foto / File"
     missing_parent_id_error: "Silakan tentukan obyek orangtua"
     permission_denied: "Anda tidak memiliki izin untuk menyelesaikan tindakan ini."
+    show_degraded_container: "Gunakan uploader standar"
     standard_file_upload_error: "Sebuah kesalahan terjadi ketika mengupload file: {{error}}. Harap pastikan bahwa file tersebut valid. Periksa untuk memastikan file tersebut tidak kosong. Kemudian coba lagi."
     successful_upload: "Berhasil diupload."
     swf_loading: "SWFUpload sedang loading. Mohon tunggu sebentar ..."

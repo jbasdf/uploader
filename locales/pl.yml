@@ -10,6 +10,7 @@ pl:
     manage_photos_files: "Zarządzanie Zdjęcia / Pliki"
     missing_parent_id_error: "Proszę podać obiektu nadrzędnego"
     permission_denied: "Nie masz uprawnień, aby ukończyć tę akcję."
+    show_degraded_container: "Użyj standardowych uploader"
     standard_file_upload_error: "Wystąpił błąd podczas przesyłania pliku: {{error}}. Upewnij się, że plik jest poprawny. Upewnij się, czy plik nie jest pusty. Następnie spróbuj ponownie."
     successful_upload: "Pomyślnym przesłaniu pliku."
     swf_loading: "Swfupload trwa ładowanie. Proszę chwilę poczekać ..."

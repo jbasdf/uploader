@@ -10,6 +10,7 @@ iw:
     manage_photos_files: "ניהול תמונות / קבצים"
     missing_parent_id_error: "אנא ציין אובייקט ההורה"
     permission_denied: "אין לך הרשאה להשלים פעולה זו."
+    show_degraded_container: "Uploader שימוש סטנדרטי"
     standard_file_upload_error: "אירעה שגיאה בעת העלאת קובץ: {{error}}. נא לוודא כי הקובץ הוא חוקי. בדוק כדי לוודא את הקובץ אינו ריק. ואז לנסות שוב."
     successful_upload: "הקובץ שהועלה בהצלחה."
     swf_loading: "SWFUpload הוא טוען. אנא המתן רגע ..."

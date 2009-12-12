@@ -10,6 +10,7 @@ vi:
     manage_photos_files: "Quản lý hình ảnh / Tệp tin"
     missing_parent_id_error: "Hãy chỉ định một đối tượng phụ huynh"
     permission_denied: "Bạn không được phép để hoàn thành hành động này."
+    show_degraded_container: "Sử dụng tiêu chuẩn tải lên"
     standard_file_upload_error: "Đã xảy ra lỗi trong khi tải lên tập tin: {{error}}. Xin vui lòng đảm bảo rằng các tập tin là hợp lệ. Kiểm tra để chắc chắn tập tin là không có sản phẩm nào. Sau đó thử lại."
     successful_upload: "Thành công upload."
     swf_loading: "SWFUpload đang tải. Xin vui lòng chờ trong giây lát ..."

@@ -10,6 +10,7 @@ ja:
     manage_photos_files: 管理写真/ファイル
     missing_parent_id_error: してください親オブジェクトを指定する
     permission_denied: アクセス許可は、この操作を完了する必要はありません。
+    show_degraded_container: を使用する標準的なアップローダ
     standard_file_upload_error: "一方、ファイルのアップロードのエラーが発生しました：{{error}}.してくださいでは、ファイルが有効であることを確認。チェックして、ファイルが空でないことを確認します。その後、もう一度やり直してください。"
     successful_upload: 正常にアップロードされたファイルです。
     swf_loading: SWFUploadロードしています。しばらくしてお待ちください...

@@ -33,4 +33,9 @@ module UploaderHelper
     { :parent_id => parent.id, :parent_type => parent.class.to_s }
   end
  
+  # Outputs a link that will show the degraded container.  Use if users are having problems with the Flash uploader
+  def show_degraded_container_link
+    %Q{<a class="show_degraded_container" href="#">#{I18n.t('uploader.show_degraded_container')}</a>}
+  end
+  
 end

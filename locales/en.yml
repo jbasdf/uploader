@@ -16,3 +16,4 @@ en:
     swf_not_loading: "We're sorry.  SWFUpload could not load.  You may need to install or upgrade Flash Player. Visit the {{url}} to get the Flash Player."
     file_upload_error: "An error occured while uploading the file."
     standard_file_upload_error: "An error occured while uploading the file: {{error}}.  Please ensure that the file is valid.  Check to make sure the file is not empty.  Then try again."
+    show_degraded_container: "Use standard uploader"

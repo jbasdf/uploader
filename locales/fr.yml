@@ -10,6 +10,7 @@ fr:
     manage_photos_files: "Gérer des photos / Files"
     missing_parent_id_error: "S&#39;il vous plaît spécifier un objet parent"
     permission_denied: "Vous n&#39;avez pas la permission d&#39;effectuer cette action."
+    show_degraded_container: "Utilisation de chargement standard"
     standard_file_upload_error: "Une erreur s&#39;est produite lors du chargement du fichier: {{error}}. S&#39;il vous plaît assurer que le fichier est valide. Assurez-vous que le fichier n&#39;est pas vide. Puis essayez à nouveau."
     successful_upload: "Avec succès le fichier téléchargé."
     swf_loading: "SWFUpload de son chargement. S&#39;il vous plaît attendez un instant ..."

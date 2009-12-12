@@ -22,9 +22,17 @@
 
 <% content_for :head do  -%>
 	<script type='text/javascript'>
+    jQuery(document).ready(function() {
+      jQuery('.show_degraded_container').click(function(){
+        jQuery('.degraded_container').show();
+      });
+    });
+  </script>
+<% end -%>
 
+<% content_for :head do  -%>
+	<script type='text/javascript'>
 	  var <%=container_prefix%>swfu;
-
     window.onload = function () {
     	var settings = {
 

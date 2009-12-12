@@ -10,6 +10,7 @@ ko:
     manage_photos_files: "관리 사진 / 파일"
     missing_parent_id_error: "제발 부모 개체를 지정합니다"
     permission_denied: "권한이 작업을 완료하지 않습니다."
+    show_degraded_container: "를 사용하여 표준 업로더"
     standard_file_upload_error: "파일을 업로드하는 동안 오류가 발생했습니다 : {{error}}. 제발 파일이 유효한지 확인합니다. 확인 파일이 비어 있지 않은지 확인합니다. 그런 다음 다시 시도해주십시오."
     successful_upload: "성공적으로 업로드된 파일을 엽니다."
     swf_loading: "SWFUpload로드됩니다. 잠시 기다려주십시오 ..."

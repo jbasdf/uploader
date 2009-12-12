@@ -10,6 +10,7 @@ mt:
     manage_photos_files: "Manage Photos / Files"
     missing_parent_id_error: "Jekk jogħġbok speċifika l-oġġett prinċipali"
     permission_denied: "Inti ma għandekx permess għal din l-azzjoni sħiħa."
+    show_degraded_container: "Użu uploader standard"
     standard_file_upload_error: "Ġara żball waqt uploading-fajl: {{error}}. Jekk jogħġbok jiżguraw li l-fajl huwa validu. Jivverifika sabiex ikun żgur li l-file ma tkunx vojta. Imbagħad erġa &#39;pprova."
     successful_upload: "B&#39;suċċess uploaded fajl."
     swf_loading: "SWFUpload huwa tagħbija. Jekk jogħġbok stenna mument ..."

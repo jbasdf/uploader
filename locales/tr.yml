@@ -10,6 +10,7 @@ tr:
     manage_photos_files: "Fotoğrafları Yönet / Dosyalar"
     missing_parent_id_error: "Lütfen bir üst nesne belirtin"
     permission_denied: "Izniniz Bu eylemin tamamlanması gerekmez."
+    show_degraded_container: "Standart uploader"
     standard_file_upload_error: "Süre dosyası yüklenirken bir hata oluştu: {{error}}. Lütfen dosya geçerli olduğundan emin olun. Kontrol dosya boş olmadığından emin olun. Sonra tekrar deneyin."
     successful_upload: "Başarıyla yüklenen dosya."
     swf_loading: "SWFUpload yükleniyor. Lütfen biraz bekleyin ..."

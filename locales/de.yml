@@ -10,6 +10,7 @@ de:
     manage_photos_files: "Fotos verwalten / Files"
     missing_parent_id_error: "Bitte geben Sie eine übergeordnete Objekt"
     permission_denied: "Sie haben kein Recht, diese Maßnahme durchzuführen."
+    show_degraded_container: "Verwenden Sie Standard-Uploader"
     standard_file_upload_error: "Fehler beim Hochladen der Datei: {{error}}. Bitte stellen Sie sicher, dass die Datei gültig ist. Überprüfen Sie, ob Sie die Datei nicht leer ist. Dann versuchen Sie es erneut."
     successful_upload: "Erfolgreich hochgeladenen Datei."
     swf_loading: "SWFUpload wird geladen. Bitte einen Moment warten ..."

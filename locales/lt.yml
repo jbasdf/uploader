@@ -10,6 +10,7 @@ lt:
     manage_photos_files: "Valdymas Nuotraukos / failai"
     missing_parent_id_error: "Nurodykite tėvų objektą"
     permission_denied: "Jūs neturite leidimo atlikti šį veiksmą."
+    show_degraded_container: "Naudokite standartinę Uploader"
     standard_file_upload_error: "Įvyko klaida įkeliant failą: {{error}}. Prašome įsitikinti, kad failas yra teisingas. Įsitikinkite, kad failas yra ne tuščias. Bandykite dar kartą."
     successful_upload: "Sėkmingai įkeltas failas."
     swf_loading: "SWFUpload kraunamas. Prašome palaukti ..."
