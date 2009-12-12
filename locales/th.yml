@@ -11,6 +11,7 @@ th:
     missing_parent_id_error: กรุณาระบุวัตถุผู้ปกครอง
     permission_denied: คุณไม่ได้รับอนุญาตให้ดำเนินการนี้เสร็จ.
     show_degraded_container: ใช้อัพโหลดมาตรฐาน
+    show_swfupload_container: "หลายใช้ไฟล์อัพโหลด. (Flash ต้องการ)"
     standard_file_upload_error: "เกิดข้อผิดพลาดขณะอัพโหลดไฟล์: {{error}}. โปรดตรวจสอบว่าไฟล์นั้นถูกต้อง. ตรวจสอบเพื่อให้แน่ใจว่าแฟ้มไม่ว่าง. แล้วลองอีกครั้ง."
     successful_upload: สำเร็จไฟล์ที่อัพโหลด.
     swf_loading: "SWFUpload กำลังโหลด. โปรดรอสักครู่ ..."

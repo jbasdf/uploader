@@ -11,6 +11,7 @@ da:
     missing_parent_id_error: "Angiv en forælder objekt"
     permission_denied: "Du har ikke tilladelse til at fuldføre denne handling."
     show_degraded_container: "Brug standard uploader"
+    show_swfupload_container: "Brug multiple-fil uploader. (Kræver Flash)"
     standard_file_upload_error: "Der opstod en fejl under overførsel af filen: {{error}}. Sørg for, at filen er gyldig. Kontroller, at filen ikke er tom. Prøv igen."
     successful_upload: "Uploadet fil."
     swf_loading: "SWFUpload indlæses. Vent et øjeblik ..."

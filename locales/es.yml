@@ -11,6 +11,7 @@ es:
     missing_parent_id_error: "Por favor, especifique un objeto primario"
     permission_denied: "Usted no tiene permiso para completar esta acción."
     show_degraded_container: "Uploader uso estándar"
+    show_swfupload_container: "Utilice múltiples archivo de carga. (Requiere Flash)"
     standard_file_upload_error: "Se produjo un error al cargar el archivo: {{error}}. Por favor, asegúrese de que el archivo es válido. Asegúrese de que el archivo no está vacío. Vuelva a intentarlo."
     successful_upload: "Con éxito archivo cargado."
     swf_loading: "SWFUpload se está cargando. Por favor, espere un momento ..."

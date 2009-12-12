@@ -17,3 +17,4 @@ en:
     file_upload_error: "An error occured while uploading the file."
     standard_file_upload_error: "An error occured while uploading the file: {{error}}.  Please ensure that the file is valid.  Check to make sure the file is not empty.  Then try again."
     show_degraded_container: "Use standard uploader"
+    show_swfupload_container: "Use multiple-file uploader. (Requires Flash)"

@@ -12,6 +12,7 @@
     missing_parent_id_error: "Angi en forelder objekt"
     permission_denied: "Du har ikke tillatelse til å gjennomføre denne handlingen."
     show_degraded_container: "Bruk standard uploader"
+    show_swfupload_container: "Bruk flere file uploader. (Krever Flash)"
     standard_file_upload_error: "Det oppstod en feil mens du laster opp filen: {{error}}. Kontroller at filen er gyldig. Kontroller at filen ikke er tom. Så prøv igjen."
     successful_upload: "Lastet opp filen."
     swf_loading: "SWFUpload lastes. Vent litt ..."

@@ -11,6 +11,7 @@ gl:
     missing_parent_id_error: "Por favor, especifica un obxecto pai"
     permission_denied: "Non ten permiso para completar esta acción."
     show_degraded_container: "Use uploader estándar"
+    show_swfupload_container: "Use múltiples arquivos de subida. (Require Flash)"
     standard_file_upload_error: "Houbo un erro ao facer a carga do arquivo: {{error}}. Asegúrese de que o arquivo non é válida. Asegúrese de que o arquivo non está baleiro. En seguida, ténteo de novo."
     successful_upload: "Arquivo subido con éxito."
     swf_loading: "SWFUpload está cargando. Por favor, agarde un intre ..."

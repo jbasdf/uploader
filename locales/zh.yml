@@ -11,6 +11,7 @@ zh:
     missing_parent_id_error: 请指定一个父对象
     permission_denied: 您没有权限完成此操作。
     show_degraded_container: 使用标准上载
+    show_swfupload_container: "使用多个文件上传。 （需要Flash）"
     standard_file_upload_error: "时发生错误上传文件：{{error}}.请确保该文件是有效的。检查以确保该文件不是空的。然后再试一次。"
     successful_upload: 成功上载文件。
     swf_loading: SWFUpload加载。请稍候...

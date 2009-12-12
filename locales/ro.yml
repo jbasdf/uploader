@@ -11,6 +11,7 @@ ro:
     missing_parent_id_error: "Vă rugăm să specificaţi un obiect părinte"
     permission_denied: "Nu aveţi permisiunea de a finaliza această acţiune."
     show_degraded_container: "Utilizaţi uploader standard de"
+    show_swfupload_container: "Cu utilizare multiplă, fişier Uploader. (Necesită Flash)"
     standard_file_upload_error: "A apărut o eroare la încărcarea fişierului: {{error}}. Vă rugăm să se asigure că fişierul este valabil. Verificaţi să vă asiguraţi că fişierul nu este gol. Apoi, încercaţi din nou."
     successful_upload: "Cu succes fişierul încărcat."
     swf_loading: "SWFUpload se incarca. Vă rugăm să aşteptaţi un moment ..."

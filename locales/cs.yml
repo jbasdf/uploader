@@ -11,6 +11,7 @@ cs:
     missing_parent_id_error: "Prosím, zadejte nadřazeného objektu"
     permission_denied: "Nemáte oprávnění k dokončení této akce."
     show_degraded_container: "Používáme standardní uploader"
+    show_swfupload_container: "Použít více-uploader souboru. (Vyžaduje Flash)"
     standard_file_upload_error: "Nastala chyba při nahrávání souboru: {{error}}. Ujistěte se, že soubor je platný. Přesvědčte se, že soubor není prázdné. Pak zkuste to znovu."
     successful_upload: "Úspěšně uploadovaný soubor."
     swf_loading: "SWFUpload se nahrává. Prosím, vyčkejte chvíli ..."

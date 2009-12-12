@@ -11,6 +11,7 @@ sq:
     missing_parent_id_error: "Ju lutem specifikoni një objekt prind"
     permission_denied: "Ju nuk keni leje për të përfunduar këtë veprim."
     show_degraded_container: "Uploader Përdorimi standard"
+    show_swfupload_container: "Use multiple-file uploader. (Requires Flash)"
     standard_file_upload_error: "Një gabim ndodhi kur ngarkimi file: {{error}}. Ju lutemi sigurohuni që madhësia është e vlefshme. Kontrolloni për të siguruar &#39;file&#39; nuk është bosh. Pastaj provoni përsëri."
     successful_upload: "Sukses kartelën e ngarkuar."
     swf_loading: "SWFUpload është loading. Ju lutem prisni një moment ..."

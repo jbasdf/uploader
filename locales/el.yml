@@ -11,6 +11,7 @@ el:
     missing_parent_id_error: "Να αναφερθεί ένα αντικείμενο μητρική"
     permission_denied: "Δεν έχετε την άδεια για την ολοκλήρωση αυτής της δράσης."
     show_degraded_container: "Χρήση πρότυπο uploader"
+    show_swfupload_container: "Χρήση πολλαπλών αρχείων uploader. (Requires Flash)"
     standard_file_upload_error: "Παρουσιάστηκε σφάλμα κατά τη μεταφόρτωση του αρχείου: {{error}}. Βεβαιωθείτε ότι ο φάκελος είναι έγκυρη. Ελέγξτε για να βεβαιωθείτε ότι το αρχείο δεν είναι άδειο. Στη συνέχεια, προσπαθήστε ξανά."
     successful_upload: "Επιτυχώς προστιθέμενο αρχείο."
     swf_loading: "SWFUpload φορτώνει. Παρακαλώ περιμένετε ένα λεπτό ..."

@@ -11,6 +11,7 @@ sv:
     missing_parent_id_error: "Ange ett överordnat objekt"
     permission_denied: "Du har inte behörighet att slutföra åtgärden."
     show_degraded_container: "Använd standard uploader"
+    show_swfupload_container: "Använd flera-fil uploader. (Kräver Flash)"
     standard_file_upload_error: "Ett fel uppstod vid uppladdningen av din fil: {{error}}. Se till att filen är giltig. Kontrollera att filen inte är tom. Försöker igen."
     successful_upload: "Upplagd fil."
     swf_loading: "SWFUpload laddas. Vänta ett ögonblick ..."

@@ -11,6 +11,7 @@ nl:
     missing_parent_id_error: "Geef een ouder object"
     permission_denied: "Je hebt geen toestemming om deze actie te voltooien."
     show_degraded_container: "Gebruik standaard uploader"
+    show_swfupload_container: "Gebruik meerdere-file uploader. (Vereist Flash)"
     standard_file_upload_error: "Er is een fout opgetreden bij het uploaden van het bestand: {{error}}. Zorg ervoor dat het bestand geldig is. Controleer of het bestand is niet leeg. Probeer het opnieuw."
     successful_upload: "Succesvol geupload bestand."
     swf_loading: "SWFUpload wordt geladen. Please wait a moment ..."

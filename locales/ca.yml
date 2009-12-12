@@ -11,6 +11,7 @@ ca:
     missing_parent_id_error: "Si us plau, especifiqueu un objecte primari"
     permission_denied: "Vostè no té permís per completar aquesta acció."
     show_degraded_container: "Uploader ús estàndard"
+    show_swfupload_container: "Utilitzeu múltiples fitxer de càrrega. (Requereix Flash)"
     standard_file_upload_error: "S&#39;ha produït un error en carregar l&#39;arxiu: {{error}}. Si us plau, assegureu-vos que el fitxer és vàlid. Assegureu-vos que l&#39;arxiu no està buit. Torneu a intentar-ho."
     successful_upload: "Amb èxit arxiu carregat."
     swf_loading: "SWFUpload s&#39;està carregant. Si us plau, espereu un moment ..."

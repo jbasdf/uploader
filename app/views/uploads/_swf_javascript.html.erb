@@ -25,6 +25,11 @@
     jQuery(document).ready(function() {
       jQuery('.show_degraded_container').click(function(){
         jQuery('.degraded_container').show();
+        jQuery('.swfupload_container').hide();
+      });
+      jQuery('.show_swfupload_container').click(function(){
+        jQuery('.degraded_container').hide();
+        jQuery('.swfupload_container').show();
       });
     });
   </script>

@@ -11,6 +11,7 @@ fi:
     missing_parent_id_error: "Tarkennettava vanhemmista vastustaa"
     permission_denied: "Sinulla ei ole lupaa suorittaa tämän toiminnon."
     show_degraded_container: "Käytä Standard uploader"
+    show_swfupload_container: "Käytä multiple-file uploader. (Vaatii Flash)"
     standard_file_upload_error: "Virhe lähettämisen file: {{error}}. Varmista, että tiedosto on kelvollinen. Tarkista, että tiedosto ei ole tyhjä. Yritä uudelleen."
     successful_upload: "Ladattu tiedosto."
     swf_loading: "SWFUpload latautuu. Odota hetki ..."

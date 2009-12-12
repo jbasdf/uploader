@@ -11,6 +11,7 @@ lv:
     missing_parent_id_error: "Lūdzu, norādiet vecāku objekts"
     permission_denied: "Jums nav atļaujas, lai pabeigtu šo darbību."
     show_degraded_container: "Izmantot standarta Uploader"
+    show_swfupload_container: "Izmantot vairāku failu augšupielādi. (Requires Flash)"
     standard_file_upload_error: "Kļūda augšupielādējot failu: {{error}}. Lūdzu nodrošināt, ka fails nav derīgs. Pārliecinieties fails nav tukšs. Tad mēģini vēlreiz."
     successful_upload: "Veiksmīgi augšupielādēto failu."
     swf_loading: "SWFUpload tiek noslogota. Lūdzu, uzgaidiet moments ..."

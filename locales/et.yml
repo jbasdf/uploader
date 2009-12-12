@@ -11,6 +11,7 @@ et:
     missing_parent_id_error: "Palun täpsustage vanem objekti"
     permission_denied: "Sul ei ole õigust lõpetada käesoleva hagi."
     show_degraded_container: "Kasutage standardset uploader"
+    show_swfupload_container: "Kasutage mitut faili uploader. (Requires Flash)"
     standard_file_upload_error: "Viga üleslaadimisel fail: {{error}}. Veenduge, et fail on kehtiv. Veenduge, et fail ei ole tühi. Seejärel proovige uuesti."
     successful_upload: "Edukalt üles laaditud fail."
     swf_loading: "SWFUpload laeb. Palun oota ..."

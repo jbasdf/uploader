@@ -11,6 +11,7 @@ ar:
     missing_parent_id_error: "يرجى تحديد الكائن الأصل"
     permission_denied: "ليس لديك إذن لإكمال هذا الإجراء."
     show_degraded_container: "استخدام رافع القياسية"
+    show_swfupload_container: "استخدام متعدد ملف رافع. (يتطلب فلاش)"
     standard_file_upload_error: "حدث خطأ أثناء تحميل الملف : {{error}}. يرجى التأكد من أن الملف هو صالح. تحقق للتأكد من أن الملف ليس فارغا. ثم حاول مرة أخرى."
     successful_upload: "الملف الذي تم تحميله بنجاح."
     swf_loading: "SWFUpload يتم تحميل. يرجى الانتظار قليلا..."

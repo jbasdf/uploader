@@ -11,6 +11,7 @@ hr:
     missing_parent_id_error: "Navedite objekt roditelj"
     permission_denied: "Nemate dopuštenje za potpunu ovu akciju."
     show_degraded_container: "Koristite standardne uploader"
+    show_swfupload_container: "Koristite više-varalica upload. (Zahtijeva Flash)"
     standard_file_upload_error: "Dogodila se pogreška tijekom učitavanja datoteke: {{error}}. Molimo Vas da osigurate da datoateka je valjan. Provjerite datoteka nije prazna. Zatim pokušajte ponovno."
     successful_upload: "Successfully uploaded file."
     swf_loading: "SWFUpload se učitava. Molimo pričekajte trenutak ..."

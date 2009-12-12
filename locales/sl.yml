@@ -11,6 +11,7 @@ sl:
     missing_parent_id_error: "Navedite matično predmeta"
     permission_denied: "Nimate dovoljenja za dokončanje te dejavnosti."
     show_degraded_container: "Uporaba standardnih uploader"
+    show_swfupload_container: "Uporabite več-file uploader. (Requires Flash)"
     standard_file_upload_error: "Prišlo je do napake med nalaganjem datoteke: {{error}}. Prepričajte se, da je veljavna datoteka. Preverite, ali datoteke ni prazna. Nato poskusite znova."
     successful_upload: "Uspešno uploaded file."
     swf_loading: "SWFUpload se nalaga. Prosimo, počakajte trenutek ..."

@@ -11,6 +11,7 @@ hu:
     missing_parent_id_error: "Kérjük, adja meg a szülő objektum"
     permission_denied: "Önnek nincs engedélye befejezni ezt a műveletet."
     show_degraded_container: "Szabványos uploader"
+    show_swfupload_container: "Use multiple-file uploader. (Flash)"
     standard_file_upload_error: "Hiba történt a fájl feltöltésével: {{error}}. Győződjön meg arról, hogy a fájl érvényes. Ellenőrizze, hogy a fájl nem üres. Majd próbálkozzon újra."
     successful_upload: "Sikeresen feltöltött fájl."
     swf_loading: "SWFUpload töltődik. Kérem, várjon ..."
