@@ -40,7 +40,7 @@ module UploaderHelper
   
   # Outputs a link that will show the swfupload container
   def show_swfupload_container_link
-    %Q{<a class="show_swfupload_container" href="#">#{I18n.t('uploader.show_swfupload_container')}</a>}
+    %Q{<a class="show_swfupload_container" style="display:none;" href="#">#{I18n.t('uploader.show_swfupload_container')}</a>}
   end
   
   

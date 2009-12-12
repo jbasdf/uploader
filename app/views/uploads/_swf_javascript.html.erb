@@ -24,10 +24,14 @@
 	<script type='text/javascript'>
     jQuery(document).ready(function() {
       jQuery('.show_degraded_container').click(function(){
+        jQuery('.show_swfupload_container').show();
+        jQuery('.show_degraded_container').hide();
         jQuery('.degraded_container').show();
         jQuery('.swfupload_container').hide();
       });
       jQuery('.show_swfupload_container').click(function(){
+        jQuery('.show_swfupload_container').hide();
+        jQuery('.show_degraded_container').show();
         jQuery('.degraded_container').hide();
         jQuery('.swfupload_container').show();
       });
