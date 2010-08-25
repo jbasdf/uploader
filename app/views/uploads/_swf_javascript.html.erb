@@ -48,6 +48,7 @@
     	var settings = {
 
 				flash_url : '/swf/swfupload.swf',
+				flash9_url : '/swf/swfupload_fp9.swf',
 				upload_url: '<%= options[:upload_url] || new_upload_path_with_session_information(parent) %>',
 
 				file_size_limit : '<%= options[:file_size_limit] || "100 MB" %>',
@@ -89,7 +90,6 @@
 				queue_complete_handler : queueComplete,	// Queue plugin event
 
 				// SWFObject settings
-				minimum_flash_version : "9.0.28",
 				swfupload_pre_load_handler : swfUploadPreLoad,
 				swfupload_load_failed_handler : swfUploadLoadFailed
 			};
