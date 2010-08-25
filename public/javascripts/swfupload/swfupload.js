@@ -31,6 +31,7 @@ SWFUpload.prototype.initSWFUpload = function (userSettings) {
 	try {
 		this.customSettings = {};	// A container where developers can place their own settings associated with this instance.
 		this.settings = {};
+		this.tmp_settings = userSettings; // Added by Justin. This fixes a bug where userSettings is undefined
 		this.eventQueue = [];
 		this.movieName = "SWFUpload_" + SWFUpload.movieCount++;
 		this.movieElement = null;
@@ -145,6 +146,7 @@ SWFUpload.onload = function () {};
 // Private: initSettings ensures that all the
 // settings are set, getting a default value if one was not assigned.
 SWFUpload.prototype.initSettings = function (userSettings) {
+	userSettings = this.tmp_settings; // Fixes a bug where userSettings is undefined
 	this.ensureDefault = function (settingName, defaultValue) {
 		var setting = userSettings[settingName];
 		if (setting != undefined) {

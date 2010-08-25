@@ -17,6 +17,7 @@ if (typeof(SWFUpload) === "function") {
 	
 	SWFUpload.prototype.initSettings = (function (oldInitSettings) {
 		return function (userSettings) {
+			userSettings = this.tmp_settings; // This fixes a bug where userSettings is undefined
 			if (typeof(oldInitSettings) === "function") {
 				oldInitSettings.call(this, userSettings);
 			}
