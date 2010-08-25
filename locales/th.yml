@@ -1,21 +1,21 @@
 --- 
 th: 
   uploader: 
-    cancel_all: อัพโหลดยกเลิกทั้งหมด
-    file_delete_permission_denied: คุณไม่ได้รับสิทธิ์ในการลบไฟล์ที่.
-    file_deleted: ไฟล์ที่ถูกลบ
-    file_upload_error: เกิดข้อผิดพลาดขณะอัปโหลดไฟล์.
-    javascript_not_enabled: "ขออภัย. SWFUpload ไม่สามารถโหลด. คุณต้องเปิดการใช้งาน JavaScript สนุก SWFUpload."
-    manage_files: จัดการไฟล์
-    manage_photos_files: "จัดการรูปภาพ / Files"
-    missing_parent_id_error: กรุณาระบุวัตถุผู้ปกครอง
-    permission_denied: คุณไม่ได้รับอนุญาตให้ดำเนินการนี้เสร็จ.
-    show_degraded_container: ใช้อัพโหลดมาตรฐาน
-    show_swfupload_container: "หลายใช้ไฟล์อัพโหลด. (Flash ต้องการ)"
-    standard_file_upload_error: "เกิดข้อผิดพลาดขณะอัพโหลดไฟล์: {{error}}. โปรดตรวจสอบว่าไฟล์นั้นถูกต้อง. ตรวจสอบเพื่อให้แน่ใจว่าแฟ้มไม่ว่าง. แล้วลองอีกครั้ง."
-    successful_upload: สำเร็จไฟล์ที่อัพโหลด.
-    swf_loading: "SWFUpload กำลังโหลด. โปรดรอสักครู่ ..."
-    swf_not_loading: "ขออภัย. SWFUpload ไม่สามารถโหลด. คุณอาจต้องติดตั้งหรืออัพเกรด Flash Player. ไป {{url}} เพื่อรับ Flash Player."
-    swf_taking_to_long: "SWFUpload ต้องใช้เวลานานในการโหลดหรือโหลดล้มเหลว. โปรดตรวจสอบว่ามีการเปิดใช้ปลั๊กอิน Flash และรุ่นที่ทำงานของ Adobe Flash Player ติดตั้ง."
-    upload_file: อัพโหลดไฟล์
-    upload_files: อัปโหลดไฟล์
+    cancel_all: "อัพโหลด ยกเลิก ทั้งหมด"
+    file_delete_permission_denied: "คุณ ไม่ ได้ รับ สิทธิ์ ใน การ ลบ ไฟล์ ที่."
+    file_deleted: "ไฟล์ ที่ ถูก ลบ"
+    file_upload_error: "เกิด ข้อ ผิด พลาด ขณะ อัป โหลด ไฟล์."
+    javascript_not_enabled: "ขออภัย. SWFUpload ไม่ สามารถ โหลด. คุณ ต้อง เปิด การ ใช้ งาน JavaScript สนุก SWFUpload."
+    manage_files: "จัดการ ไฟล์"
+    manage_photos_files: "จัดการ รูปภาพ / Files"
+    missing_parent_id_error: "กรุณา ระบุ วัตถุ ผู้ ปกครอง"
+    permission_denied: "คุณ ไม่ ได้ รับ อนุญาต ให้ ดำเนิน การ นี้ เสร็จ."
+    show_degraded_container: "ใช้ อัพโหลด มาตรฐาน"
+    show_swfupload_container: "หลาย ใช้ ไฟล์ อัพโหลด. (Flash ต้องการ)"
+    standard_file_upload_error: "เกิด ข้อ ผิด พลาด ขณะ อัพโหลด ไฟล์: {{error}}. โปรด ตรวจ สอบ ว่า ไฟล์ นั้น ถูก ต้อง. ตรวจ สอบ เพื่อ ให้ แน่ใจ ว่า แฟ้ม ไม่ ว่าง. แล้ว ลอง อีก ครั้ง."
+    successful_upload: "สำเร็จ ไฟล์ ที่ อัพโหลด."
+    swf_loading: "SWFUpload กำลัง โหลด. โปรด รอ สัก ครู่ ..."
+    swf_not_loading: "ขออภัย. SWFUpload ไม่ สามารถ โหลด. คุณ อาจ ต้อง ติด ตั้ง หรือ อัพเกรด Flash Player. ไป {{url}} เพื่อ รับ Flash Player."
+    swf_taking_to_long: "SWFUpload ต้อง ใช้ เวลา นาน ใน การ โหลด หรือ โหลด ล้ม เหลว. โปรด ตรวจ สอบ ว่า มี การ เปิด ใช้ ปลั๊กอิน Flash และ รุ่น ที่ ทำงาน ของ Adobe Flash Player ติด ตั้ง."
+    upload_file: "อัพโหลด ไฟล์"
+    upload_files: "อัป โหลด ไฟล์"
