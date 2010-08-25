@@ -1,14 +1,22 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  timeout: 5000
-
+  adapter: mysql
+  encoding: utf8
+  database: uploader_development
+  username: root
+  password:
+  host: 127.0.0.1
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  timeout: 5000
+  adapter: mysql
+  encoding: utf8
+  database: uploader_test
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  timeout: 5000
+  adapter: mysql
+  encoding: utf8
+  database: uploader_production
+  username: root
+  password: 
+  socket: /tmp/mysql.sock

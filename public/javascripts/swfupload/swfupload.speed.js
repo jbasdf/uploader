@@ -3,9 +3,9 @@
 	
 	Features:
 		*Adds several properties to the 'file' object indicated upload speed, time left, upload time, etc.
-			- currentSpeed -- String indicating the upload speed, bytes per second
-			- averageSpeed -- Overall average upload speed, bytes per second
-			- movingAverageSpeed -- Speed over averaged over the last several measurements, bytes per second
+			- currentSpeed -- String indicating the upload speed, bits per second
+			- averageSpeed -- Overall average upload speed, bits per second
+			- movingAverageSpeed -- Speed over averaged over the last several measurements, bits per second
 			- timeRemaining -- Estimated remaining upload time in seconds
 			- timeElapsed -- Number of seconds passed for this upload
 			- percentUploaded -- Percentage of the file uploaded (0 to 100)
@@ -29,13 +29,13 @@ if (typeof(SWFUpload) === "function") {
 	SWFUpload.speed = {};
 	
 	SWFUpload.prototype.initSettings = (function (oldInitSettings) {
-		return function () {
+		return function (userSettings) {
 			if (typeof(oldInitSettings) === "function") {
-				oldInitSettings.call(this);
+				oldInitSettings.call(this, userSettings);
 			}
 			
 			this.ensureDefault = function (settingName, defaultValue) {
-				this.settings[settingName] = (this.settings[settingName] == undefined) ? defaultValue : this.settings[settingName];
+				this.settings[settingName] = (userSettings[settingName] == undefined) ? defaultValue : userSettings[settingName];
 			};
 
 			// List used to keep the speed stats for the files we are tracking
@@ -123,6 +123,10 @@ if (typeof(SWFUpload) === "function") {
 	// Private: extends the file object with the speed plugin values
 	SWFUpload.speed.extendFile = function (file, trackingList) {
 		var tracking;
+		
+		if (!file) {
+			return file;
+		}
 		
 		if (trackingList) {
 			tracking = trackingList[file.id];

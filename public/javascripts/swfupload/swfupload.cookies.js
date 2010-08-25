@@ -9,9 +9,9 @@
 var SWFUpload;
 if (typeof(SWFUpload) === "function") {
 	SWFUpload.prototype.initSettings = function (oldInitSettings) {
-		return function () {
+		return function (userSettings) {
 			if (typeof(oldInitSettings) === "function") {
-				oldInitSettings.call(this);
+				oldInitSettings.call(this, userSettings);
 			}
 			
 			this.refreshCookies(false);	// The false parameter must be sent since SWFUpload has not initialzed at this point
