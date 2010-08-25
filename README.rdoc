@@ -336,5 +336,9 @@ If you intend to develop code and wish to run the tests you may do so using rake
 rake install since the embedded test application will use the gem that is install and not the current code from the project.  This is a limitation
 I attempted to overcome using a special initializer in rails_root/config/initializers/uploader.rb but I didn't have any success getting it working.
 
+=== Development notes
+The swfupload.js and swfupload.queue.js have been modified according to this forum post:
+http://www.swfupload.org/forum/generaldiscussion/2053
 
-Copyright (c) 2009 Justin Ball, released under the MIT license
+
+Copyright (c) 2010 Tatemae.com, released under the MIT license
