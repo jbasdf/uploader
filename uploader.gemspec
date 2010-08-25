@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.2.7"
+  s.version = "0.2.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2009-12-12}
+  s.date = %q{2010-08-24}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -136,6 +136,7 @@ Gem::Specification.new do |s|
      "public/javascripts/swfupload/handlers.js",
      "public/javascripts/swfupload/swfupload.cookies.js",
      "public/javascripts/swfupload/swfupload.js",
+     "public/javascripts/swfupload/swfupload.proxy.js",
      "public/javascripts/swfupload/swfupload.queue.js",
      "public/javascripts/swfupload/swfupload.speed.js",
      "public/javascripts/swfupload/swfupload.swfobject.js",
@@ -301,7 +302,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{uploader}
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{SWFUpload + Paperclip wrapped in an engine with love.}
   s.test_files = [
     "test/rails_root/app/controllers/application_controller.rb",
@@ -340,7 +341,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mime-types>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
