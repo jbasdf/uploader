@@ -2,6 +2,10 @@
 
 Uploader makes it easy to integrate multiple file uploads into your application using SWFUpload
 
+== ----NOTES----
+SWFUpload hasn't been updated in a while. Uploader 0.2.8 has been updated with the latest beta version of SWFUpload but it appears to have errors in some instances.
+
+We are currently working on a new upload gem that will use pupload
 
 == Installation
 
