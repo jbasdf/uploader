@@ -34,7 +34,7 @@ class Uploader::UploadsController < ApplicationController
     end
   end
 
-  def swfupload
+  def multiupload
     @upload = Upload.new
     @upload.is_public = true if params[:is_public] == true
     @upload.creator = get_creator

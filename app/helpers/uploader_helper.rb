@@ -23,9 +23,28 @@ module UploaderHelper
                                                          :options => options}
   end
 
+  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
+    render :partial => 'uploads/uploadify', :locals => { :parent => parent,
+                                                         :display_upload_indicators => display_upload_indicators, 
+                                                         :container_prefix => container_prefix,
+                                                         :session_key => get_session_key,
+                                                         :options => options}
+  end
+  
   def new_upload_path_with_session_information(upload_parent, format = 'js')
-    session_key = ActionController::Base.session_options[:key]
-    swfupload_uploads_path({:format => format, session_key => cookies[session_key], request_forgery_protection_token => form_authenticity_token}.merge(make_parent_params(upload_parent)))
+    multiupload_uploads_path({:format => format, :session_key => cookies[get_session_key], :request_forgery_protection_token => form_authenticity_token}.merge(make_parent_params(upload_parent)))
+  end
+  
+  def new_upload_path_with_parent_information(upload_parent, format = 'js')
+    multiupload_uploads_path({:format => format}.merge(make_parent_params(upload_parent)))
+  end
+  
+  def get_session_key
+    if defined?(Rails.application)
+      Rails.application.config.session_options[:key]
+    else
+      ActionController::Base.session_options[:key]
+    end
   end
   
   def make_parent_params(parent)

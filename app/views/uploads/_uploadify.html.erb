@@ -1,0 +1,44 @@
+<% if !defined?(@uploadify_scripts_included) -%>
+  <% @uploadify_scripts_included = true -%>
+  <% content_for :head do  -%>
+     <%= javascript_include_tag %w{ jquery/jquery.uploadify.v2.1.0.min.js, swf/swfobject.js }, :cache => 'uploadify_cached' %>
+    <%= stylesheet_link_tag 'uploadify' %>
+  <% end -%>
+<% end -%>
+
+
+<% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true, :id => container_prefix } do |f| -%>
+  <p><%= f.file_field :local, :size => 25 %></p>
+  <%= submit_tag t('uploader.upload_file') %>
+<% end %>
+
+<script type='text/javascript'>
+jQuery('form#<%=container_prefix%> #upload_local').uploadify({
+      uploader        : '/swf/uploadify.swf',
+      script          : '<%= options[:upload_url] || new_upload_path_with_parent_information(parent) %>',
+      cancelImg       : '/images/uploader/cancel.png',
+      fileDesc        : '<%= options[:file_types_description] || "All Files" %>',
+      fileExt         : '<%= options[:file_types] || "*.*" %>',
+      auto            : true,
+      sizeLimit       : '<%= options[:file_size_limit] || "100 MB" %>',
+      width           : <%= options[:button_width] ||  61 %>,
+      height          : <%= options[:button_height] || 22 %>,
+      multi           : true,
+      <% if options[:transparent] -%>
+  		hideButton      : true,
+      wmode           : 'transparent',
+  		<% else -%>
+  		buttonImg : '<%= options[:button_image_url] || "/images/swfupload/SWFUploadButton.png" %>',
+  		<% end -%>
+      buttonText      : 'Upload',
+//      onComplete      : function(a, b, c, response){ eval(response); $('#<%= "#{container_prefix}_queue" %>').html(''); },
+//      queueID         : 'noQueueForMePlease',
+//      onProgress      : function(event, queueID, fileObj, data){ $('#<%= "#{container_prefix}_queue" %>').html(data.percentage + '%') },
+      scriptData      : {
+        '_http_accept': 'application/javascript',
+        '_method': 'put',
+        '<%= session_key %>' : encodeURIComponent('<%= u cookies[session_key] %>'),
+        'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>')
+      }
+  });
+</script>

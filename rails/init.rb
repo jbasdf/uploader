@@ -26,5 +26,13 @@ ActionController::Base.send :helper, UploaderHelper
 I18n.load_path += Dir[ File.join(File.dirname(__FILE__), '..', 'locales', '*.{rb,yml}') ]
 
 config.after_initialize do
-  ActionController::Dispatcher.middleware.use Uploader::FlashSessionCookieMiddleware, ActionController::Base.session_options[:key]
+  if defined?(Rails.application)
+    # Rails 3
+    Rails.application.config.middleware.insert_before(ActionDispatch::Session::CookieStore, Uploader::FlashSessionCookieMiddleware, Rails.application.config.session_options[:key])
+  else
+    # Rails 2
+    ActionController::Dispatcher.middleware.use Uploader::FlashSessionCookieMiddleware, ActionController::Base.session_options[:key]
+  end
 end
+
+
