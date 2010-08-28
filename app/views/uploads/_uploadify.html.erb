@@ -1,7 +1,7 @@
 <% if !defined?(@uploadify_scripts_included) -%>
   <% @uploadify_scripts_included = true -%>
   <% content_for :head do  -%>
-     <%= javascript_include_tag %w{ jquery/jquery.uploadify.v2.1.0.min.js, swf/swfobject.js }, :cache => 'uploadify_cached' %>
+     <%= javascript_include_tag %w{ jquery/jquery.uploadify.min.js, swf/swfobject.js }, :cache => 'uploadify_cached' %>
     <%= stylesheet_link_tag 'uploadify' %>
   <% end -%>
 <% end -%>
