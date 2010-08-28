@@ -39,12 +39,11 @@ module UploaderHelper
           :fileDesc        => "All Files",
           :fileExt         => "*.*",
           :auto            => true,
-          :sizeLimit       => 1000000,
+          :sizeLimit       => 13107200, # 100 MB
           :multi           => true,
           :buttonText      => 'Upload',
           :scriptData      => {
             '_http_accept'       => 'application/javascript',
-            '_method'            => 'put',
             "#{get_session_key}" => "encodeURIComponent('#{u cookies[get_session_key]}')",
             'authenticity_token' => "encodeURIComponent('#{u form_authenticity_token}')"
           }

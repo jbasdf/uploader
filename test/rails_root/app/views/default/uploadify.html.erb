@@ -4,8 +4,8 @@
   <a href="/">SWFUpload</a> | <a href="/default/uploadify">uploadify</a>
 </p>
 
-<p>Upload One restricted to 1MB:
-  <%= uploadify_form(@user, true, container_prefix = '', :sizeLimit => 100000) %>
+<p>Upload One restricted to 10MB:
+  <%= uploadify_form(@user, true, container_prefix = '', :sizeLimit => 1310720) %>
 </p>
 
 <p>Upload restricted to images:
