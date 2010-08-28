@@ -5,13 +5,13 @@
 </p>
 
 <p>Upload One restricted to 1MB:
-  <%= uploadify_form(@user, true, container_prefix = '', :file_size_limit => '1 MB') %>
+  <%= uploadify_form(@user, true, container_prefix = '', :sizeLimit => 100000) %>
 </p>
 
 <p>Upload restricted to images:
-  <%= upload_form(@user, false, container_prefix = 'a_container_with_a_long_name', :file_types => '*.jpg') %>
+  <%= uploadify_form(@user, false, container_prefix = 'a_container_with_a_long_name', :fileExt => '*.jpg', :fileDesc => 'Images') %>
 </p>
 
-<p>Upload With Background Button using transparent:
-  <%= upload_form(@user, false, container_prefix = 'background', :transparent => true) %>
+<p>Upload With Custom Background Button and rollover:
+  <%= uploadify_form(@user, false, container_prefix = 'background', :buttonImg => '/images/SWFUploadButton.png', :width => 61, :height => 22, :rollover => true) %>
 </p>

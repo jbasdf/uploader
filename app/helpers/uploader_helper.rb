@@ -1,6 +1,6 @@
 module UploaderHelper
 
-  # Output a form capable of uploading files to the server.
+  # Output a form capable of uploading files to the server using swfupload.
   # parent: The object to which the uploads will be attached
   # display_upload_indicators: Indicates whether or not to show the upload progress
   # container_prefix: Prefixes each id in the html with the specified text.  Useful if there is to be more than one form on a page.
@@ -23,12 +23,41 @@ module UploaderHelper
                                                          :options => options}
   end
 
+  # Output a form capable of uploading multiple files to the server using uploadify.
+  # parent: The object to which the uploads will be attached
+  # display_upload_indicators: Indicates whether or not to show the upload progress
+  # container_prefix: Prefixes each id in the html with the specified text.  Useful if there is to be more than one form on a page.
+  # Options is a hash containing any valid option for uploadify:
+  # http://www.uploadify.com/documentation/
   def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
+    container_prefix = 'uploadify' if container_prefix.blank?
+    
+    uploadify_options = {
+          :uploader        => '/swf/uploadify.swf',
+          :script          => new_upload_path_with_parent_information(parent),
+          :cancelImg       => '/images/uploadify/cancel.png',
+          :fileDesc        => "All Files",
+          :fileExt         => "*.*",
+          :auto            => true,
+          :sizeLimit       => 1000000,
+          :multi           => true,
+          :buttonText      => 'Upload',
+          :scriptData      => {
+            '_http_accept'       => 'application/javascript',
+            '_method'            => 'put',
+            "#{get_session_key}" => "encodeURIComponent('#{u cookies[get_session_key]}')",
+            'authenticity_token' => "encodeURIComponent('#{u form_authenticity_token}')"
+          }
+      }.merge(options)
+
+      # onComplete      : function(a, b, c, response){ eval(response); $('#<%= "#{container_prefix}_queue" %>').html(''); },
+      # queueID         : 'noQueueForMePlease',
+      # onProgress      : function(event, queueID, fileObj, data){ $('#<%= "#{container_prefix}_queue" %>').html(data.percentage + '%') },
+    	#buttonImg : '<%= options[:button_image_url] || "/images/swfupload/SWFUploadButton.png" %>'
+      
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
-                                                         :display_upload_indicators => display_upload_indicators, 
                                                          :container_prefix => container_prefix,
-                                                         :session_key => get_session_key,
-                                                         :options => options}
+                                                         :uploadify_options => uploadify_options.to_json}
   end
   
   def new_upload_path_with_session_information(upload_parent, format = 'js')
