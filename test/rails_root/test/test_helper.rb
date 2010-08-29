@@ -3,7 +3,6 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 
 require 'test_help'
-gem 'thoughtbot-factory_girl' # from github
 require 'factory_girl'
 require 'ruby-debug'
 require 'mocha'

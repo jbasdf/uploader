@@ -85,7 +85,7 @@ module ActiveRecord
           end
         end
         
-        def swfupload_local=(filedata)
+        def multiupload_local=(filedata)
           filedata.content_type = MIME::Types.type_for(filedata.original_filename)[0].to_s
           self.local = filedata
         end

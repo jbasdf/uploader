@@ -39,35 +39,36 @@ module UploaderHelper
           :fileDesc        => "All Files",
           :fileExt         => "*.*",
           :auto            => true,
-          :sizeLimit       => 13107200, # 100 MB
           :multi           => true,
           :buttonText      => 'Upload',
           :scriptData      => {
             '_http_accept'       => 'application/javascript',
-            "#{get_session_key}" => "encodeURIComponent('#{u cookies[get_session_key]}')",
-            'authenticity_token' => "encodeURIComponent('#{u form_authenticity_token}')"
+            '_method'            => 'post',
+            "#{session_key}"     => 'session_key_replace_',
+            'authenticity_token' => 'authenticity_token_replace_'
           }
       }.merge(options)
-
-      # onComplete      : function(a, b, c, response){ eval(response); $('#<%= "#{container_prefix}_queue" %>').html(''); },
-      # queueID         : 'noQueueForMePlease',
-      # onProgress      : function(event, queueID, fileObj, data){ $('#<%= "#{container_prefix}_queue" %>').html(data.percentage + '%') },
-    	#buttonImg : '<%= options[:button_image_url] || "/images/swfupload/SWFUploadButton.png" %>'
+      
+      uploadify_options_json = uploadify_options.to_json
+      # This is a bit of a hack but to_json will surround 'encodeURIComponent' with quotes so it won't execute. 
+      # We need it to execute. The double encode is required - u on the server and encodeURIComponent on the client.
+      uploadify_options_json.gsub!('"session_key_replace_"', "encodeURIComponent('#{u(cookies[session_key])}')")
+      uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
       
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
                                                          :container_prefix => container_prefix,
-                                                         :uploadify_options => uploadify_options.to_json}
+                                                         :uploadify_options => uploadify_options_json}
   end
   
   def new_upload_path_with_session_information(upload_parent, format = 'js')
-    multiupload_uploads_path({:format => format, :session_key => cookies[get_session_key], :request_forgery_protection_token => form_authenticity_token}.merge(make_parent_params(upload_parent)))
+    multiupload_uploads_path({:format => format, :session_key => cookies[session_key], :request_forgery_protection_token => form_authenticity_token}.merge(make_parent_params(upload_parent)))
   end
   
   def new_upload_path_with_parent_information(upload_parent, format = 'js')
     multiupload_uploads_path({:format => format}.merge(make_parent_params(upload_parent)))
   end
   
-  def get_session_key
+  def session_key
     if defined?(Rails.application)
       Rails.application.config.session_options[:key]
     else

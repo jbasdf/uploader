@@ -4,18 +4,18 @@ zh:
     cancel_all: 取消所有上传
     file_delete_permission_denied: 您没有权限删除该文件。
     file_deleted: 已删除的文件
-    file_upload_error: 时发生错误上传文件。
-    javascript_not_enabled: "我们很抱歉。 SWFUpload无法加载。您必须启用JavaScript享受SWFUpload。"
-    manage_files: 管理文件
+    file_upload_error: 上传时发生错误的文件。
+    javascript_not_enabled: "我们很抱歉。 SWFUpload无法加载。您必须启用JavaScript，享受SWFUpload。"
+    manage_files: 管理档案
     manage_photos_files: 管理照片/文件
     missing_parent_id_error: 请指定一个父对象
-    permission_denied: 您没有权限完成此操作。
-    show_degraded_container: 使用标准上载
-    show_swfupload_container: "使用多个文件上传。 （需要Flash）"
-    standard_file_upload_error: "时发生错误上传文件：{{error}}.请确保该文件是有效的。检查以确保该文件不是空的。然后再试一次。"
-    successful_upload: 成功上载文件。
-    swf_loading: SWFUpload加载。请稍候...
-    swf_not_loading: "我们很抱歉。 SWFUpload无法加载。您可能需要安装或升级Flash播放器。访问{{url}}获取Flash播放器。"
-    swf_taking_to_long: "SWFUpload花费很长的时间来加载或负载已失败。请确保Flash插件启用的是，Adobe Flash Player的版本安装工作。"
+    permission_denied: 您没有权限来完成此操作。
+    show_degraded_container: 使用标准的上载
+    show_swfupload_container: "使用多文件上传程序。 （需要Flash）"
+    standard_file_upload_error: "上传时发生错误的文件：%{error}.请确保该文件是有效的。检查以确保该文件不是空的。然后再试一次。"
+    successful_upload: 成功上传文件。
+    swf_loading: SWFUpload加载。请稍等...
+    swf_not_loading: "我们很抱歉。 SWFUpload无法加载。您可能需要安装或升级Flash播放器。访问%{url}获取Flash播放器。"
+    swf_taking_to_long: "SWFUpload花费很长的时间来加载或加载失败。请确保启用了Flash插件，而且一的Adobe Flash Player的版本安装工作。"
     upload_file: 上传文件
     upload_files: 上传文件

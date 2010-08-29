@@ -39,7 +39,7 @@ class Uploader::UploadsController < ApplicationController
     @upload.is_public = true if params[:is_public] == true
     @upload.creator = get_creator
     @upload.uploadable = @parent
-    @upload.swfupload_local = params[:Filedata]
+    @upload.multiupload_local = params[:Filedata]
     @upload.save!
     respond_to do |format|
       format.js { render :text => get_upload_text(@upload) }

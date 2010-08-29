@@ -13,7 +13,7 @@ class DefaultControllerTest < ActionController::TestCase
         @user = Factory(:user)
         get :index, :user_id => @user.to_param
       end
-      should_respond_with :success
+      should respond_with :success
       should "have a_container_with_a_long_name in the body" do
         assert @response.body.include?('a_container_with_a_long_name')
       end
@@ -32,7 +32,7 @@ class DefaultControllerTest < ActionController::TestCase
         @user = Factory(:user)
         get :uploadify, :user_id => @user.to_param
       end
-      should_respond_with :success
+      should respond_with :success
       should "have a_container_with_a_long_name in the body" do
         assert @response.body.include?('a_container_with_a_long_name')
       end
