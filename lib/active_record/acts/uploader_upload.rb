@@ -22,17 +22,18 @@ module ActiveRecord
         def acts_as_uploader(options)
 
           #Named scopes
-          named_scope :newest_first, :order => "created_at DESC"
-          named_scope :alphabetic, :order => "filename DESC"
-          named_scope :recent, :order => "created_at DESC"
+          named_scope :newest, :order => "created_at DESC"
+          named_scope :by_filename, :order => "local_file_name DESC"
+          named_scope :newest, :order => "created_at DESC"
           named_scope :public, :conditions => 'is_public = true'
           named_scope :images, :conditions => "local_content_type IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
           named_scope :documents, :conditions => "local_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
           named_scope :files, :conditions => "local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
-          named_scope :since, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
+          named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 7.days.ago.to_s(:db)) ]} }
           named_scope :created_by, lambda { |*args| { :conditions => ["creator_id = ?", (args.first) ]} }
-          named_scope :pending_s3_migration, lambda { { :conditions =>  ["remote_file_name IS NULL AND created_at <= ?", 20.minutes.ago.to_s(:db)], :order => 'created_at DESC' } }
+          named_scope :pending_s3_migrations, lambda { { :conditions =>  ["remote_file_name IS NULL"], :order => 'created_at DESC' } }
 
+          
           # Paperclip
           has_attached_file :local, options[:has_attached_file].merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
           has_attached_file :remote, options[:has_attached_file].merge(:url => ':s3_alias_url',

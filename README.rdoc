@@ -252,13 +252,13 @@ If you want to use a different model or several models just add a rake task to y
   desc 'Send all uploads to S3.  (Will only send uploads from a model named Upload)'
   task :upload_to_s3 do
     
-    uploads = Upload.pending_s3_migration
+    uploads = Upload.pending_s3_migrations
     uploads.each do |upload|
       upload.remote = upload.local
       upload.save!
     end
     
-    photos = Photo.pending_s3_migration
+    photos = Photo.pending_s3_migrations
     photos.each do |photo|
       photo.remote = photo.local
       photo.save!

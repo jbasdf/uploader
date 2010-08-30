@@ -36,8 +36,8 @@ class DefaultControllerTest < ActionController::TestCase
       should "have a_container_with_a_long_name in the body" do
         assert @response.body.include?('a_container_with_a_long_name')
       end
-      should "have '1 MB' in the body" do
-        assert @response.body.include?('1 MB')
+      should "have '1310720' in the body" do
+        assert @response.body.include?('1310720')
       end
       should "have '*.jpg' in the body" do
         assert @response.body.include?('*.jpg')

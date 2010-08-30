@@ -24,7 +24,7 @@ while($running) do
     sleep 2
   else
     $waiting = 0
-    upload = Upload.pending_s3_migration.first
+    upload = Upload.pending_s3_migrations.first
 
     if upload
       $waiting = 120 - 2

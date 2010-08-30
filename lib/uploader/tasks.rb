@@ -18,7 +18,7 @@ module Uploader
         
         desc 'Send all uploads to S3.  (Will only send uploads from a model named Upload)'
         task :upload_to_s3 do
-          uploads = Upload.pending_s3_migration
+          uploads = Upload.pending_s3_migrations
           uploads.each do |upload|
             upload.remote = upload.local
             upload.save!
