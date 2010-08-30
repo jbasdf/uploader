@@ -1,12 +1,9 @@
 = Uploader
 
-Uploader makes it easy to integrate multiple file uploads into your application using SWFUpload
+Uploader makes it easy to integrate multiple file uploads into your application using Uploadify or SWFUpload
 
 == ----NOTES----
-SWFUpload hasn't been updated in a while. Uploader 0.2.8 has been updated with the latest beta version of SWFUpload but it appears to have errors in some instances.
-Version 0.2.8 will be the last version to use swfupload.
-
-We are currently working on a new upload gem that will use pupload
+SWFUpload hasn't been updated in a while and tends to be buggy. We have added uploadify. We recommend using that instead.
 
 == Installation
 
@@ -28,9 +25,6 @@ http://jquery.com/
 
 Then include it in your layout:
   <%= javascript_include_tag 'jquery/jquery.js' %>
-            
-Another option is to use jRails
-http://ennerchi.com/projects/jrails
 
 === Create a model for uploads.
 Creat an 'Upload' model in upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
@@ -113,7 +107,7 @@ default functionality that you may consider overriding.
 Be sure to modify your routes file.  Add the following line to ensure that your application uses the new uploads 
 controller instead of directly using the one inside the gem:
 
-  map.resources :uploads, :collection => { :swfupload => :post }
+  map.resources :uploads, :collection => { :multiupload => :post }
   
 
   class UploadsController < Uploader::UploadsController
@@ -171,8 +165,14 @@ You'll need something like this in your layout so that uploader can add in the r
 <%= yield :head -%>
 
 Then to add an upload form:
+
+SWFUpload version:
 <%= upload_form(parent_object) %>
-parent_object should be the object which owns the uploads.  ie a user, photo_album, etc.
+
+Uploadify version (recommended):
+<%= uploadify_form(parent_object) %>
+
+See the uploader_helper.rb file for options. parent_object should be the object which owns the uploads.  ie a user, photo_album, etc.
 
 === Rake Tasks
 

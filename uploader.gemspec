@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "0.2.8"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Justin Ball", "David South"]
-  s.date = %q{2010-08-27}
-  s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload and Paperclip}
+  s.authors = ["Justin Ball", "Joel Duffin", "David South"]
+  s.date = %q{2010-08-30}
+  s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc",
@@ -68,7 +68,6 @@ Gem::Specification.new do |s|
      "locales/no.yml",
      "locales/pl.yml",
      "locales/pt-PT.yml",
-     "locales/pt.yml",
      "locales/ro.yml",
      "locales/ru.yml",
      "locales/sk.yml",
@@ -262,6 +261,7 @@ Gem::Specification.new do |s|
      "test/rails_root/public/javascripts/jquery/jquery.jgrowl.js",
      "test/rails_root/public/javascripts/jquery/jquery.js",
      "test/rails_root/public/javascripts/jquery/jquery.tips.js",
+     "test/rails_root/public/javascripts/jquery/jquery.uploadify.min.js",
      "test/rails_root/public/javascripts/jquery/jrails.js",
      "test/rails_root/public/javascripts/prototype.js",
      "test/rails_root/public/javascripts/scriptaculous.js",
@@ -325,7 +325,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{uploader}
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{SWFUpload + Paperclip wrapped in an engine with love.}
+  s.summary = %q{Uploadify, SWFUpload + Paperclip wrapped in an engine with love.}
   s.test_files = [
     "test/rails_root/app/controllers/application_controller.rb",
      "test/rails_root/app/controllers/default_controller.rb",
