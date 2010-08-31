@@ -31,10 +31,10 @@ module UploaderHelper
   # http://www.uploadify.com/documentation/
   def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
     container_prefix = 'uploadify' if container_prefix.blank?
-    
+    format = 'js'
     uploadify_options = {
           :uploader        => '/swf/uploadify.swf',
-          :script          => uploads_url,
+          :script          => multiupload_uploads_path({:format => format}),
           :cancelImg       => '/images/uploadify/cancel.png',
           :fileDesc        => "All Files",
           :fileExt         => "*.*",
