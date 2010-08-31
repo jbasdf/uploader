@@ -42,6 +42,7 @@ begin
     gemspec.add_dependency "mime-types"
     gemspec.add_dependency "rack"
     gemspec.add_dependency "paperclip"
+    gemspec.add_dependency "aws-s3"
   end
   Jeweler::GemcutterTasks.new
   Jeweler::RubyforgeTasks.new do |rubyforge|
