@@ -34,19 +34,20 @@ module UploaderHelper
     
     uploadify_options = {
           :uploader        => '/swf/uploadify.swf',
-          :script          => new_upload_path_with_parent_information(parent),
+          :script          => uploads_url,
           :cancelImg       => '/images/uploadify/cancel.png',
           :fileDesc        => "All Files",
           :fileExt         => "*.*",
           :auto            => true,
           :multi           => true,
           :buttonText      => 'Upload',
+          :onComplete      => 'oncomplete_replace_',
           :scriptData      => {
             '_http_accept'       => 'application/javascript',
             '_method'            => 'post',
             "#{session_key}"     => 'session_key_replace_',
             'authenticity_token' => 'authenticity_token_replace_'
-          }
+          }.merge(make_parent_params(parent))
       }.merge(options)
       
       uploadify_options_json = uploadify_options.to_json
@@ -54,6 +55,7 @@ module UploaderHelper
       # We need it to execute. The double encode is required - u on the server and encodeURIComponent on the client.
       uploadify_options_json.gsub!('"session_key_replace_"', "encodeURIComponent('#{u(cookies[session_key])}')")
       uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
+      uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
       
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
                                                          :container_prefix => container_prefix,

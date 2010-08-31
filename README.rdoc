@@ -27,7 +27,7 @@ Then include it in your layout:
   <%= javascript_include_tag 'jquery/jquery.js' %>
 
 === Create a model for uploads.
-Creat an 'Upload' model in upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
+Create an 'Upload' model in upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
 
   class Upload < ActiveRecord::Base
 
@@ -304,12 +304,9 @@ Say you have chosen to display your upload in a table.  Your code might look lik
 
 I put the following in my main upload view
   <% content_for :javascript do  -%>
-
     setup_submit_delete();
-
     function upload_completed_callback(data){
       jQuery('#upload-list').prepend(data);
-      setup_submit_delete();
     }
   <% end -%>
   
@@ -318,7 +315,7 @@ I put the following in my main upload view
 The following jQuery code will do an ajax delete for you
 
   function setup_submit_delete(){
-  	jQuery(".submit-delete").click(function() {
+  	jQuery(".submit-delete").live('click', function() {
   		// if(!confirm("Are you sure?")){
   		// 	return false;
   		// }

@@ -1,8 +1,8 @@
 class Uploader::UploadsController < ApplicationController
   unloadable
   
-  before_filter :setup_parent, :only => [:create, :swfupload]
-  before_filter :filter_permissions, :only => [:create, :swfupload]
+  before_filter :setup_parent, :only => [:create, :multiupload]
+  before_filter :filter_permissions, :only => [:create, :multiupload]
   before_filter :set_upload_for_destroy, :only => [:destroy]
  
   def create

@@ -3,6 +3,16 @@ require File.dirname(__FILE__) + '/../test_helper'
 class UploadTest < ActiveSupport::TestCase
 
   context "upload" do
+    
+    context 'options' do
+      should 'not enable immediate transfers to S3 by default' do
+        assert false == Upload.s3_no_wait?
+      end
+      should 'keep a local copy of each upload by default' do
+        assert true == Upload.keep_local_file?
+      end
+    end
+    
     context 'upload instance' do
 
       should belong_to :uploadable

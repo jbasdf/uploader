@@ -7,7 +7,11 @@ module ActiveRecord
       end
 
       module ClassMethods
-
+        
+        # options:
+        #   S3_no_wait - Immediately send files to S3 instead of waiting for an aysnc process to send them over.
+        #   keep_local_file - If using S3 determines whether or not to keep files local as well as sending to S3.
+        #
         # acts_as_uploader requires an option for :has_attached_file.  These values will be passed to paperclip.
         # i.e.
         # acts_as_uploader :has_attached_file => {
@@ -19,8 +23,15 @@ module ActiveRecord
         #
         # disable_halt_nonimage_processing - By default all post processing is turned off for non image files.  This is useful if you want to setup styles to generate thumbnails for
         #                                    images but don't want the default Geometry processor to die on non-image files.
-        def acts_as_uploader(options)
+        def acts_as_uploader(options = {})
 
+          default_options = {
+            :S3_no_wait => false,
+            :keep_local_file => true
+          }
+          
+          options = default_options.merge(options)
+          
           #Named scopes
           named_scope :newest, :order => "created_at DESC"
           named_scope :by_filename, :order => "local_file_name DESC"
@@ -33,6 +44,8 @@ module ActiveRecord
           named_scope :created_by, lambda { |*args| { :conditions => ["creator_id = ?", (args.first) ]} }
           named_scope :pending_s3_migrations, lambda { { :conditions =>  ["remote_file_name IS NULL"], :order => 'created_at DESC' } }
 
+          @uploader_s3_no_wait = options.delete(:S3_no_wait)
+          @uploader_keep_file_local = options.delete(:keep_local_file)
           
           # Paperclip
           has_attached_file :local, options[:has_attached_file].merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
@@ -42,6 +55,8 @@ module ActiveRecord
 
           belongs_to :uploadable, :polymorphic => true
           belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
+          
+          before_save :determine_immediate_send_to_remote
                                         
           class_eval <<-EOV
             
@@ -61,6 +76,14 @@ module ActiveRecord
       # class methods
       module SingletonMethods
 
+        def s3_no_wait?
+          @uploader_s3_no_wait
+        end
+        
+        def keep_local_file?
+          @uploader_keep_file_local
+        end
+        
       end
       
       # All the methods available to a record that has had <tt>acts_as_uploader</tt> specified.
@@ -74,11 +97,17 @@ module ActiveRecord
           remote_file_name || local_file_name
         end
         
+        def determine_immediate_send_to_remote
+          if self.class.s3_no_wait?
+            self.remote = local.to_file # This will result in the file being sent to S3
+          end
+        end
+        
         def send_to_remote
           if local_file_name
             self.remote = local.to_file
             if self.save and remote.original_filename and remote.exists?
-              self.local = nil
+              self.local = nil unless keep_local_file?
               self.save
             else
               false
