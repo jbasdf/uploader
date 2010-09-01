@@ -5,6 +5,8 @@ Uploader makes it easy to integrate multiple file uploads into your application 
 == ----NOTES----
 SWFUpload hasn't been updated in a while and tends to be buggy. We have added uploadify. We recommend using that instead.
 
+This branch has been setup to maintain compatibility with Rails2. Future versions of uploader will focus on Rails 3.
+
 == Installation
 
 === Install the gem:
