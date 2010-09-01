@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "1.0.3"
+  s.version = "2.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin", "David South"]
-  s.date = %q{2010-08-31}
+  s.date = %q{2010-09-01}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".gitignore",
      "Gemfile",
+     "Gemfile.lock",
      "MIT-LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -166,6 +167,7 @@ Gem::Specification.new do |s|
      "test/rails_root/app/views/default/uploadify.html.erb",
      "test/rails_root/app/views/layouts/application.html.erb",
      "test/rails_root/config/amazon_s3.yml",
+     "test/rails_root/config/application.rb",
      "test/rails_root/config/boot.rb",
      "test/rails_root/config/database.yml",
      "test/rails_root/config/environment.rb",
@@ -173,10 +175,12 @@ Gem::Specification.new do |s|
      "test/rails_root/config/environments/production.rb",
      "test/rails_root/config/environments/test.rb",
      "test/rails_root/config/global_config.yml",
+     "test/rails_root/config/initializers/backtrace_silencers.rb",
      "test/rails_root/config/initializers/inflections.rb",
      "test/rails_root/config/initializers/mime_types.rb",
      "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
+     "test/rails_root/config/initializers/secret_token.rb",
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
@@ -332,15 +336,18 @@ Gem::Specification.new do |s|
      "test/rails_root/app/controllers/uploads_controller.rb",
      "test/rails_root/app/models/upload.rb",
      "test/rails_root/app/models/user.rb",
+     "test/rails_root/config/application.rb",
      "test/rails_root/config/boot.rb",
      "test/rails_root/config/environment.rb",
      "test/rails_root/config/environments/development.rb",
      "test/rails_root/config/environments/production.rb",
      "test/rails_root/config/environments/test.rb",
+     "test/rails_root/config/initializers/backtrace_silencers.rb",
      "test/rails_root/config/initializers/inflections.rb",
      "test/rails_root/config/initializers/mime_types.rb",
      "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
+     "test/rails_root/config/initializers/secret_token.rb",
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
