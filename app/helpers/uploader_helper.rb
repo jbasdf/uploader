@@ -30,7 +30,7 @@ module UploaderHelper
   # Options is a hash containing any valid option for uploadify:
   #     http://www.uploadify.com/documentation/
   # format: either js or json. js will fire a callback.
-  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {}, format = 'js')
+  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', format = 'js', options = {})
     container_prefix = 'uploadify' if container_prefix.blank?
     uploadify_options = {
           :uploader        => '/swf/uploadify.swf',
@@ -50,12 +50,12 @@ module UploaderHelper
           }.merge(make_parent_params(parent))
       }.merge(options)
       
-      uploadify_options_json = uploadify_options.to_json
-      # This is a bit of a hack but to_json will surround 'encodeURIComponent' with quotes so it won't execute. 
-      # We need it to execute. The double encode is required - u on the server and encodeURIComponent on the client.
-      uploadify_options_json.gsub!('"session_key_replace_"', "encodeURIComponent('#{u(cookies[session_key])}')")
-      uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
-      uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
+    uploadify_options_json = uploadify_options.to_json
+    # This is a bit of a hack but to_json will surround 'encodeURIComponent' with quotes so it won't execute. 
+    # We need it to execute. The double encode is required - u on the server and encodeURIComponent on the client.
+    uploadify_options_json.gsub!('"session_key_replace_"', "encodeURIComponent('#{u(cookies[session_key])}')")
+    uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
+    uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
       
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
                                                          :container_prefix => container_prefix,
