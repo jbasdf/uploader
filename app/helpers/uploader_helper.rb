@@ -28,10 +28,10 @@ module UploaderHelper
   # display_upload_indicators: Indicates whether or not to show the upload progress
   # container_prefix: Prefixes each id in the html with the specified text.  Useful if there is to be more than one form on a page.
   # Options is a hash containing any valid option for uploadify:
-  # http://www.uploadify.com/documentation/
-  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
+  #     http://www.uploadify.com/documentation/
+  # format: either js or json. js will fire a callback.
+  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', options = {}, format = 'js')
     container_prefix = 'uploadify' if container_prefix.blank?
-    format = 'js'
     uploadify_options = {
           :uploader        => '/swf/uploadify.swf',
           :script          => multiupload_uploads_path({:format => format}),
@@ -56,7 +56,6 @@ module UploaderHelper
       uploadify_options_json.gsub!('"session_key_replace_"', "encodeURIComponent('#{u(cookies[session_key])}')")
       uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
       uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
-      
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
                                                          :container_prefix => container_prefix,
                                                          :uploadify_options => uploadify_options_json}

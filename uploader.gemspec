@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin", "David South"]
-  s.date = %q{2010-08-31}
+  s.date = %q{2010-09-02}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -154,7 +154,6 @@ Gem::Specification.new do |s|
      "tasks/rails.rake",
      "test/rails_root/.gitignore",
      "test/rails_root/.rake_tasks",
-     "test/rails_root/Capfile",
      "test/rails_root/Rakefile",
      "test/rails_root/app/controllers/application_controller.rb",
      "test/rails_root/app/controllers/default_controller.rb",
@@ -175,10 +174,8 @@ Gem::Specification.new do |s|
      "test/rails_root/config/global_config.yml",
      "test/rails_root/config/initializers/inflections.rb",
      "test/rails_root/config/initializers/mime_types.rb",
-     "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
      "test/rails_root/config/initializers/session_store.rb",
-     "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/.keep",
      "test/rails_root/db/development.sqlite3",
@@ -339,10 +336,8 @@ Gem::Specification.new do |s|
      "test/rails_root/config/environments/test.rb",
      "test/rails_root/config/initializers/inflections.rb",
      "test/rails_root/config/initializers/mime_types.rb",
-     "test/rails_root/config/initializers/requires.rb",
      "test/rails_root/config/initializers/s3_credentials.rb",
      "test/rails_root/config/initializers/session_store.rb",
-     "test/rails_root/config/initializers/uploader.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/migrate/20090517040220_create_uploads.rb",
      "test/rails_root/db/migrate/20090602041838_create_users.rb",

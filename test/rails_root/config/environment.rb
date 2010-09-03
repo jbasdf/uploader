@@ -1,29 +1,5 @@
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+# Load the rails application
+require File.expand_path('../application', __FILE__)
 
-require File.join(File.dirname(__FILE__), 'boot')
-
-# Load a global constant so the initializers can use them
-require 'ostruct'
-require 'yaml'
-
-::GlobalConfig = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/global_config.yml")[RAILS_ENV])
-
-class << GlobalConfig
-  def prepare_options_for_attachment_fu(options)
-    attachment_fu_options = options.symbolize_keys.merge({:storage => options['storage'].to_sym, 
-        :max_size => options['max_size'].to_i.megabytes})
-  end
-end
-
-class TestGemLocator < Rails::Plugin::Locator
-  def plugins
-    Rails::Plugin.new(File.join(File.dirname(__FILE__), *%w(.. .. ..)))
-  end 
-end
-
-Rails::Initializer.run do |config|
-  config.load_paths += Dir.glob(File.join(RAILS_ROOT, 'vendor', 'gems', '*', 'lib'))
-  config.time_zone = 'UTC'
-  config.gem 'paperclip'
-  config.plugin_locators << TestGemLocator
-end
+# Initialize the rails application
+RailsRoot::Application.initialize!
