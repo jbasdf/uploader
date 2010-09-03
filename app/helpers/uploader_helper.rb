@@ -25,16 +25,27 @@ module UploaderHelper
 
   # Output a form capable of uploading multiple files to the server using uploadify.
   # parent: The object to which the uploads will be attached
-  # display_upload_indicators: Indicates whether or not to show the upload progress
-  # container_prefix: Prefixes each id in the html with the specified text.  Useful if there is to be more than one form on a page.
+  # options:
+  #     display_upload_indicators: Indicates whether or not to show the upload progress
+  #     container_prefix: Prefixes each id in the html with the specified text.  Useful if there is to be more than one form on a page.
+  #     format: either js or json. js will fire a callback.
+  #     omit_initializer: Remove the call to jQuery('#element').uploadify. If this is set to true the calling code 
+  #                       must call .uploadify for the upload to work.
   # Options is a hash containing any valid option for uploadify:
   #     http://www.uploadify.com/documentation/
-  # format: either js or json. js will fire a callback.
-  def uploadify_form(parent, display_upload_indicators = true, container_prefix = '', format = 'js', options = {})
-    container_prefix = 'uploadify' if container_prefix.blank?
+  def uploadify_form(parent, options = {}, uploadify_options = {})
+    
+    options = {
+      :display_upload_indicators => true,
+      :format => 'js',
+      :omit_initializer =>  false
+    }.merge(options)
+    
+    options[:container_prefix] = 'uploadify' if options[:container_prefix].blank?
+    
     uploadify_options = {
           :uploader        => '/swf/uploadify.swf',
-          :script          => multiupload_uploads_path({:format => format}),
+          :script          => multiupload_uploads_path({:format => options[:format]}),
           :cancelImg       => '/images/uploadify/cancel.png',
           :fileDesc        => "All Files",
           :fileExt         => "*.*",
@@ -48,7 +59,7 @@ module UploaderHelper
             "#{session_key}"     => 'session_key_replace_',
             'authenticity_token' => 'authenticity_token_replace_'
           }.merge(make_parent_params(parent))
-      }.merge(options)
+      }.merge(uploadify_options)
       
     uploadify_options_json = uploadify_options.to_json
     # This is a bit of a hack but to_json will surround 'encodeURIComponent' with quotes so it won't execute. 
@@ -58,7 +69,7 @@ module UploaderHelper
     uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
       
     render :partial => 'uploads/uploadify', :locals => { :parent => parent,
-                                                         :container_prefix => container_prefix,
+                                                         :options => options,
                                                          :uploadify_options => uploadify_options_json}
   end
   
