@@ -6,11 +6,20 @@
   <% end -%>
 <% end -%>
 
-<% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true, :id => container_prefix } do |f| -%>
-  <p><%= f.file_field :local, :size => 25 %></p>
-  <%= submit_tag t('uploader.upload_file') %>
-<% end %>
+<div id="<%=options[:container_prefix]%>_upload">
+  <% form_for :upload, :url => uploads_path(make_parent_params(parent)), :html => { :multipart => true, :id => "#{options[:container_prefix]}_form" } do |f| -%>
+    <p><%= f.file_field :local, :size => 25 %></p>
+    <%= submit_tag t('uploader.upload_file') %>
+  <% end %>
+</div>
 
 <script type='text/javascript'>
-jQuery('form#<%=container_prefix%>').uploadify(<%=uploadify_options%>);
+  <% if options[:omit_initializer] -%>
+    var <%=options[:container_prefix]%>_options = <%=uploadify_options%>;
+  <% else -%>
+    jQuery(document).ready(function() {
+      jQuery('#<%=options[:container_prefix]%>_upload').uploadify(<%=uploadify_options%>);
+    });
+  <% end -%>
 </script>
+
