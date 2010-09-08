@@ -41,6 +41,8 @@
   </script>
 <% end -%>
 
+<% session_key_name = Rails.application.config.session_options[:key]%>
+
 <%= content_for :head do  -%>
 	<script type='text/javascript'>
 	  var <%=container_prefix%>swfu;
@@ -57,7 +59,8 @@
 				file_upload_limit : <%= options[:file_upload_limit] || 100 %>,
 				file_queue_limit : 0,
 				post_params : {
-  				authenticity_token : <%= "encodeURIComponent('#{u(form_authenticity_token)}')" -%>,
+				  "<%= key = Rails.application.config.session_options[:key] %>" : "<%= cookies[key] %>",
+          "<%= request_forgery_protection_token %>" : "<%= form_authenticity_token %>"  				
   			},
 				custom_settings : {
 					<%= ('progressTarget : "' + container_prefix + 'swf_fs_upload_progress",').html_safe if display_upload_indicators -%>

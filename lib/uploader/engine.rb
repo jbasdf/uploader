@@ -5,7 +5,9 @@ module Uploader
   class Engine < ::Rails::Engine
 
     initializer "uploader.add_middleware" do |app|
-      app.middleware.use Uploader::FlashSessionCookieMiddleware
+      app.middleware.insert_before(ActionDispatch::Session::CookieStore, 
+                                   Uploader::FlashSessionCookieMiddleware, 
+                                   Rails.application.config.session_options[:key])
     end
     
     initializer 'uploader.uploader_helper' do |app|

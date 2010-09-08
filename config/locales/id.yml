@@ -15,7 +15,7 @@ id:
     standard_file_upload_error: "Sebuah kesalahan terjadi ketika mengupload file: %{error}. Harap pastikan bahwa file tersebut valid. Periksa untuk memastikan file tersebut tidak kosong. Kemudian coba lagi."
     successful_upload: "Berhasil upload file."
     swf_loading: "SWFUpload sedang loading. Mohon tunggu sebentar ..."
-    swf_not_loading: "Kami minta maaf. SWFUpload tidak dapat memuat. Anda mungkin perlu menginstal atau meng-upgrade Flash Player. Kunjungi %{url} untuk mendapatkan Flash Player."
+    swf_not_loading: "Kami minta maaf. SWFUpload tidak dapat memuat. Anda mungkin perlu menginstal Flash Player atau upgrade. Kunjungi %{url} untuk mendapatkan Flash Player."
     swf_taking_to_long: "SWFUpload memakan waktu lama untuk beban atau beban telah gagal. Pastikan bahwa Flash Plugin diaktifkan dan bahwa versi kerja Adobe Flash Player diinstal."
     upload_file: "Upload File"
     upload_files: "Upload File"

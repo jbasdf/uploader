@@ -4,7 +4,7 @@ hi:
     cancel_all: "सभी अपलोड रद्द करें"
     file_delete_permission_denied: "आपको लगता है कि फ़ाइल को नष्ट की अनुमति नहीं है."
     file_deleted: "नष्ट कर दिया फ़ाइल"
-    file_upload_error: "समय एक त्रुटि हुई फाइल अपलोड."
+    file_upload_error: "एक त्रुटि हुई फाइल अपलोड."
     javascript_not_enabled: "हमें खेद है. SWFUpload लोड नहीं कर सकते. तुम होगा करने के लिए जावास्क्रिप्ट SWFUpload आनंद सक्षम होना चाहिए."
     manage_files: "प्रबंधित फ़ाइलें"
     manage_photos_files: "फाइलें / प्रबंधित तस्वीरें"

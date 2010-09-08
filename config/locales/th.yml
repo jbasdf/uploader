@@ -16,6 +16,6 @@ th:
     successful_upload: อัพโหลดไฟล์เรียบร้อยแล้ว
     swf_loading: "SWFUpload กำลังโหลด โปรดรอสักครู่ ..."
     swf_not_loading: "ขออภัย SWFUpload ไม่สามารถโหลด คุณอาจต้องติดตั้งหรืออัพเกรด Flash Player Visit %{url} เพื่อรับ Flash Player"
-    swf_taking_to_long: "SWFUpload เป็นเวลานานในการโหลดหรือโหลดล้มเหลว โปรดให้แน่ใจว่ามีการเปิดใช้ปลั๊กอิน Flash และรุ่นที่ทำงานของ Adobe Flash Player ติดตั้ง"
+    swf_taking_to_long: "SWFUpload เป็นเวลานานในการโหลดหรือโหลดล้มเหลว โปรดตรวจสอบว่า Flash ปลั๊กอินที่เปิดใช้งานและรุ่นที่ทำงานของ Adobe Flash Player ติดตั้ง"
     upload_file: อัพโหลดไฟล์
     upload_files: อัพโหลดไฟล์
