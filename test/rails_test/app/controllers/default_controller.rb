@@ -1,12 +1,18 @@
 class DefaultController < ApplicationController
   
+  before_filter :make_user
+  
   def index
-    @user = User.find(params[:user_id]) rescue User.new
+    
   end
   
   def uploadify
-    @user = User.find(params[:user_id]) rescue User.new
+    
   end
   
-  
+  protected
+    def make_user
+      @user = User.first || User.create
+    end
+    
 end

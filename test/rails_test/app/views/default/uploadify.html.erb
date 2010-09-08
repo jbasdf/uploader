@@ -9,7 +9,7 @@
 </p>
 
 <p>Upload restricted to images:
-  <%= uploadify_form(@user, { :display_upload_indicators => false, :container_prefix => 'a_container_with_a_long_name' }, { :fileExt => '*.jpg', :fileDesc => 'Images' }) %>
+  <%= uploadify_form(@user, { :display_upload_indicators => false, :container_prefix => 'a_container_with_a_long_name' }, { :fileExt => '*.jpg;*.gif;*.png', :fileDesc => 'Images' }) %>
 </p>
 
 <p>Upload With Custom Background Button and rollover:
