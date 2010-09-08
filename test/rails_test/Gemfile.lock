@@ -66,6 +66,8 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
+    mocha (0.9.8)
+      rake
     mysql (2.8.1)
     nokogiri (1.4.3.1)
     paperclip (2.3.3)
@@ -91,6 +93,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    redgreen (1.2.2)
     ruby-debug (0.10.3)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.3.0)
@@ -115,10 +118,12 @@ DEPENDENCIES
   capybara (>= 0.3.9)
   factory_girl
   mime-types
+  mocha
   mysql
   paperclip
   rack
   rails (= 3.0.0)
+  redgreen
   ruby-debug
   shoulda
   uploader!

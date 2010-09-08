@@ -5,7 +5,7 @@
 #     config.enable_s3 = true
 #     config.s3_no_wait = true
 #     config.keep_local_file = true
-#     config.has_attached_file = {
+#     config.has_attached_file_options = {
 #       :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
 #       :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
 #       :styles  => { :icon => "30x30!", 
@@ -24,26 +24,30 @@
 #    }            
 #   end
 module Uploader
-  class << self
-    attr_accessor :configuration
-  end
 
+  def self.configuration
+    # In case the user doesn't setup a configure block we can always return default settings:
+    @configuration ||= Configuration.new
+  end
+  
   def self.configure
     self.configuration ||= Configuration.new
     yield(configuration)
   end
 
   class Configuration
-    attr_accessor :has_attached_file
+    attr_accessor :has_attached_file_options
     attr_accessor :enable_s3
     attr_accessor :s3_no_wait
     attr_accessor :keep_local_file
+    attr_accessor :disable_halt_nonimage_processing
 
     def initialize
       @enable_s3 = false
       @s3_no_wait = false
       @keep_local_file = true
-      @has_attached_file = {
+      @disable_halt_nonimage_processing = false
+      @has_attached_file_options = {
         :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
         :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
         :styles  => { :icon => "30x30!", 

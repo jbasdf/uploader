@@ -1,13 +1,8 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.0"
-gem "capybara", ">= 0.3.9"
-gem 'mysql'
-
 gem "mime-types"
 gem "rack"
 gem "paperclip"
-gem "uploader", :path => '../../'
 
 if RUBY_VERSION < '1.9'
   gem "ruby-debug"

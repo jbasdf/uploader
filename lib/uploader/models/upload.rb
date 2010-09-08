@@ -4,6 +4,7 @@ module Uploader
       extend ActiveSupport::Concern
     
       included do
+        
         scope :newest, order("created_at DESC")
         scope :by_filename, order("local_file_name DESC")
         scope :newest, order("created_at DESC")
@@ -16,8 +17,8 @@ module Uploader
         scope :pending_s3_migrations, where("remote_file_name IS NULL").order('created_at DESC')
       
         # Paperclip
-        has_attached_file :local, Uploader.configuration.has_attached_file.merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
-        has_attached_file :remote, Uploader.configuration.has_attached_file
+        has_attached_file :local, Uploader.configuration.has_attached_file_options.merge(:storage => :filesystem) # Override any storage settings.  This one has to be local.
+        has_attached_file :remote, Uploader.configuration.has_attached_file_options
 
         belongs_to :uploadable, :polymorphic => true
         belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
@@ -25,7 +26,7 @@ module Uploader
         before_save :determine_immediate_send_to_remote
         
         before_post_process :transliterate_file_name
-        before_post_process :halt_nonimage_processing unless options[:disable_halt_nonimage_processing]
+        before_post_process :halt_nonimage_processing unless Uploader.configuration.disable_halt_nonimage_processing
         before_create :add_width_and_height
       
       end

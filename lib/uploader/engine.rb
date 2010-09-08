@@ -15,6 +15,5 @@ module Uploader
         include UploaderHelper
       end
     end
-      
   end
 end

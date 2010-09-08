@@ -17,7 +17,6 @@ sudo gem install rack
 === Add the gem to Gemfile
 gem 'uploader'
 
-
 === Install jQuery
 uploader uses jQuery.  You'll need to include it in your application.  Download it here:
 http://jquery.com/
@@ -30,11 +29,12 @@ The default settings are fine for most uses, but if you want to use Amazon S3 or
 images you can configure uploader by creating an initializer:
 
 Uploader.configure do |config|
-  config.enable_s3 = true          # Turns S3 on/off
-  config.s3_no_wait = true         # Send the file to S3 immediately. If this is false you will need to setup a daemon process to upload to S3. See below.
-  config.keep_local_file = true    # Even when uploading to S3 keep the local file.
+  config.enable_s3 = true                         # Turns S3 on/off
+  config.s3_no_wait = true                        # Send the file to S3 immediately. If this is false you will need to setup a daemon process to upload to S3. See below.
+  config.keep_local_file = true                   # Even when uploading to S3 keep the local file.
+  config.disable_halt_nonimage_processing = false # Paperclip will try to generate thumbnails for pdfs unless this is set to true
   # These are the settings that will be passed to Paperclip:
-  config.has_attached_file = {
+  config.has_attached_file_options = {
     :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
     :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
     :styles  => { :icon => "30x30!", 
@@ -213,8 +213,8 @@ to view the options in context.
 Set the enable_s3 option to true in acts_as_uploader
   config.enable_s3 = true
 
-Pass your s3 credentials into acts_as_uploader
-  config.has_attached_file = { :s3_credentials => File.join(::Rails.root.to_s, 'config', 's3.yml') }
+Pass in your s3 credentials
+  config.has_attached_file_options = { :s3_credentials => File.join(::Rails.root.to_s, 'config', 's3.yml') }
 
 === Setup your credentials
 Create a file named s3.yml in your configuration directory and add the following lines:

@@ -3,19 +3,18 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
 require 'rails/test_help'
-require 'factory_girl'
-require 'ruby-debug'
-require 'mocha'
-require 'redgreen' rescue LoadError
+include ActionDispatch::TestProcess
+
 require File.expand_path(File.dirname(__FILE__) + '/factories')
 require File.join(File.dirname(__FILE__), 'shoulda_macros', 'paperclip')
+
 class ActiveSupport::TestCase
   
-  VALID_FILE = ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'public', 'images', 'rails.png'), 'image/png')
-  VALID_TEXT_FILE = ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'Rakefile'), 'text/plain')
-  VALID_PDF_FILE = ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test', 'test.pdf'), 'application/pdf')
-  VALID_WORD_FILE = ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test', 'test.doc'), 'application/pdf')
-  VALID_EXCEL_FILE = ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test', 'test.xls'), 'application/pdf')
+  VALID_FILE = fixture_file_upload('rails.png', 'image/png')
+  VALID_TEXT_FILE = fixture_file_upload('test.txt', 'text/plain')
+  VALID_PDF_FILE = fixture_file_upload('test.pdf', 'application/pdf')
+  VALID_WORD_FILE = fixture_file_upload('test.doc', 'application/word')
+  VALID_EXCEL_FILE = fixture_file_upload('test.xls', 'application/excel')
   
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false

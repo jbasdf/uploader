@@ -10,5 +10,5 @@ Factory.define :upload do |f|
   f.creator {|a| a.association(:user)}
   f.uploadable {|a| a.association(:user)}
   f.caption { Factory.next(:name) }
-  f.local ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'public/images/rails.png'), 'image/png')
+  f.local fixture_file_upload('rails.png', 'image/png')
 end

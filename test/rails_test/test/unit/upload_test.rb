@@ -105,7 +105,7 @@ class UploadTest < ActiveSupport::TestCase
         setup do
           Upload.delete_all
           @first = Factory(:upload) # default is png
-          @second = Factory(:upload, :local => ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test/test.doc'), 'application/msword'))
+          @second = Factory(:upload, :local => fixture_file_upload('test.doc', 'application/msword'))
         end
         should "find images" do
           assert Upload.images.include?(@first)
@@ -115,7 +115,7 @@ class UploadTest < ActiveSupport::TestCase
       context "'documents' named scope" do
         setup do
           Upload.delete_all
-          @first = Factory(:upload, :local => ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test/test.doc'), 'application/msword'))
+          @first = Factory(:upload, :local => fixture_file_upload('test.doc', 'application/msword'))
           @second = Factory(:upload)
         end
         should "find documents" do
@@ -126,7 +126,7 @@ class UploadTest < ActiveSupport::TestCase
       context "'files' named scope" do
         setup do
           Upload.delete_all
-          @first = Factory(:upload, :local => ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'test/test.pdf'), 'application/pdf'))
+          @first = Factory(:upload, :local => fixture_file_upload('test.pdf', 'application/pdf'))
           @second = Factory(:upload)
         end
         should "find files (not images)" do
