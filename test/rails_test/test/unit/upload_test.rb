@@ -79,15 +79,15 @@ class UploadTest < ActiveSupport::TestCase
           assert_equal @second, Upload.by_filename[1]
         end
       end
-      context "'public' named scope" do
+      context "'is_public' named scope" do
         setup do
           Upload.delete_all
           @first = Factory(:upload, :is_public => true)
           @second = Factory(:upload, :is_public => false)
         end
         should "find public files" do
-          assert Upload.public.include?(@first)
-          assert !Upload.public.include?(@second)
+          assert Upload.is_public.include?(@first)
+          assert !Upload.is_public.include?(@second)
         end
       end
       context "'pending_s3_migrations' named scope" do

@@ -7,7 +7,7 @@ module Uploader
         scope :newest, order("created_at DESC")
         scope :by_filename, order("local_file_name DESC")
         scope :newest, order("created_at DESC")
-        scope :public, where('is_public = true')
+        scope :is_public, where('is_public = true')
         scope :images, where("local_content_type IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})")
         scope :documents, where("local_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})")
         scope :files, where("local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})")

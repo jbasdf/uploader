@@ -15,3 +15,13 @@
 <p>Upload With Custom Background Button and rollover:
   <%= uploadify_form(@user, { :display_upload_indicators => false, :container_prefix => 'background' }, { :buttonImg => '/images/swfupload/SWFUploadButton.png', :width => 61, :height => 22, :rollover => true }) %>
 </p>
+
+<div id="results">
+</div>
+  
+<script type='text/javascript'> 
+  function upload_completed_callback(data){
+    jQuery('#results').append(data);
+    return true;
+  }
+</script>
