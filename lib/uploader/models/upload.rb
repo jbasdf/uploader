@@ -1,3 +1,5 @@
+require 'mime/types'
+
 module Uploader
   module Models
     module Upload

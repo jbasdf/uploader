@@ -16,7 +16,10 @@ class UploadsController < Uploader::UploadsController
   end
   
   def get_upload_text(upload)
-    'nothing needed'
+    %Q{<div>
+      <img src="#{upload.icon}" />
+  	  <a href="#{upload.file.url}">#{upload.file_name}</a>
+  	</div>}
   end
   
 end

@@ -17,7 +17,7 @@ module UploaderHelper
   #                             This will override any settings provided for button_image_url
   #     transparent_html:       If transparent is true this html will be rendered under the transparent swfupload button.
   def upload_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
-    render :partial => 'uploader/swf_upload', :locals => {:parent => parent, 
+    render :partial => 'uploads/swf_upload', :locals => {:parent => parent, 
                                                          :display_upload_indicators => display_upload_indicators, 
                                                          :container_prefix => container_prefix, 
                                                          :options => options}
@@ -68,7 +68,7 @@ module UploaderHelper
     uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
     uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
       
-    render :partial => 'uploader/uploadify', :locals => { :parent => parent,
+    render :partial => 'uploads/uploadify', :locals => { :parent => parent,
                                                           :options => options,
                                                           :uploadify_options => uploadify_options_json}
   end
