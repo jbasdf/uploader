@@ -66,9 +66,6 @@ Create an 'Upload' model in upload.rb.
     # limit uploads to 10 MB
     # validates_attachment_size :local, :less_than => 10.megabytes
     
-    # Protect data in the model
-    attr_protected :creator_id, :uploadable_id, :uploadable_type
-    
     # The following method is implemented in the upload model mixin.  This is the method destroy will check to see if
     # the user has permission to delete the object.  Add additional logic as needed or if the existing logic
     # looks fine then feel free to delete this comment and the can_edit? method.

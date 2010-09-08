@@ -12,7 +12,7 @@ module Uploader
         scope :images, where("local_content_type IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})")
         scope :documents, where("local_content_type IN (#{(Uploader::MimeTypeGroups::WORD_TYPES + Uploader::MimeTypeGroups::EXCEL_TYPES + Uploader::MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})")
         scope :files, where("local_content_type NOT IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})")
-        scope :recent, lambda { |recent_date| where("created_at > ?", recent_date || 7.days.ago.to_s(:db)) }
+        scope :recent, lambda { |*args| where("created_at > ?", args.first || 7.days.ago.to_s(:db)) }
         scope :created_by, lambda { |creator_id| where("creator_id = ?", creator_id) }
         scope :pending_s3_migrations, where("remote_file_name IS NULL").order('created_at DESC')
       
@@ -29,17 +29,11 @@ module Uploader
         before_post_process :halt_nonimage_processing unless Uploader.configuration.disable_halt_nonimage_processing
         before_create :add_width_and_height
       
+        # Protect data in the model
+        attr_protected :creator_id, :uploadable_id, :uploadable_type
       end
 
       module ClassMethods
-
-        def s3_no_wait?
-          @uploader_s3_no_wait
-        end
-      
-        def keep_local_file?
-          @uploader_keep_file_local
-        end
       
       end
         
@@ -52,7 +46,7 @@ module Uploader
       end
     
       def determine_immediate_send_to_remote
-        if self.class.s3_no_wait?
+        if Uploader.configuration.s3_no_wait
           self.remote = local.to_file # This will result in the file being sent to S3
         end
       end
@@ -61,7 +55,7 @@ module Uploader
         if local_file_name
           self.remote = local.to_file
           if self.save and remote.original_filename and remote.exists?
-            self.local = nil unless keep_local_file?
+            self.local = nil unless Uploader.configuration.keep_local_file
             self.save
           else
             false
