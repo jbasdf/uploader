@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Uploader</title>
+    <%= javascript_include_tag %w{
+                jquery/jquery-1.4.2.min.js
+                jquery/jquery-ui-1.8.4.custom.min.js
+                application.js }, :cache => 'all_js_cached' %>
+    <%= yield :head -%>
+  </head>
+  <body>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

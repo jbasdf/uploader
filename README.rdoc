@@ -5,9 +5,6 @@ Uploader makes it easy to integrate multiple file uploads into your application 
 == ----NOTES----
 SWFUpload hasn't been updated in a while and tends to be buggy. We have added uploadify. We recommend using that instead.
 
-This branch has been setup to maintain compatibility with Rails2. Future versions of uploader will focus on Rails 3.
-Note that all 2.x.x versions of uploader will work with Rails 2 while 3.x.x versions are slated for Rails 3.
-
 == Installation
 
 === Install the gem:
@@ -17,9 +14,8 @@ Installing uploader should also install mime-types and rack.  If for some reason
 sudo gem install mime-types
 sudo gem install rack
 
-
-=== Add the gem to environment.rb
-config.gem 'uploader'
+=== Add the gem to Gemfile
+gem 'uploader'
 
 
 === Install jQuery
@@ -29,38 +25,51 @@ http://jquery.com/
 Then include it in your layout:
   <%= javascript_include_tag 'jquery/jquery.js' %>
 
+=== Create an initializer to configure uploader
+The default settings are fine for most uses, but if you want to use Amazon S3 or configure the size of the resulting
+images you can configure uploader by creating an initializer:
+
+Uploader.configure do |config|
+  config.enable_s3 = true          # Turns S3 on/off
+  config.s3_no_wait = true         # Send the file to S3 immediately. If this is false you will need to setup a daemon process to upload to S3. See below.
+  config.keep_local_file = true    # Even when uploading to S3 keep the local file.
+  # These are the settings that will be passed to Paperclip:
+  config.has_attached_file = {
+    :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
+    :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+    :styles  => { :icon => "30x30!", 
+                  :thumb => "100>", 
+                  :small => "150>", 
+                  :medium => "300>", 
+                  :large => "660>" },
+    :default_url => "/images/default.jpg",
+    :storage => :s3,
+    :s3_credentials => AMAZON_S3_CREDENTIALS,
+    :bucket => "assets.example.com",
+    :s3_host_alias => "assets.example.com",
+    :convert_options => {
+      :all => '-quality 80'
+    }
+  }            
+end
+
 === Create a model for uploads.
-Create an 'Upload' model in upload.rb.  acts_as_uploader accepts all valid options for paperclip via :has_attached_file => {}
+Create an 'Upload' model in upload.rb.
 
   class Upload < ActiveRecord::Base
 
-   acts_as_uploader  :enable_s3 => false,
-                     :has_attached_file => {
-                       :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-                       :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
-                       :styles  => { :icon => "30x30!", 
-                                     :thumb => "100>", 
-                                     :small => "150>", 
-                                     :medium => "300>", 
-                                     :large => "660>" },
-                       :default_url => "/images/profile_default.jpg",
-                       :storage => :s3,
-                       :s3_credentials => AMAZON_S3_CREDENTIALS,
-                       :bucket => "assets.example.com",
-                       :s3_host_alias => "assets.example.com",
-                       :convert_options => {
-                          :all => '-quality 80'
-                        }
-                     },
-                     :s3_path => ':id_partition/:style/:basename.:extension'
-                                                                  
+    include Uploader::Models::Upload
+                                                                   
     # only allow images:
     # validates_attachment_content_type :file, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
     
     # limit uploads to 10 MB
     # validates_attachment_size :local, :less_than => 10.megabytes
     
-    # The following method is implemented in 'acts_as_uploader'.  This is the method destroy will check to see if
+    # Protect data in the model
+    attr_protected :creator_id, :uploadable_id, :uploadable_type
+    
+    # The following method is implemented in the upload model mixin.  This is the method destroy will check to see if
     # the user has permission to delete the object.  Add additional logic as needed or if the existing logic
     # looks fine then feel free to delete this comment and the can_edit? method.
     def can_edit?(check_user)
@@ -110,9 +119,16 @@ default functionality that you may consider overriding.
 Be sure to modify your routes file.  Add the following line to ensure that your application uses the new uploads 
 controller instead of directly using the one inside the gem:
 
-  map.resources :uploads, :collection => { :multiupload => :post }
+==== routes.rb
   
-
+  # Add the following to routes.rb and modify it as needed:
+  resources :uploads do
+    collection do
+      post :multiupload
+    end
+  end
+  
+===== controller class
   class UploadsController < Uploader::UploadsController
     
     prepend_before_filter :login_required
@@ -169,46 +185,36 @@ You'll need something like this in your layout so that uploader can add in the r
 
 Then to add an upload form:
 
-SWFUpload version:
-<%= upload_form(parent_object) %>
-
 Uploadify version (recommended):
-<%= uploadify_form(parent_object) %>
+  <%= uploadify_form(parent_object) %>
+
+OR
+
+SWFUpload version:
+  <%= upload_form(parent_object) %>
+
 
 See the uploader_helper.rb file for options. parent_object should be the object which owns the uploads.  ie a user, photo_album, etc.
 
 === Rake Tasks
 
-Add the rake tasks for uploader to your project.  You will need to add the following to your applications's Rakefile
+rake uploader:sync  # will copy all required assets (css, javascript, images, migrations, etc) from uploadify into your project
+rake db:migrate     #This will create an uploads table for you.  If you selected a different name for your model you will need to modify the migration accordingly.  
 
-  require 'uploader'
-  require 'uploader/tasks'
-
-Then run:
-  rake uploader:sync
-
-Last run:
-  rake db:migrate
-This will create an uploads table for you.  If you selected a different name for your model you will need to modify the migration accordingly.  
 == WARNING
 The migration will drop any existing 'uploads' table you have in place
 
-
-That will copy all the required javascript and asset files into your project
-
-
 == Amazon s3
-
 
 If you'd like to store your uploads on Amazon's S3 service there are a few extra steps involved.  See the example file above
 to view the options in context.
 
 === Turn on s3
 Set the enable_s3 option to true in acts_as_uploader
-  :enable_s3 => true
+  config.enable_s3 = true
 
 Pass your s3 credentials into acts_as_uploader
-  :has_attached_file => { :s3_credentials => File.join(RAILS_ROOT, 'config', 's3.yml') }
+  config.has_attached_file = { :s3_credentials => File.join(::Rails.root.to_s, 'config', 's3.yml') }
 
 === Setup your credentials
 Create a file named s3.yml in your configuration directory and add the following lines:
@@ -335,11 +341,6 @@ The following jQuery code will do an ajax delete for you
     });
   }
 
-
-=== Testing
-If you intend to develop code and wish to run the tests you may do so using rake test.  However, note that you will need to install the gem first using
-rake install since the embedded test application will use the gem that is install and not the current code from the project.  This is a limitation
-I attempted to overcome using a special initializer in rails_root/config/initializers/uploader.rb but I didn't have any success getting it working.
 
 === Development notes
 The swfupload.js and swfupload.queue.js have been modified according to this forum post:

@@ -1,0 +1,14 @@
+Factory.sequence :name do |n|
+  "a_name#{n}"
+end
+
+Factory.define :user do |f|
+  f.name { Factory.next(:name) }
+end
+
+Factory.define :upload do |f|
+  f.creator {|a| a.association(:user)}
+  f.uploadable {|a| a.association(:user)}
+  f.caption { Factory.next(:name) }
+  f.local ActionController::TestUploadedFile.new(File.join(::Rails.root.to_s, 'public/images/rails.png'), 'image/png')
+end

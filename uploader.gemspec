@@ -196,7 +196,7 @@ Gem::Specification.new do |s|
      "test/rails_root/public/500.html",
      "test/rails_root/public/dispatch.rb",
      "test/rails_root/public/favicon.ico",
-     "test/rails_root/public/images/SWFUploadButton.png",
+     "test/rails_root/public/images/swfupload/SWFUploadButton.png",
      "test/rails_root/public/images/cancelbutton.gif",
      "test/rails_root/public/images/file_icons/excel.gif",
      "test/rails_root/public/images/file_icons/file.gif",

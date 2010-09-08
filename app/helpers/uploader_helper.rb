@@ -10,14 +10,14 @@ module UploaderHelper
   #     file_types:             Allowed file types.  Default is "*.*"
   #     file_types_description: Description for file types.  Default is "All Files"
   #     file_upload_limit:      Maximum number of files per upload.  Default is 100
-  #     button_image_url:       Url of button image to use for swf upload.  Default is "/images/SWFUploadButton.png"
+  #     button_image_url:       Url of button image to use for swf upload.  Default is "/images/swfupload/SWFUploadButton.png"
   #     button_width:           Width of the image button being used.  Default is 61
   #     button_height:          Height of the button being used.  Default is 22
   #     transparent:            Turns the swfupload transparent so you can use the html behind it for the upload button.  
   #                             This will override any settings provided for button_image_url
   #     transparent_html:       If transparent is true this html will be rendered under the transparent swfupload button.
   def upload_form(parent, display_upload_indicators = true, container_prefix = '', options = {})
-    render :partial => 'uploads/swf_upload', :locals => {:parent => parent, 
+    render :partial => 'uploader/swf_upload', :locals => {:parent => parent, 
                                                          :display_upload_indicators => display_upload_indicators, 
                                                          :container_prefix => container_prefix, 
                                                          :options => options}
@@ -68,9 +68,9 @@ module UploaderHelper
     uploadify_options_json.gsub!('"authenticity_token_replace_"', "encodeURIComponent('#{u(form_authenticity_token)}')")
     uploadify_options_json.gsub!('"oncomplete_replace_"', 'function(event, queueID, fileObj, response, data){ upload_completed_callback(response); return true; }')
       
-    render :partial => 'uploads/uploadify', :locals => { :parent => parent,
-                                                         :options => options,
-                                                         :uploadify_options => uploadify_options_json}
+    render :partial => 'uploader/uploadify', :locals => { :parent => parent,
+                                                          :options => options,
+                                                          :uploadify_options => uploadify_options_json}
   end
   
   def new_upload_path_with_session_information(upload_parent, format = 'js')
