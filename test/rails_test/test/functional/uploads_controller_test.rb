@@ -91,13 +91,26 @@ class UploadsControllerTest < ActionController::TestCase
     end
   end
   context 'on POST to :multiupload' do
-    setup do
-      post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param }
+    context 'js' do
+      setup do
+        post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param, :format => 'js' }
+      end
+      should respond_with :success
+      should "add an upload" do
+        assert_difference "Upload.count", 1 do
+          post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param, :format => 'js' }
+        end
+      end
     end
-    should respond_with :success
-    should "add an upload" do
-      assert_difference "Upload.count", 1 do
-        post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param }
+    context 'json' do
+      setup do
+        post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param, :format => 'json' }
+      end
+      should respond_with :success
+      should "add an upload" do
+        assert_difference "Upload.count", 1 do
+          post :multiupload, { :Filedata => VALID_FILE, :parent_type => 'User', :parent_id => @user.to_param, :format => 'json' }
+        end
       end
     end
   end

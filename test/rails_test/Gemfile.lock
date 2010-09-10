@@ -1,7 +1,7 @@
 PATH
   remote: /Users/jbasdf/projects/uploader
   specs:
-    uploader (2.0.2)
+    uploader (3.0.0)
       aws-s3
       mime-types
       paperclip
