@@ -7,7 +7,7 @@
 #     config.keep_local_file = true
 #     config.has_attached_file_options = {
 #       :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-#       :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+#       :path    => ":rails_test/public/system/:attachment/:id_partition/:style/:basename.:extension",
 #       :styles  => { :icon => "30x30!", 
 #                     :thumb => "100>", 
 #                     :small => "150>", 
@@ -49,7 +49,7 @@ module Uploader
       @disable_halt_nonimage_processing = false
       @has_attached_file_options = {
         :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-        :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+        :path    => ":rails_test/public/system/:attachment/:id_partition/:style/:basename.:extension",
         :styles  => { :icon => "30x30!", 
                       :thumb => "100>", 
                       :small => "150>", 

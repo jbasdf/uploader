@@ -8,8 +8,8 @@ task :default => :test
 desc 'Test the uploader gem.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
-  t.libs << 'test/rails_root/test'
-  t.pattern = 'test/rails_root/test/**/*_test.rb'
+  t.libs << 'test/rails_test/test'
+  t.pattern = 'test/rails_test/test/**/*_test.rb'
   t.verbose = true
 end
 
@@ -37,7 +37,7 @@ begin
     gemspec.homepage = "http://github.com/jbasdf/uploader"
     gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip"
     gemspec.authors = ["Justin Ball", "Joel Duffin", "David South"]
-    gemspec.files.include %w( test/rails_root/db/schema.rb )
+    gemspec.files.include %w( test/rails_test/db/schema.rb )
     gemspec.rubyforge_project = 'uploader'
     gemspec.add_dependency "mime-types"
     gemspec.add_dependency "rack"

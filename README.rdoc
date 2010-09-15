@@ -36,7 +36,7 @@ Uploader.configure do |config|
   # These are the settings that will be passed to Paperclip:
   config.has_attached_file_options = {
     :url     => "/system/:attachment/:id_partition/:style/:basename.:extension",
-    :path    => ":rails_root/public/system/:attachment/:id_partition/:style/:basename.:extension",
+    :path    => ":rails_test/public/system/:attachment/:id_partition/:style/:basename.:extension",
     :styles  => { :icon => "30x30!", 
                   :thumb => "100>", 
                   :small => "150>", 
