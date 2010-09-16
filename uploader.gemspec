@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{uploader}
-  s.version = "3.0.0"
+  s.version = "3.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin", "David South"]
-  s.date = %q{2010-09-08}
+  s.date = %q{2010-09-16}
   s.description = %q{Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip}
   s.email = %q{justinball@gmail.com}
   s.extra_rdoc_files = [
@@ -174,7 +174,6 @@ Gem::Specification.new do |s|
      "test/rails_test/config/environments/development.rb",
      "test/rails_test/config/environments/production.rb",
      "test/rails_test/config/environments/test.rb",
-     "test/rails_test/config/global_config.yml",
      "test/rails_test/config/initializers/backtrace_silencers.rb",
      "test/rails_test/config/initializers/inflections.rb",
      "test/rails_test/config/initializers/mime_types.rb",
@@ -186,6 +185,7 @@ Gem::Specification.new do |s|
      "test/rails_test/db/.keep",
      "test/rails_test/db/migrate/20090517040220_create_uploads.rb",
      "test/rails_test/db/migrate/20090602041838_create_users.rb",
+     "test/rails_test/db/schema.rb",
      "test/rails_test/db/seeds.rb",
      "test/rails_test/doc/README_FOR_APP",
      "test/rails_test/features/step_definitions/webrat_steps.rb",
@@ -292,7 +292,7 @@ Gem::Specification.new do |s|
      "test/rails_test/test/test_helper.rb",
      "test/rails_test/test/unit/.keep",
      "test/rails_test/test/unit/upload_test.rb",
-     "test/rails_test/vendor/plugins/.gitkeep",
+     "test/rails_test/test/unit/user_test.rb",
      "uninstall.rb",
      "uploader.gemspec"
   ]
@@ -333,7 +333,8 @@ Gem::Specification.new do |s|
      "test/rails_test/test/performance/browsing_test.rb",
      "test/rails_test/test/shoulda_macros/paperclip.rb",
      "test/rails_test/test/test_helper.rb",
-     "test/rails_test/test/unit/upload_test.rb"
+     "test/rails_test/test/unit/upload_test.rb",
+     "test/rails_test/test/unit/user_test.rb"
   ]
 
   if s.respond_to? :specification_version then

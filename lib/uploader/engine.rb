@@ -4,6 +4,10 @@ require 'rails'
 module Uploader
   class Engine < ::Rails::Engine
 
+    def muck_name
+      'uploader'
+    end
+    
     initializer "uploader.add_middleware" do |app|
       app.middleware.insert_before(ActionDispatch::Session::CookieStore, 
                                    Uploader::FlashSessionCookieMiddleware, 
