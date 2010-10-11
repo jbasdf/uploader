@@ -1,3 +1,5 @@
+require 'paperclip'
+
 require 'uploader/config'
 require 'uploader/exceptions'
 require 'uploader/mime_type_groups'

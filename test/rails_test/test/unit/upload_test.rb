@@ -20,7 +20,7 @@ class UploadTest < ActiveSupport::TestCase
         upload = Upload.new
         upload.stubs(:id).returns(12345)
         upload.local = VALID_FILE
-        assert_equal "#{::Rails.root.to_s}/public/system/locals/000/012/345/original/rails.png", upload.local.path
+        assert upload.local.path.include?("/public/system/locals/000/012/345/original/rails.png")
         assert_equal '/system/locals/000/012/345/original/rails.png', upload.local.url(:original, false)
       end
 
