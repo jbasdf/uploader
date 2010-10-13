@@ -1,4 +1,5 @@
 require 'paperclip'
+require 'rack'
 
 require 'uploader/config'
 require 'uploader/exceptions'

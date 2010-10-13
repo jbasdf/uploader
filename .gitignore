@@ -3,3 +3,8 @@ coverage
 rdoc
 pkg
 log/*
+.bundle
+all_js_cached.js
+swf_js_cached.js
+uploadify_cached.js
+test/rails_test/rails_test/public/system/*
