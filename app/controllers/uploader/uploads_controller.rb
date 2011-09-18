@@ -39,8 +39,13 @@ class Uploader::UploadsController < ApplicationController
         redirect_to get_redirect(:create_failure)
       end
       format.js { render :text => message }
-      format.json { render :json => { :success => false, :message => message } }
-      # render :json => message, :status => :unprocessable_entity
+      format.json do
+        if Uploader.configuration.use_http_status_failures
+          render :json => message, :status => :unprocessable_entity
+        else
+          render :json => { :success => false, :message => message }
+        end
+      end
     end
   end
 
@@ -59,7 +64,13 @@ class Uploader::UploadsController < ApplicationController
     message = t('uploader.standard_file_upload_error', :error => ex)
     respond_to do |format|
       format.js { render :text => message }
-      format.json { render :json => { :success => false, :message => message } }
+      format.json do
+        if Uploader.configuration.use_http_status_failures
+          render :json => message, :status => :unprocessable_entity
+        else
+          render :json => { :success => false, :message => message }
+        end
+      end
     end
   end
 
@@ -79,7 +90,13 @@ class Uploader::UploadsController < ApplicationController
         redirect_to get_redirect(:destroy_success)
       end
       format.js { render :text => message }
-      format.json { render :json => { :success => success, :message => message } }
+      format.json do
+        if Uploader.configuration.use_http_status_failures
+          render :json => message, :status => :unprocessable_entity
+        else
+          render :json => { :success => success, :message => message }
+        end
+      end
     end
   end
 

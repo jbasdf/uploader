@@ -97,6 +97,23 @@ describe UploadsController do
           assigns(:upload).errors.should_not be_empty
         }.to change(@user.uploads, :count).by(0)
       end
+    end    
+    describe "use_http_status_failures set to true" do
+      before do
+        @use_http_status_failures_default = Uploader.configuration.use_http_status_failures
+        Uploader.configuration.use_http_status_failures = true
+      end
+      after do
+        Uploader.configuration.use_http_status_failures = @use_http_status_failures_default
+      end
+      describe "response" do
+        before do
+          post :create, { :upload => { :local => nil }, :parent_type => 'User', :parent_id => @user.to_param, :format => 'json' }
+        end
+        it "should set the response to unprocessable_entity" do
+          response.status.should == 422
+        end
+      end
     end
     describe "raw file upload" do
       before do

@@ -42,6 +42,7 @@ module Uploader
     attr_accessor :keep_local_file
     attr_accessor :disable_halt_nonimage_processing
     attr_accessor :temp_dir
+    attr_accessor :use_http_status_failures # This only applies to json requests
 
     def initialize
       @enable_s3 = false
@@ -49,6 +50,7 @@ module Uploader
       @keep_local_file = true
       @disable_halt_nonimage_processing = false
       @temp_dir = Dir::tmpdir
+      @use_http_status_failures = false
       @has_attached_file_options = {
         :url               => "/system/:attachment/:id_partition/:style/:basename.:extension",
         :path              => ":rails_root/public:url", 
