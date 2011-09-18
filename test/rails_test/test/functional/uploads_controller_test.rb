@@ -89,6 +89,28 @@ class UploadsControllerTest < ActionController::TestCase
         assert assigns(:upload).errors.empty?, assigns(:upload).errors
       end
     end
+    context "raw file upload" do
+      setup do
+        @name = 'rails.png'
+        @request.set_header "HTTP_X_FILE_NAME", @name
+        @request.set_header "HTTP_X_FILE_UPLOAD", "true"
+        @request.set_header "rack.input", StringIO.new('some random file')       
+      end
+      should "create a new upload" do
+        assert_difference "Upload.count", 1 do
+          post :create
+        end
+      end
+      should "not have errors on the upload" do
+        post :create
+        assert assigns(:upload).errors.empty?
+      end
+      should "set the name of the file" do
+        post :create
+        assert assigns(:upload).name == @name
+        assert assigns(:upload).local_file_name == @name
+      end      
+    end
   end
   context 'on POST to :multiupload' do
     context 'js' do

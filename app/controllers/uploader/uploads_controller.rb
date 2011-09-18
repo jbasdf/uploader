@@ -6,14 +6,23 @@ class Uploader::UploadsController < ApplicationController
   before_filter :set_upload_for_destroy, :only => [:destroy]
  
   def create
-    # Standard, one-at-a-time, upload action
-    @upload = Upload.new(params[:upload])
+    # Standard, one-at-a-time, upload action       
+    if request.env['HTTP_X_FILE_UPLOAD'] == 'true'        
+      tempfile = Tempfile.new(request.env['HTTP_X_FILE_NAME'], Uploader.configuration.temp_dir)
+      tempfile << request.env['rack.input'].read
+      tempfile.flush
+      tempfile.rewind
+      @upload = Upload.new(:name => request.env['HTTP_X_FILE_NAME'], :hard_file_name => request.env['HTTP_X_FILE_NAME'])
+      # NOTE hard_file_name MUST be set before setting local or paperclip will process the file before the hard_file_name is set
+      @upload.local = tempfile
+    else
+      @upload = Upload.new(params[:upload])
+    end    
     @upload.uploadable = @parent
     @upload.creator = get_creator
-    @upload.save!
+    @upload.save!    
     message = t('uploader.successful_upload')
     upload_json = basic_uploads_json(@upload)
-
     respond_to do |format|
       format.html do
         flash[:notice] = message
@@ -31,6 +40,7 @@ class Uploader::UploadsController < ApplicationController
       end
       format.js { render :text => message }
       format.json { render :json => { :success => false, :message => message } }
+      # render :json => message, :status => :unprocessable_entity
     end
   end
 

@@ -32,6 +32,15 @@ class UploadTest < ActiveSupport::TestCase
         file.close
       end
  
+      should 'set the filename using the hard file name' do
+        name = 'foo.jpg'
+        upload = Upload.new(:hard_file_name => name)
+        file = fixture_file %Q{IT'sUPPERCASE!AND WeIRD.JPG}
+        upload.local = file
+        assert_equal name, upload.local.original_filename
+        file.close
+      end
+      
     end
 
     context "Named scopes" do

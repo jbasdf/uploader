@@ -8,7 +8,7 @@ module Uploader
       included do
         
         scope :newest, order("created_at DESC")
-        scope :by_filename, order("local_file_name DESC")
+        scope :by_filename, order("local_file_name ASC")
         scope :newest, order("created_at DESC")
         scope :is_public, where('is_public = true')
         scope :images, where("local_content_type IN (#{Uploader::MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})")
@@ -27,10 +27,13 @@ module Uploader
       
         before_save :determine_immediate_send_to_remote
         
+        before_post_process :set_hard_file_name
         before_post_process :transliterate_file_name
         before_post_process :halt_nonimage_processing unless Uploader.configuration.disable_halt_nonimage_processing
         before_create :add_width_and_height
       
+        attr_accessor :hard_file_name
+        
         # Protect data in the model
         attr_protected :creator_id, :uploadable_id, :uploadable_type
       end
@@ -190,9 +193,14 @@ module Uploader
     
       protected
       
+        def set_hard_file_name
+          name = @hard_file_name || local_file_name
+          self.local.instance_write(:file_name, name)
+        end
+        
         def transliterate_file_name
           extension = File.extname(local_file_name).gsub(/^\.+/, '')
-          filename = local_file_name.gsub(/\.#{extension}$/, '')
+          filename = local_file_name.gsub(/\.#{extension}$/, '')          
           self.local.instance_write(:file_name, "#{transliterate(filename)}.#{transliterate(extension)}")
         end
       

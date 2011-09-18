@@ -23,3 +23,9 @@ class ActiveSupport::TestCase
     assert_contains flash.values, val, ", Flash: #{flash.inspect}"
   end
 end
+
+class ActionController::TestRequest 
+  def set_header(name, value)
+    @env[name] = value
+  end
+end

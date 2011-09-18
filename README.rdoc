@@ -193,6 +193,19 @@ SWFUpload version:
 
 See the uploader_helper.rb file for options. parent_object should be the object which owns the uploads.  ie a user, photo_album, etc.
 
+=== Support for Html 5 Drag and Drop file uploads
+The new XMLHttpRequest object will submit the raw file data as the only data in the request. Uploader provides support for this functionality.
+The file name should be specified in the header. "X-File-Upload" must be set to true or the request will be ignored.
+Here's an example of how to send data:
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/uploads', true);
+  xhr.setRequestHeader("Content-Type", file.type);
+  xhr.setRequestHeader("X-File-Name", file.fileName);
+  xhr.setRequestHeader("X-File-Size", file.fileSize);
+  xhr.setRequestHeader("X-File-Upload", true);				
+  xhr.send(file);
+
 === Rake Tasks
 
 rake uploader:sync  # will copy all required assets (css, javascript, images, migrations, etc) from uploadify into your project
@@ -310,10 +323,12 @@ Say you have chosen to display your upload in a table.  Your code might look lik
 
 I put the following in my main upload view
   <% content_for :javascript do  -%>
+    <script type="text/javascript" language="JavaScript">
     setup_submit_delete();
     function upload_completed_callback(data){
       jQuery('#upload-list').prepend(data);
     }
+    </script>
   <% end -%>
   
   
