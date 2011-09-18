@@ -1,6 +1,5 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
 
 desc 'Default: run unit tests.'
 task :default => :test
@@ -13,12 +12,19 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
+require 'rake/rdoctask'
 desc 'Generate documentation for the uploader plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
+  if File.exist?('VERSION.yml')
+    config = YAML.load(File.read('VERSION.yml'))
+    version = "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
+  else
+    version = ""
+  end
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Uploader'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
+  rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
@@ -30,24 +36,20 @@ end
 
 begin
   require 'jeweler'
-  Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "uploader"
-    gemspec.summary = "Uploadify, SWFUpload + Paperclip wrapped in an engine with love."
-    gemspec.email = "justinball@gmail.com"
-    gemspec.homepage = "http://github.com/jbasdf/uploader"
-    gemspec.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip"
-    gemspec.authors = ["Justin Ball", "Joel Duffin", "David South"]
-    gemspec.files.include %w( test/rails_test/db/schema.rb )
-    gemspec.rubyforge_project = 'uploader'
-    gemspec.add_dependency "mime-types"
-    gemspec.add_dependency "rack"
-    gemspec.add_dependency "paperclip"
-    gemspec.add_dependency "aws-s3"
+  Jeweler::Tasks.new do |gem|
+    gem.name = "uploader"
+    gem.summary = "Uploadify, SWFUpload + Paperclip wrapped in an engine with love."
+    gem.email = "justinball@gmail.com"
+    gem.homepage = "http://github.com/jbasdf/uploader"
+    gem.description = "Uploader gem that makes it simple add multiple file uploads to your Rails project using SWFUpload, Uploadify and Paperclip"
+    gem.authors = ["Justin Ball", "Joel Duffin", "David South"]
+    gem.add_dependency "mime-types"
+    gem.add_dependency "rack"
+    gem.add_dependency "paperclip"
+    gem.add_dependency "aws-s3"
+    gem.files.exclude 'test/**'
   end
-  Jeweler::GemcutterTasks.new
-  Jeweler::RubyforgeTasks.new do |rubyforge|
-    rubyforge.doc_task = "rdoc"
-  end
+  Jeweler::RubygemsDotOrgTasks.new
 rescue LoadError
-  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end

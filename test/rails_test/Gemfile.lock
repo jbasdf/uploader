@@ -1,7 +1,7 @@
 PATH
   remote: ../../
   specs:
-    uploader (3.0.2)
+    uploader (3.1.0)
       aws-s3
       mime-types
       paperclip
@@ -11,34 +11,37 @@ GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
-    actionmailer (3.0.0)
-      actionpack (= 3.0.0)
-      mail (~> 2.2.5)
-    actionpack (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
+    actionmailer (3.0.10)
+      actionpack (= 3.0.10)
+      mail (~> 2.2.19)
+    actionpack (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
-      i18n (~> 0.4.1)
+      i18n (~> 0.5.0)
       rack (~> 1.2.1)
-      rack-mount (~> 0.6.12)
-      rack-test (~> 0.5.4)
+      rack-mount (~> 0.6.14)
+      rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.0)
-      activesupport (= 3.0.0)
+    activemodel (3.0.10)
+      activesupport (= 3.0.10)
       builder (~> 2.1.2)
-      i18n (~> 0.4.1)
-    activerecord (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
-      arel (~> 1.0.0)
+      i18n (~> 0.5.0)
+    activerecord (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
+      arel (~> 2.0.10)
       tzinfo (~> 0.3.23)
-    activeresource (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
-    activesupport (3.0.0)
-    arel (1.0.1)
-      activesupport (~> 3.0.0)
+    activeresource (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
+    activesupport (3.0.10)
+    addressable (2.2.6)
+    arel (2.0.10)
+    authlogic (3.0.2)
+      activerecord (~> 3.0.7)
+      activerecord (~> 3.0.7)
     aws-s3 (0.6.2)
       builder
       mime-types
@@ -55,12 +58,29 @@ GEM
       ffi (~> 1.0.6)
     cocaine (0.2.0)
     columnize (0.3.4)
+    cucumber (1.0.6)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.4.18)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.6)
+    cucumber-rails (1.0.5)
+      capybara (>= 1.1.1)
+      cucumber (~> 1.0.6)
+      nokogiri (>= 1.5.0)
+    database_cleaner (0.6.7)
+    diff-lcs (1.1.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     factory_girl (2.1.0)
     ffi (1.0.9)
-    i18n (0.4.2)
+    gherkin (2.4.21)
+      json (>= 1.4.6)
+    i18n (0.5.0)
+    json (1.6.0)
     json_pure (1.6.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     mail (2.2.19)
@@ -68,10 +88,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    metaclass (0.0.1)
     mime-types (1.16)
-    mocha (0.10.0)
-      metaclass (~> 0.0.1)
     mysql (2.8.1)
     nokogiri (1.5.0)
     paperclip (2.4.1)
@@ -80,27 +97,42 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     polyglot (0.3.2)
-    rack (1.2.3)
+    rack (1.2.4)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
-    rails (3.0.0)
-      actionmailer (= 3.0.0)
-      actionpack (= 3.0.0)
-      activerecord (= 3.0.0)
-      activeresource (= 3.0.0)
-      activesupport (= 3.0.0)
-      bundler (~> 1.0.0)
-      railties (= 3.0.0)
-    railties (3.0.0)
-      actionpack (= 3.0.0)
-      activesupport (= 3.0.0)
-      rake (>= 0.8.4)
-      thor (~> 0.14.0)
+    rails (3.0.10)
+      actionmailer (= 3.0.10)
+      actionpack (= 3.0.10)
+      activerecord (= 3.0.10)
+      activeresource (= 3.0.10)
+      activesupport (= 3.0.10)
+      bundler (~> 1.0)
+      railties (= 3.0.10)
+    railties (3.0.10)
+      actionpack (= 3.0.10)
+      activesupport (= 3.0.10)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.4)
     rake (0.9.2)
     rbx-require-relative (0.0.5)
-    redgreen (1.2.2)
+    rcov (0.9.10)
+    rdoc (3.9.4)
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+    rspec-core (2.6.4)
+    rspec-expectations (2.6.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.6.0)
+    rspec-rails (2.6.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.6.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -113,6 +145,8 @@ GEM
       json_pure
       rubyzip
     shoulda (2.11.3)
+    spork (0.8.5)
+    term-ansicolor (1.0.6)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -126,15 +160,22 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic (= 3.0.2)
   capybara (>= 0.3.9)
+  cucumber
+  cucumber-rails
+  database_cleaner
   factory_girl
+  launchy
   mime-types
-  mocha
   mysql
   paperclip
   rack
-  rails (= 3.0.0)
-  redgreen
+  rails (= 3.0.10)
+  rcov
+  rspec (>= 2.4.0)
+  rspec-rails (>= 2.4.0)
   ruby-debug
   shoulda
+  spork
   uploader!
