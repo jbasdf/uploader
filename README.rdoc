@@ -70,8 +70,8 @@ Create an 'Upload' model in upload.rb.
     # the user has permission to delete the object.  Add additional logic as needed or if the existing logic
     # looks fine then feel free to delete this comment and the can_edit? method.
     def can_edit?(check_user)
-      return false if user.blank?
-      check_user == self.user
+      return false if check_user.blank?
+      check_user == self.creator
     end
     
   end
