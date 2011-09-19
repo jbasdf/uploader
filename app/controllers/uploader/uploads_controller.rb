@@ -122,7 +122,13 @@ class Uploader::UploadsController < ApplicationController
           redirect_to get_redirect(:permission_denied)
         end
         format.js { render :text => message }
-        format.json { render :json => { :success => false, :message => message } }
+        format.json do
+          if Uploader.configuration.use_http_status_failures
+            render :json => message, :status => :unprocessable_entity
+          else
+            render :json => { :success => false, :message => message }
+          end
+        end
       end
     end
 
