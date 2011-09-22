@@ -92,11 +92,7 @@ class Uploader::UploadsController < ApplicationController
       format.js { render :text => message }
       format.json do
         if Uploader.configuration.use_http_status_failures
-          if success
-            render :json => message
-          else
-            render :json => message, :status => :unprocessable_entity
-          end
+          render :json => @upload, :status => success ? :ok : :unprocessable_entity
         else
           render :json => { :success => success, :message => message }
         end
